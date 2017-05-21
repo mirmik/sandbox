@@ -1,0 +1,6 @@
+[package]
+name = "rjsparser"
+version = "0.1.0"
+authors = ["Mirmik <mirmikns@yandex.ru>"]
+
+[dependencies]
