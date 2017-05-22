@@ -61,7 +61,7 @@ class Thr2 : public Genos::AutomFunctorSchedee {
 
 class Blinker : public Genos::AutomFunctorSchedee {
 	uint8_t state = 0;
-	pid_t child;
+	Genos::pid_t child;
 
 	Genos::WakeUpWaiter waiter;
 

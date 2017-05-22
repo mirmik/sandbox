@@ -1,4 +1,4 @@
-main.o: /home/mirmik/project/kerneltest/main.cpp \
+main.o: /home/mirmik/project/sandbox/kerneltest/main.cpp \
  /home/mirmik/project/genos/include/hal/arch.h \
  /home/mirmik/project/genos/include/compiler.h \
  /home/mirmik/project/genos/arch/linux/include/asm/arch.h \

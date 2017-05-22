@@ -1,4 +1,4 @@
-local files = find.findInTree("../genos", ".*.gll$", ".*HIDE.*")
+local files = find.findInTree("../../genos", ".*.gll$", ".*HIDE.*")
 script:evalFile(files, _ENV)
 
 ruller = CXXDeclarativeRuller.new{
