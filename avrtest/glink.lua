@@ -19,7 +19,7 @@ ruller = CXXDeclarativeRuller.new{
 	
 	flags = {
 		cc = "",
-		cxx = "-fno-rtti",
+		cxx = "-fno-rtti -fexceptions",
 		ld = "-nostdinc -nostartfiles",
 		allcc = "-nostdlib -lgcc -lm -mmcu=atmega2560 -DF_CPU=16000000 -Wl,--gc-sections -fdata-sections -ffunction-sections"
 	},

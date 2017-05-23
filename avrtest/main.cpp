@@ -70,6 +70,12 @@ int main() {
 	io.begin(115200);
 	currentStdStream(&base_strms);
 
+	try {
+
+	} catch (int i) {
+		
+	}
+
 	print_banner(io);
 	print_about(io);
 
