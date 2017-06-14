@@ -4,8 +4,10 @@
 #include <sys/cdefs.h>
 #include <inttypes.h>
 
-#define GMSG_STARTBYTE0 0xAB
-#define GMSG_STARTBYTE1 0x3C
+static const char GMSG_FRAMEEND = 0xC0;
+static const char GMSG_FRAMEESC = 0xDB;
+static const char GMSG_TEND = 0xDC;
+static const char GMSG_TESC = 0xDD;
 
 struct gmsg_s {
 	//cnt
@@ -14,16 +16,19 @@ struct gmsg_s {
 
 	//runt
 	char* ptr;
-	uint16_t crc;
+	uint8_t crc;
 };
 typedef struct gmsg_s gmsg_t;
 
 __BEGIN_DECLS
 
 void gmsg_init(gmsg_t* gmsg, char* buf, uint16_t len);
-int gmsg_add_start(gmsg_t* gmsg);
+int gmsg_add_end(gmsg_t* gmsg);
+int gmsg_add_crc(gmsg_t* gmsg);
 
-
+int gmsg_start(gmsg_t* gmsg);
+int gmsg_finish(gmsg_t* gmsg);
+int gmsg_add_part(gmsg_t* gmsg, const void* part, uint16_t length);
 
 __END_DECLS
 

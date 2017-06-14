@@ -52,9 +52,30 @@ void hexdump(void *mem, unsigned int len)
 	}
 }
 
+
+static unsigned char crc8(unsigned char *pcBlock, unsigned int len)
+{
+    unsigned char crc = 0xFF;
+    unsigned int i;
+
+    while (len--)
+    {
+        crc ^= *pcBlock++;
+        for (i = 0; i < 8; i++)
+            crc = crc & 0x80 ? (crc << 1) ^ 0x31 : crc << 1;
+    }
+    return crc;
+}
+
+
 int main() {
 	gmsg_init(&pack, buf, 128);
-	gmsg_add_start(&pack);
+
+	gmsg_start(&pack);
+	gmsg_add_part(&pack, "Hello\xC0World", 11);
+	//gmsg_add_part(&pack, "Hello", 5);
+	gmsg_finish(&pack);
 
 	hexdump(pack.buf, pack.ptr - pack.buf);
+	printf("%X\r\n", crc8("Hello\xDB\xDCWorld", 12));
 }
