@@ -52,7 +52,6 @@ void hexdump(void *mem, unsigned int len)
 	}
 }
 
-
 static unsigned char crc8(unsigned char *pcBlock, unsigned int len)
 {
     unsigned char crc = 0xFF;
@@ -67,15 +66,34 @@ static unsigned char crc8(unsigned char *pcBlock, unsigned int len)
     return crc;
 }
 
-
 int main() {
 	gmsg_init(&pack, buf, 128);
 
 	gmsg_start(&pack);
+	gmsg_start(&pack);
 	gmsg_add_part(&pack, "Hello\xC0World", 11);
-	//gmsg_add_part(&pack, "Hello", 5);
+	gmsg_finish(&pack);
+	gmsg_add_part(&pack, "Hello\xC0", 6);
 	gmsg_finish(&pack);
 
 	hexdump(pack.buf, pack.ptr - pack.buf);
-	printf("%X\r\n", crc8("Hello\xDB\xDCWorld", 12));
+	//printf("%X\r\n", crc8("Hello\xDB\xDCWorld", 12));
+
+	char bufoff[128];
+	unpack_gmsg_t ugmsg;
+
+	gmsg_unpack_init(&ugmsg, bufoff, 128);
+
+	for(int i = 0; i < pack.ptr - pack.buf; i++) {
+		int ret = gmsg_unpack_new_char(&ugmsg, pack.buf[i]);
+		if (ret == -1) continue;
+		if (ret == 2) {
+			hexdump(ugmsg.buf, ugmsg.ptr - ugmsg.buf);
+			uint8_t crc = gmsg_unpack_subcrc(&ugmsg);
+			printf("0x%x 0x%x\n", ugmsg.crc, crc);
+			hexdump(ugmsg.buf, ugmsg.ptr - ugmsg.buf);
+			gmsg_unpack_reinit(&ugmsg);
+		}
+		printf("%d\n", ret);
+	} 
 }
