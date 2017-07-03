@@ -1,19 +1,20 @@
 #pragma once
 
 #include <QImage>
+#include <Pattern.h>
+#include <Layer.h>
 #include <stdlib.h>
-/*
-class FirstCore : public QObject {
-Q_OBJECT
 
+/*class FirstCore : public QObject {
+Q_OBJECT
 private:
+	//BinaryMatrix& matrix;
 	
-	size_t laywidth;
-	size_t layheight;
-	std::std::vector<uint8_t> neuro[8];
+	std::vector<Layer*> output_layers; 
+	//std::std::vector<uint8_t> neuro[8];
 
 public:
-	FirstCore (const QImage& image) {
+	/*FirstCore (const QImage& image) {
 		dataarr.resize(image.width() * image.height());
 		width = image.width();
 		height = image.height();
@@ -37,5 +38,5 @@ public:
 		for(auto& n : neuro) {
 			n.resize(laywidth * layheight);
 		}
-	}
-};*/
+	}*/
+//};

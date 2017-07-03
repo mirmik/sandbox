@@ -5,7 +5,7 @@ Product {
 	targetName: "target"
 	type: "application"
 	Depends { name: "cpp" }
-	Depends { name: "Qt"; submodules: ["core", "gui", "opengl", "charts"] }
+	Depends { name: "Qt"; submodules: ["core", "gui", "opengl" ] }
 	
 	Group {
         name: "FreeBSD files"

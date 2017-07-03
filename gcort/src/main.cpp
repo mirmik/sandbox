@@ -1,19 +1,26 @@
 #include <QtWidgets>
 #include <ImageBoard.h>
-#include <FirstCore.h>
-#include <Matrix.h>
+#include <Layer.h>
 
-ImageBoard* result;
+ResultBoard* result;
 ImageBoard* board;
 	
 void evaluate() {
 	qDebug("evaluate");
 
 	auto imag = board->getImage();
+	OpenRectanglePattern pattern(7, 3, 9, 0);
+	
+	/*Matrix sightMatrix(imag);
+	FirstCore core(sightMatrix);
 
-	OpenRectanglePattern task(8, 4, 8, M_PI / 4);
+	for (int i = 0; i < 4; i++) {
+		pattern.rotate(M_PI / 4);
+		core.addLayer(pattern);
+	}*/
 
 
+	/*
 	QPainter painter;
 
 	painter.begin(result->getImage());
@@ -21,7 +28,7 @@ void evaluate() {
 	painter.end();
 
 	result->repaint();
-
+	*/
 
 
 	//FirstCore fcore(*imag);
@@ -33,7 +40,7 @@ int main(int argc, char* argv[]) {
 	QApplication app(argc, argv);
 
 	QWidget* mainwindow = new QWidget;
-	result = new ImageBoard;
+	result = new ResultBoard;
 	
 	QHBoxLayout* mainlayout = new QHBoxLayout;
 	QVBoxLayout* layout = new QVBoxLayout;
