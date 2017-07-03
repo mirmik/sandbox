@@ -1,0 +1,3 @@
+[submodule "brocker/gxx"]
+	path = brocker/gxx
+	url = https://github.com/Mirmik/gxx

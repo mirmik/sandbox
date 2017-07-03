@@ -1,16 +1,20 @@
 import qbs.base 1.0 
 
 Product {
-	name: "qnode"
+	name: "gcort"
 	targetName: "target"
 	type: "application"
 	Depends { name: "cpp" }
 	Depends { name: "Qt"; submodules: ["core", "gui", "opengl", "charts"] }
-	files: [ 
-		"main.cpp", "ColorSlider.h", "CentralFrame.h"
-	]
+	
+	Group {
+        name: "FreeBSD files"
+        condition: true
+        files: [ "main.cpp", "ImageBoard.h", "FirstCore.h" ]
+        prefix: "src/"
+    }
 
-	cpp.includePaths: [ '.' ]
+	cpp.includePaths: [ '.', 'src' ]
 	cpp.cxxLanguageVersion: "c++14"
 
 }

@@ -31,16 +31,26 @@ protected:
 	}
  
 	void paintEvent(QPaintEvent *) override {
-		QPainter painter(this);
+		QPainter painter;
+
+		QImage imag(size(), QImage::Format_ARGB32_Premultiplied);
+		painter.begin(&imag);
+		painter.initFrom(this);
+		painter.setRenderHint(QPainter::Antialiasing, true);
 
 		QPointF center = rect().center();
 		QRadialGradient grad(center, width() / 2, focus);
 		grad.setColorAt(0, currentColor);
 		grad.setColorAt(0.5, Qt::blue);
 		grad.setColorAt(1, QColor(Qt::blue).darker(160));
-
 		painter.setBrush(grad);
 		painter.drawRect(0,0,width(),height());
+		painter.end();
+
+		painter.begin(this);
+		painter.drawImage(0,0,imag);
+		painter.end();
+
 	}
 
 public slots:

@@ -3,13 +3,18 @@
 #include <ColorSlider.h>
 #include <CentralFrame.h>
 
+#include <QtCharts>
+
+using namespace QtCharts;
 
 
 int main(int argc, char* argv[]) {
+	QApplication::setDesktopSettingsAware(false);
 	QApplication app(argc, argv);
 
-	qDebug("HelloWorld");
-	
+	QWidget mainwidget;
+	QVBoxLayout vlayout;
+
 	QSplitter mainspl;
 	
 	RGBAPanel* rgba = new RGBAPanel;
@@ -39,12 +44,41 @@ int main(int argc, char* argv[]) {
 	mainspl.addWidget(cfrm);
 	mainspl.addWidget(rightpanel);
 
-	mainspl.resize(880,480);
+	//mainspl.setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+	//mainspl.resize(880,480);
 
 	mainspl.setStretchFactor(0, 1);
 	mainspl.setStretchFactor(1, 1);
 	mainspl.setStretchFactor(2, 1);
+
+
+
+	QLineSeries *series = new QLineSeries();
+    series->setName("spline");
+
+    int points = 300;
+    for(int i = 0; i < points; i++) {
+    	series->append(i * (15 * M_PI) / points, qSin(i * (15 * M_PI) / points));
+    }
+
+    QChart *chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->setTitle("Simple spline chart example");
+    chart->createDefaultAxes();
+    chart->axisY()->setRange(-2, 2);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
 	
-	mainspl.show();
+	vlayout.addWidget(&mainspl, 1);
+	vlayout.addWidget(chartView, 1);
+	mainwidget.setLayout(&vlayout);
+
+	mainwidget.resize(880,800);
+
+	mainwidget.show();
+	//mainspl.show();
 	return app.exec();
 }

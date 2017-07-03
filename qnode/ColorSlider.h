@@ -12,13 +12,13 @@ class ColorSlider : public QWidget {
 
 public:
 
-	ColorSlider(QString namestr, QWidget* parent = nullptr) : QWidget(parent) {
+	ColorSlider(QString namestr, int top = 255, QWidget* parent = nullptr) : QWidget(parent) {
 		layout = new QHBoxLayout;
 		slider = new QSlider(Qt::Horizontal);
 		label = new QLabel("0");
 		name = new QLabel(namestr + ':');
 
-		slider -> setRange(0,255);
+		slider -> setRange(0, top);
 		QObject::connect(slider, SIGNAL(valueChanged(int)), label, SLOT(setNum(int)));
 
 		label -> setFixedWidth(25);
@@ -134,7 +134,7 @@ public:
 	HSVAPanel(QWidget* parent = nullptr) : QWidget(parent) {
 		QVBoxLayout* layout = new QVBoxLayout;
 		
-		hsld = new ColorSlider("H");
+		hsld = new ColorSlider("H", 359);
 		ssld = new ColorSlider("S");
 		vsld = new ColorSlider("V");
 		asld = new ColorSlider("A");
