@@ -3,9 +3,9 @@
 #include <ColorSlider.h>
 #include <CentralFrame.h>
 
-#include <QtCharts>
+//#include <QtCharts>
 
-using namespace QtCharts;
+//using namespace QtCharts;
 
 
 int main(int argc, char* argv[]) {
@@ -53,27 +53,9 @@ int main(int argc, char* argv[]) {
 
 
 
-	QLineSeries *series = new QLineSeries();
-    series->setName("spline");
-
-    int points = 300;
-    for(int i = 0; i < points; i++) {
-    	series->append(i * (15 * M_PI) / points, qSin(i * (15 * M_PI) / points));
-    }
-
-    QChart *chart = new QChart();
-    chart->legend()->hide();
-    chart->addSeries(series);
-    chart->setTitle("Simple spline chart example");
-    chart->createDefaultAxes();
-    chart->axisY()->setRange(-2, 2);
-
-    QChartView *chartView = new QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
-
 	
 	vlayout.addWidget(&mainspl, 1);
-	vlayout.addWidget(chartView, 1);
+	//vlayout.addWidget(chartView, 1);
 	mainwidget.setLayout(&vlayout);
 
 	mainwidget.resize(880,800);

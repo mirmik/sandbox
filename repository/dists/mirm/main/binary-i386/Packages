@@ -1,0 +1,1474 @@
+Package: adduser
+Version: 3.113+nmu3ubuntu4
+Architecture: all
+Maintainer: Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 648
+Depends: perl-base (>= 5.6.0), passwd (>= 1:4.1.5.1-1.1ubuntu6), debconf | debconf-2.0
+Suggests: liblocale-gettext-perl, perl-modules, ecryptfs-utils (>= 67-1)
+Replaces: manpages-it (<< 0.3.4-2), manpages-pl (<= 20051117-1)
+Multi-Arch: foreign
+Homepage: http://alioth.debian.org/projects/adduser/
+Priority: important
+Section: admin
+Filename: pool/main/a/adduser/adduser_3.113+nmu3ubuntu4_all.deb
+Size: 161698
+SHA256: ca6c86cb229082cc22874ed320eac8d128cc91f086fe5687946e7d05758516a3
+SHA1: 6a5b8f58e33d5c9a25f79c6da80a64bf104e6268
+MD5sum: 36f79d952ced9bde3359b63cf9cf44fb
+Description: add and remove users and groups
+ This package includes the 'adduser' and 'deluser' commands for creating
+ and removing users.
+ .
+  - 'adduser' creates new users and groups and adds existing users to
+    existing groups;
+  - 'deluser' removes users and groups and removes users from a given
+    group.
+ .
+ Adding users with 'adduser' is much easier than adding them manually.
+ Adduser will choose appropriate UID and GID values, create a home
+ directory, copy skeletal user configuration, and automate setting
+ initial values for the user's password, real name and so on.
+ .
+ Deluser can back up and remove users' home directories
+ and mail spool or all the files they own on the system.
+ .
+ A custom script can be executed after each of the commands.
+ .
+  Development mailing list:
+    http://lists.alioth.debian.org/mailman/listinfo/adduser-devel/
+Original-Maintainer: Debian Adduser Developers <adduser-devel@lists.alioth.debian.org>
+
+Package: ca-certificates
+Version: 20160104ubuntu1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 485
+Depends: openssl (>= 1.0.0), debconf (>= 0.5) | debconf-2.0
+Enhances: openssl
+Breaks: ca-certificates-java (<< 20121112+nmu1)
+Multi-Arch: foreign
+Priority: optional
+Section: misc
+Filename: pool/main/c/ca-certificates/ca-certificates_20160104ubuntu1_all.deb
+Size: 190566
+SHA256: 92b69361e61cd493e013ece17fabe7e8432ac888413407f967dd557cbfe2d2d6
+SHA1: a36c9c7afc1e6f8a3e9dc7a8771e3abaafb342df
+MD5sum: e1a90cea554ba59a3ba82915871591ef
+Description: Common CA certificates
+ This package includes PEM files of CA certificates to allow SSL-based
+ applications to check for the authenticity of SSL connections.
+ .
+ It includes, among others, certificate authorities used by the Debian
+ infrastructure and those shipped with Mozilla's browsers.
+ .
+ Please note that Debian can neither confirm nor deny whether the
+ certificate authorities whose certificates are included in this package
+ have in any way been audited for trustworthiness or RFC 3647 compliance.
+ Full responsibility to assess them belongs to the local system
+ administrator.
+Original-Maintainer: Michael Shuler <michael@pbandjelly.org>
+
+Package: console-setup
+Version: 1.108ubuntu15.3
+Architecture: all
+Maintainer: Ubuntu Installer Team <ubuntu-installer@lists.ubuntu.com>
+Installed-Size: 437
+Depends: debconf (>= 1.5.34), console-setup-linux, xkb-data (>= 0.9), keyboard-configuration (= 1.108ubuntu15.3), initramfs-tools (>= 0.85eubuntu12) | linux-initramfs-tool, lsb-base (>= 4.1+Debian11ubuntu7)
+Suggests: locales
+Conflicts: console-setup-mini
+Breaks: lsb (<< 2.0-6), lsb-base (<< 3.0-6), lsb-core (<< 2.0-6)
+Priority: optional
+Section: utils
+Filename: pool/main/c/console-setup/console-setup_1.108ubuntu15.3_all.deb
+Size: 117510
+SHA256: 2b763e1b51f9b191fb2217e199991b65fd46e9fe6d91753325a678541f2db240
+SHA1: 27c2f5061139266ed61d2c1745d4d392c1a38ca5
+MD5sum: 87baaf4bad3c21b833c0d4ac6632f615
+Description: console font and keymap setup program
+ This package provides the console with the same keyboard
+ configuration scheme as the X Window System. As a result, there is no
+ need to duplicate or change the keyboard files just to make simple
+ customizations such as the use of dead keys, the key functioning as
+ AltGr or Compose key, the key(s) to switch between Latin and
+ non-Latin mode, etc.
+ .
+ The package also installs console fonts supporting many of the
+ world's languages.  It provides an unified set of font faces - the
+ classic VGA, the simplistic Fixed, and the cleaned Terminus,
+ TerminusBold and TerminusBoldVGA.
+Original-Maintainer: Debian Install System Team <debian-boot@lists.debian.org>
+
+Package: console-setup-linux
+Source: console-setup
+Version: 1.108ubuntu15.3
+Architecture: all
+Maintainer: Ubuntu Installer Team <ubuntu-installer@lists.ubuntu.com>
+Installed-Size: 1212
+Depends: kbd (>= 1.15-1ubuntu3), keyboard-configuration (= 1.108ubuntu15.3), lsb-base (>= 4.1+Debian11ubuntu7)
+Suggests: console-setup
+Breaks: console-cyrillic (<= 0.9-11), console-setup (<< 1.71), console-terminus
+Replaces: console-setup (<< 1.71), console-terminus
+Provides: console-terminus
+Priority: optional
+Section: utils
+Filename: pool/main/c/console-setup/console-setup-linux_1.108ubuntu15.3_all.deb
+Size: 984596
+SHA256: a7782c46268ae2f7c4c27e58d0231df7d6d68fd900f766bd7e2460dd2caa0d56
+SHA1: 8a20659fc2788da5365888b992b1c7004d33964f
+MD5sum: b063f4f72d91167f8c9da7cc46e2ea4f
+Description: Linux specific part of console-setup
+ This package includes fonts in psf format and definitions of various
+ 8-bit charmaps.
+Original-Maintainer: Debian Install System Team <debian-boot@lists.debian.org>
+
+Package: debconf
+Version: 1.5.58ubuntu1
+Architecture: all
+Maintainer: Colin Watson <cjwatson@ubuntu.com>
+Installed-Size: 547
+Pre-Depends: perl-base (>= 5.6.1-4)
+Recommends: apt-utils (>= 0.5.1), debconf-i18n
+Suggests: debconf-doc, debconf-utils, whiptail | dialog, libterm-readline-gnu-perl, libgtk2-perl (>= 1:1.130), libnet-ldap-perl, perl, libqtgui4-perl, libqtcore4-perl
+Conflicts: apt (<< 0.3.12.1), cdebconf (<< 0.96), debconf-tiny, debconf-utils (<< 1.3.22), dialog (<< 0.9b-20020814-1), menu (<= 2.1.3-1), whiptail (<< 0.51.4-11), whiptail-utf8 (<= 0.50.17-13)
+Replaces: debconf-tiny
+Provides: debconf-2.0
+Multi-Arch: foreign
+Priority: important
+Section: admin
+Filename: pool/main/d/debconf/debconf_1.5.58ubuntu1_all.deb
+Size: 135848
+SHA256: d97962e9a9caa1d83152dbb7103f1dd8c63d186bc0aaf9c2079d819b04acfd4a
+SHA1: d64dae033d71495c1f8dc43bcd476702b829a119
+MD5sum: 0cd4b75b7a410fcd5c02d3c8dcfca632
+Description: Debian configuration management system
+ Debconf is a configuration management system for debian packages. Packages
+ use Debconf to ask questions when they are installed.
+Original-Maintainer: Debconf Developers <debconf-devel@lists.alioth.debian.org>
+
+Package: debconf-i18n
+Source: debconf
+Version: 1.5.58ubuntu1
+Architecture: all
+Maintainer: Colin Watson <cjwatson@ubuntu.com>
+Installed-Size: 780
+Depends: debconf (= 1.5.58ubuntu1), liblocale-gettext-perl, libtext-iconv-perl, libtext-wrapi18n-perl, libtext-charwidth-perl
+Conflicts: debconf-english, debconf-utils (<< 1.3.22)
+Replaces: debconf (<< 1.3.0), debconf-utils (<< 1.3.22)
+Priority: important
+Section: localization
+Filename: pool/main/d/debconf/debconf-i18n_1.5.58ubuntu1_all.deb
+Size: 205972
+SHA256: 5e96baf2d18a0c479caa73876b39ab47a071694b044e34aaf07ed8754be2c897
+SHA1: 412ab608b6c054230819b2b24177cfe2e56a941d
+MD5sum: 348a1590afb943cd2af1ec71822c44d6
+Description: full internationalization support for debconf
+ This package provides full internationalization for debconf, including
+ translations into all available languages, support for using translated
+ debconf templates, and support for proper display of multibyte character
+ sets.
+Original-Maintainer: Debconf Developers <debconf-devel@lists.alioth.debian.org>
+
+Package: dkms
+Version: 2.2.0.3-2ubuntu11.3
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 259
+Depends: kmod | kldutils, gcc, make | build-essential | dpkg-dev, coreutils (>= 7.4), patch
+Recommends: fakeroot, menu | sudo
+Multi-Arch: foreign
+Homepage: http://linux.dell.com/dkms
+Priority: optional
+Section: kernel
+Filename: pool/main/d/dkms/dkms_2.2.0.3-2ubuntu11.3_all.deb
+Size: 66148
+SHA256: 46ac3a064a7036dddf4af2c0da8fb8adcef1544299f661e38b5bdf129f70a339
+SHA1: d7e462248ff59b09aaff92592f54d4d88f8b4e13
+MD5sum: e4f4d32677876e2792a7b152cd706a54
+Description: Dynamic Kernel Module Support Framework
+ DKMS is a framework designed to allow individual kernel modules to be upgraded
+ without changing the whole kernel. It is also very easy to rebuild modules as
+ you upgrade kernels.
+Original-Maintainer: Dynamic Kernel Modules Support Team <pkg-dkms-maint@lists.alioth.debian.org>
+
+Package: fontconfig-config
+Source: fontconfig
+Version: 2.11.94-0ubuntu1.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 368
+Depends: fonts-dejavu-core | ttf-bitstream-vera | fonts-freefont-ttf | gsfonts-x11, ucf (>= 0.29)
+Conflicts: fontconfig (<< 2.3.2-2)
+Replaces: fontconfig (<< 2.3.2-2)
+Multi-Arch: foreign
+Priority: optional
+Section: fonts
+Filename: pool/main/f/fontconfig/fontconfig-config_2.11.94-0ubuntu1.1_all.deb
+Size: 49934
+SHA256: 57cad57c49f62ecad1cf7086b8d8646430db5f2a6892885595517aa9a7a70e09
+SHA1: 8ce5a5bd6a9ecfafd2da833c26b4d78026b3cfab
+MD5sum: d8ee5cb98a73e9fd84f0c21b7f00728f
+Description: generic font configuration library - configuration
+ Fontconfig is a font configuration and customization library, which
+ does not depend on the X Window System. It is designed to locate
+ fonts within the system and select them according to requirements
+ specified by applications.
+ .
+ This package contains the configuration files and scripts for fontconfig.
+Original-Maintainer: Keith Packard <keithp@debian.org>
+
+Package: fonts-dejavu-core
+Source: fonts-dejavu
+Version: 2.35-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Fonts Task Force <pkg-fonts-devel@lists.alioth.debian.org>
+Installed-Size: 2963
+Breaks: ttf-dejavu (<< 2.20-1), ttf-dejavu-core (<< 2.33+svn2514-2~)
+Replaces: ttf-dejavu (<< 2.20-1), ttf-dejavu-core (<< 2.33+svn2514-2~)
+Multi-Arch: foreign
+Homepage: http://dejavu-fonts.org/
+Priority: optional
+Section: fonts
+Filename: pool/main/f/fonts-dejavu/fonts-dejavu-core_2.35-1_all.deb
+Size: 1038624
+SHA256: 51450ce72919a974e8d1853c0215a319a398aab78306711b67c84312be77703f
+SHA1: b4df3aa4e4a889fda19490a91bd2cb378c09aa00
+MD5sum: d3c6235a85d2646078f1b82ab257ef33
+Description: Vera font family derivate with additional characters
+ DejaVu provides an expanded version of the Vera font family aiming for
+ quality and broader Unicode coverage while retaining the original Vera
+ style. DejaVu currently works towards conformance with the Multilingual
+ European Standards (MES-1 and MES-2) for Unicode coverage. The DejaVu
+ fonts provide serif, sans and monospaced variants.
+ .
+ This package only contains the sans, sans-bold, serif, serif-bold,
+ mono and mono-bold variants. For additional variants, see the
+ ttf-dejavu-extra package.
+ .
+ DejaVu fonts are intended for use on low-resolution devices (mainly
+ computer screens) but can be used in printing as well.
+
+Package: fonts-lato
+Version: 2.0-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Fonts Task Force <pkg-fonts-devel@lists.alioth.debian.org>
+Installed-Size: 11762
+Pre-Depends: dpkg (>= 1.15.6~)
+Multi-Arch: foreign
+Homepage: http://www.latofonts.com
+Priority: optional
+Section: fonts
+Filename: pool/main/f/fonts-lato/fonts-lato_2.0-1_all.deb
+Size: 2693084
+SHA256: badac1d79eccd561c4d0f048a48b157b8d22c70c8715f263d5957dcb4a415304
+SHA1: 9e673647f6ea6b7f87d301125501b25f54434020
+MD5sum: c0eaf6b20f25cd3d9ad129efcb0fe7f1
+Description: sans-serif typeface family font
+ This package provides sans-serif typeface family font designed by
+ Lukasz Dziedzic. ("Lato" means "Summer" in Polish). These fonts are
+ published by author's foundry tyPoland under terms of Open Font License.
+
+Package: init-system-helpers
+Version: 1.29ubuntu4
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 111
+Depends: perl-base (>= 5.20.1-3)
+Conflicts: file-rc (<< 0.8.17~), openrc (<= 0.18.3-1)
+Breaks: systemd (<< 44-12), sysvinit-utils (<< 2.88dsf-59.3~)
+Replaces: sysv-rc (<< 2.88dsf-59.3~), sysvinit-utils (<< 2.88dsf-59.3)
+Multi-Arch: foreign
+Priority: required
+Section: admin
+Filename: pool/main/i/init-system-helpers/init-system-helpers_1.29ubuntu4_all.deb
+Size: 32336
+SHA256: e7d3fd50644ce39aa67ca512d03e2b14e070deac1bca5be52b689cb95e613305
+SHA1: 3733903966e354bdd0fba7b0da5108487500f208
+MD5sum: e2e41ef69b3b9758bdbd801634d4ed0c
+Description: helper tools for all init systems
+ This package contains helper tools that are necessary for switching between
+ the various init systems that Debian contains (e. g. sysvinit or
+ systemd). An example is deb-systemd-helper, a script that enables systemd unit
+ files without depending on a running systemd.
+ .
+ It also includes the "service", "invoke-rc.d", and "update-rc.d" scripts which
+ provide an abstraction for enabling, disabling, starting, and stopping
+ services for all supported Debian init systems as specified by the policy.
+ .
+ While this package is maintained by pkg-systemd-maintainers, it is NOT
+ specific to systemd at all. Maintainers of other init systems are welcome to
+ include their helpers in this package.
+Original-Maintainer: Debian systemd Maintainers <pkg-systemd-maintainers@lists.alioth.debian.org>
+
+Package: initramfs-tools
+Version: 0.122ubuntu8.8
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 124
+Depends: initramfs-tools-core (= 0.122ubuntu8.8), linux-base
+Suggests: bash-completion
+Conflicts: linux-initramfs-tool, usplash (<< 0.5.50)
+Breaks: console-setup (<< 1.72), cryptsetup (<< 2:1.6.6-4~), elilo (<< 3.12-3.1~), initscripts (<< 2.88dsf-59.3~), isc-dhcp-client (= 4.3.3-5ubuntu13), lilo (<< 22.8-8.2~), lvm2 (<< 2.02.111-2.1~), mountall (<< 2.0~), s390-tools (<< 1.8.3-2~), systemd-sysv (<< 186)
+Provides: linux-initramfs-tool
+Multi-Arch: foreign
+Priority: optional
+Section: utils
+Filename: pool/main/i/initramfs-tools/initramfs-tools_0.122ubuntu8.8_all.deb
+Size: 8610
+SHA256: 98067218de4caaca15d1ccb4a3a552ed809eb8b9577fd4117f5b8bc6c6a38d83
+SHA1: 992b1e3eba6a68ccbecebac01e295ea45e49e9e6
+MD5sum: 9280505746b376dafa9bfc211c0509e1
+Description: generic modular initramfs generator (automation)
+ This package builds a bootable initramfs for Linux kernel packages.  The
+ initramfs is loaded along with the kernel and is responsible for
+ mounting the root filesystem and starting the main init system.
+Original-Maintainer: Debian kernel team <debian-kernel@lists.debian.org>
+
+Package: initramfs-tools-core
+Source: initramfs-tools
+Version: 0.122ubuntu8.8
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 249
+Depends: initramfs-tools-bin (= 0.122ubuntu8.8), busybox-initramfs (>= 1:1.13.3-1ubuntu5), klibc-utils (>= 2.0.4-7~), cpio, kmod | module-init-tools, udev
+Suggests: bash-completion
+Breaks: initramfs-tools (<< 0.121~)
+Replaces: initramfs-tools (<< 0.121~)
+Multi-Arch: foreign
+Priority: optional
+Section: utils
+Filename: pool/main/i/initramfs-tools/initramfs-tools-core_0.122ubuntu8.8_all.deb
+Size: 42620
+SHA256: 395d35fe07ef22eff637e96e3c2bc7389d11aafb4205f89cbfbb09dd59b5ba40
+SHA1: 6b9e5b56751ada070c4e97a2a27a5461bdb6d21e
+MD5sum: c05387cb6f37e7f0eb842bf17b7cf949
+Description: generic modular initramfs generator (core tools)
+ This package contains the mkinitramfs program that can be used to
+ create a bootable initramfs for a Linux kernel.  The initramfs should
+ be loaded along with the kernel and is then responsible for mounting
+ the root filesystem and starting the main init system.
+Original-Maintainer: Debian kernel team <debian-kernel@lists.debian.org>
+
+Package: javascript-common
+Version: 11
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 68
+Suggests: apache2 (>= 2.4.6~) | lighttpd | httpd
+Priority: optional
+Section: web
+Filename: pool/main/j/javascript-common/javascript-common_11_all.deb
+Size: 6066
+SHA256: 83d6f46fb68dfb160de8a9f2a28349fa944d3e5c526888cbbf02ef5073933d3c
+SHA1: 0442d0d4975c8ed6be5811fbd4508eef2ced1b8a
+MD5sum: 97257c1c7151131cd487ee09bbb1b653
+Description: Base support for JavaScript library packages
+ Web applications that use JavaScript need to distribute it through HTTP. Using
+ a common path for every script avoids the need to enable this path in the HTTP
+ server for every package.
+ .
+ This is a helper package that creates /usr/share/javascript and enables it in
+ the Apache and Lighttpd webserver.
+
+Package: keyboard-configuration
+Source: console-setup
+Version: 1.108ubuntu15.3
+Architecture: all
+Maintainer: Ubuntu Installer Team <ubuntu-installer@lists.ubuntu.com>
+Installed-Size: 2581
+Depends: debconf (>= 1.5.34), lsb-base (>= 4.1+Debian11ubuntu7), liblocale-gettext-perl, initscripts
+Breaks: console-setup (<< 1.71), console-setup-mini (<< 1.47)
+Replaces: console-setup (<< 1.47), console-setup-mini (<< 1.47)
+Priority: optional
+Section: utils
+Filename: pool/main/c/console-setup/keyboard-configuration_1.108ubuntu15.3_all.deb
+Size: 657374
+SHA256: 233e089d76d8805b448734fb26d4839436f2af30b6447088ec6f3c7e898c1fc9
+SHA1: 8942c9814614fedb3ddd39f8cbb4717a6d94337e
+MD5sum: e932fb6d4a0d9b1427c146ebeca355da
+Description: system-wide keyboard preferences
+ This package maintains the keyboard preferences in
+ /etc/default/keyboard.  Other packages can use the information
+ provided by this package in order to configure the keyboard on the
+ console or in X Window.
+Original-Maintainer: Debian Install System Team <debian-boot@lists.debian.org>
+
+Package: krb5-locales
+Source: krb5
+Version: 1.13.2+dfsg-5ubuntu2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 2764
+Multi-Arch: foreign
+Homepage: http://web.mit.edu/kerberos/
+Priority: standard
+Section: localization
+Filename: pool/main/k/krb5/krb5-locales_1.13.2+dfsg-5ubuntu2_all.deb
+Size: 13214
+SHA256: d05ca8e84e1b76255dad7864e10ff4198591e02d38de87833b59cd0fa099c70f
+SHA1: 501783c57ac1c1bc521795058210dfa908b57db1
+MD5sum: eb2c46164a768fa9c17f4c1a822d09ed
+Description: Internationalization support for MIT Kerberos
+ Kerberos is a system for authenticating users and services on a network.
+ Kerberos is a trusted third-party service.  That means that there is a
+ third party (the Kerberos server) that is trusted by all the entities on
+ the network (users and services, usually called "principals").
+ .
+ This is the MIT reference implementation of Kerberos V5.
+ .
+ This package contains internationalized messages for MIT Kerberos.
+Original-Maintainer: Sam Hartman <hartmans@debian.org>
+
+Package: libasound2-data
+Source: alsa-lib
+Version: 1.1.0-0ubuntu1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 372
+Suggests: alsa-utils
+Breaks: libasound2 (<< 1.0.27-4)
+Replaces: libasound2 (<< 1.0.27-4)
+Multi-Arch: foreign
+Homepage: http://www.alsa-project.org/
+Priority: optional
+Section: libs
+Filename: pool/main/a/alsa-lib/libasound2-data_1.1.0-0ubuntu1_all.deb
+Size: 29438
+SHA256: c275002928edd434771733a74d7f67251343d572505cb416e9f7c6abc9759f6d
+SHA1: c74083a9d2b29fa590b64cd9fe2cdd864002fc67
+MD5sum: 4cd49c6c84f451d11459c880236bb337
+Description: Configuration files and profiles for ALSA drivers
+ This package contains configuration files for ALSA drivers and UCM
+ profiles for use with alsaucm.
+ .
+ ALSA is the Advanced Linux Sound Architecture.
+Original-Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
+
+Package: libaudit-common
+Source: audit
+Version: 1:2.4.5-1ubuntu2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 21
+Breaks: libaudit0, libaudit1 (<< 1:2.2.1-2)
+Replaces: libaudit0, libaudit1 (<< 1:2.2.1-2)
+Multi-Arch: foreign
+Homepage: http://people.redhat.com/sgrubb/audit/
+Priority: optional
+Section: libs
+Filename: pool/main/a/audit/libaudit-common_2.4.5-1ubuntu2_all.deb
+Size: 3884
+SHA256: b0fe5e0b7ef4e072795ed8a7e9fe524ea1fb2665f952528d5d2705c814787fa3
+SHA1: 539177f5e64636fd2dbcbd6ad17a008ccd816ec8
+MD5sum: 1f7ef825c10f8ab2a66643e5302ca3ec
+Description: Dynamic library for security auditing - common files
+ The audit-libs package contains the dynamic libraries needed for
+ applications to use the audit framework. It is used to monitor systems for
+ security related events.
+ .
+ This package contains the libaudit.conf configuration file and the associated
+ manpage.
+Original-Maintainer: Laurent Bigonville <bigon@debian.org>
+
+Package: libglib2.0-data
+Source: glib2.0
+Version: 2.48.2-0ubuntu1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 212
+Multi-Arch: foreign
+Homepage: http://www.gtk.org/
+Priority: optional
+Section: libs
+Filename: pool/main/g/glib2.0/libglib2.0-data_2.48.2-0ubuntu1_all.deb
+Size: 131506
+SHA256: 4c6edb99fe8fa81f6f26ff4e18f1d333ab20a078293417fcd45cbb6d8700dd55
+SHA1: 6b179804a491e693c934bd04e4dc018c8e63f529
+MD5sum: f9b957479cb7a8d0affca92e414dbbda
+Description: Common files for GLib library
+ GLib is a library containing many useful C routines for things such
+ as trees, hashes, lists, and strings.  It is a useful general-purpose
+ C library used by projects such as GTK+, GIMP, and GNOME.
+ .
+ This package is needed for the runtime libraries to display messages in
+ languages other than English.
+Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+
+Package: libjs-jquery
+Source: jquery
+Version: 1.11.3+dfsg-4
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Installed-Size: 589
+Recommends: javascript-common
+Conflicts: jquery
+Breaks: movabletype-opensource (<< 5.1.4+dfsg-3~)
+Replaces: jquery
+Multi-Arch: foreign
+Homepage: http://jquery.com/
+Priority: optional
+Section: web
+Filename: pool/main/j/jquery/libjs-jquery_1.11.3+dfsg-4_all.deb
+Size: 161058
+SHA256: 1a3d6c50e64e96584096b3963793b1b0164be52ba90c95c491b34cb77d2d7816
+SHA1: cea78eedca70a31f795820c00a9a8270b9a2783f
+MD5sum: fdb2ed1929b9bde9bb1eb53f67965e89
+Description: JavaScript library for dynamic web applications
+ jQuery is a fast, concise, JavaScript Library that simplifies how you
+ traverse HTML documents, handle events, perform animations, and add Ajax
+ interactions to your web pages. jQuery is designed to change the way
+ that you write JavaScript.
+
+Package: libsemanage-common
+Source: libsemanage
+Version: 2.3-1build3
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian SELinux maintainers <selinux-devel@lists.alioth.debian.org>
+Installed-Size: 28
+Breaks: libsemanage1 (<= 2.0.41-1), libsemanage1-dev (<< 2.1.6-3~)
+Replaces: libsemanage1 (<= 2.0.41-1), libsemanage1-dev (<< 2.1.6-3~)
+Multi-Arch: foreign
+Homepage: http://userspace.selinuxproject.org/
+Priority: optional
+Section: libs
+Filename: pool/main/libs/libsemanage/libsemanage-common_2.3-1build3_all.deb
+Size: 6178
+SHA256: f981322182e6215c8a4ad3c372a830d868959246cc060b0be30e246f68e01589
+SHA1: 0805d76e1dfd9a3279ce95da737d76e911c5b439
+MD5sum: 5184f579b2784a1cc7392d1c61b0e8c9
+Description: Common files for SELinux policy management libraries
+ This package provides the common files used by the shared libraries
+ for SELinux policy management.
+ .
+ Security-enhanced Linux is a patch of the Linux kernel and a
+ number of utilities with enhanced security functionality designed to
+ add mandatory access controls to Linux.  The Security-enhanced Linux
+ kernel contains new architectural components originally developed to
+ improve the security of the Flask operating system. These
+ architectural components provide general support for the enforcement
+ of many kinds of mandatory access control policies, including those
+ based on the concepts of Type Enforcement, Role-based Access
+ Control, and Multi-level Security.
+
+Package: libtext-wrapi18n-perl
+Version: 0.06-7.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Anibal Monsalve Salazar <anibal@debian.org>
+Installed-Size: 26
+Depends: libtext-charwidth-perl
+Homepage: http://search.cpan.org/search?module=Text::WrapI18N
+Priority: required
+Section: perl
+Filename: pool/main/libt/libtext-wrapi18n-perl/libtext-wrapi18n-perl_0.06-7.1_all.deb
+Size: 8204
+SHA256: 42a03975d59631c9842303d2ecd6e627039f6d1fa9ef67056743c47a5a5101cc
+SHA1: 80f091b8fd984e793f8b3a12bfdb3c49abfc3d97
+MD5sum: 8c82a4d4e0a8bb3b929ccd93c1ad27a3
+Description: internationalized substitute of Text::Wrap
+ This module is a substitution for Text::Wrap, supporting
+ multibyte characters such as UTF-8, EUC-JP, and GB2312, fullwidth
+ characters such as east Asian characters, combining characters
+ such as diacritical marks and Thai, and languages which don't
+ use whitespaces between words such as Chinese and Japanese.
+ .
+ It provides wrap().
+
+Package: libx11-data
+Source: libx11
+Version: 2:1.6.3-1ubuntu2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 1497
+Breaks: libx11-6 (<< 2:1.4.1)
+Multi-Arch: foreign
+Priority: optional
+Section: x11
+Filename: pool/main/libx/libx11/libx11-data_1.6.3-1ubuntu2_all.deb
+Size: 113070
+SHA256: be21b936052b1f75743fe12ac2b7f5a199450b32b1e94e3f21faf0bf29bf2895
+SHA1: a8f828d5304b04a507da67e906b4c06e89ac5659
+MD5sum: 675d2a3c96f6fab605c4c9d005ca0d30
+Description: X11 client-side library
+ This package provides the locale data files for libx11.
+ .
+ More information about X.Org can be found at:
+ <URL:http://www.X.org>
+ .
+ This module can be found at
+ git://anongit.freedesktop.org/git/xorg/lib/libX11
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+
+Package: linux-base
+Version: 4.0ubuntu1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 22
+Multi-Arch: foreign
+Priority: optional
+Section: kernel
+Filename: pool/main/l/linux-base/linux-base_4.0ubuntu1_all.deb
+Size: 6714
+SHA256: ea20b5f5b232fa6ac15f6a7bf85f95ac3df56df884678747ed924364a7923a22
+SHA1: a99d006bf8ecefedbb2e466c0f1a49f28f12167b
+MD5sum: a7019ff0bece69a039c157556b5ffdfc
+Description: Linux image base package
+ This package contains files and support scripts for all Linux
+ images.
+
+Package: lsb-base
+Source: lsb
+Version: 9.20160110ubuntu0.2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 58
+Breaks: upstart (<< 1.12.1-0ubuntu8)
+Replaces: upstart (<< 1.12.1-0ubuntu8)
+Multi-Arch: foreign
+Homepage: http://www.linuxfoundation.org/collaborate/workgroups/lsb
+Priority: required
+Section: misc
+Filename: pool/main/l/lsb/lsb-base_9.20160110ubuntu0.2_all.deb
+Size: 13674
+SHA256: c777b09ccc75be22711b20d303188d289e9bcfbc20a2c34851ba92f7ee6dc208
+SHA1: a1c9250aeec1efc7d85a646dabc38472ccf8ac96
+MD5sum: a2da9e96d14b21489ad7f363ad52f6c9
+Description: Linux Standard Base init script functionality
+ The Linux Standard Base (http://www.linuxbase.org/) is a standard
+ core system that third-party applications written for Linux can
+ depend upon.
+ .
+ This package only includes the init-functions shell library, which
+ may be used by other packages' initialization scripts for console
+ logging and other purposes.
+Original-Maintainer: Debian LSB Team <debian-lsb@lists.debian.org>
+
+Package: manpages
+Version: 4.04-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Martin Schulze <joey@debian.org>
+Installed-Size: 1314
+Suggests: man-browser
+Replaces: bind, console-tools (<= 1:0.2.3dbs-70), libc-bin (<< 2.19-12), libc-dev-bin (<< 2.19-12)
+Homepage: http://www.kernel.org/doc/man-pages/
+Priority: standard
+Section: doc
+Filename: pool/main/m/manpages/manpages_4.04-2_all.deb
+Size: 1086712
+SHA256: 1b4aab708c75670af946efb147ee46984918e0209987bf6465fb8ac8a7cf61f9
+SHA1: 241ce97bc0fcf811c69c8b4dfe3ef798839ad814
+MD5sum: bb93c041e490ee0b6c2fef876dddf502
+Description: Manual pages about using a GNU/Linux system
+ This package contains GNU/Linux manual pages for these sections:
+  4 = Devices (e.g. hd, sd).
+  5 = File formats and protocols, syntaxes of several system
+      files (e.g. wtmp, /etc/passwd, nfs).
+  7 = Conventions and standards, macro packages, etc.
+      (e.g. nroff, ascii).
+ .
+ Sections 1, 6 and 8 are provided by the respective applications. This
+ package only includes the intro man page describing the section.
+ .
+ The man pages describe syntaxes of several system files.
+
+Package: manpages-dev
+Source: manpages
+Version: 4.04-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Martin Schulze <joey@debian.org>
+Installed-Size: 3610
+Depends: manpages
+Suggests: man-browser
+Replaces: glibc-doc (<< 2.11.2-3), libaio-dev
+Homepage: http://www.kernel.org/doc/man-pages/
+Priority: optional
+Section: doc
+Filename: pool/main/m/manpages/manpages-dev_4.04-2_all.deb
+Size: 2047608
+SHA256: e6c2596394da96e9aed64aad11a5e52db29101468f85e808655db259eea8e77a
+SHA1: 1df577c462c9cc598bba401c4427f8d9a838a38c
+MD5sum: fea47c59fcc997aeab05238ecf9c5aba
+Description: Manual pages about using GNU/Linux for development
+ These man pages describe the Linux programming interface, including
+ these two sections:
+  2 = Linux system calls.
+  3 = Library calls (note that a more comprehensive source of information
+      may be found in the glibc-doc and glibc-doc-reference packages).
+
+Package: mime-support
+Version: 3.59ubuntu1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 111
+Recommends: file
+Multi-Arch: foreign
+Priority: standard
+Section: net
+Filename: pool/main/m/mime-support/mime-support_3.59ubuntu1_all.deb
+Size: 31022
+SHA256: 29abe7edbf483f0fd8e54735d385f200f04f6303f8aeb8d060c8cf8914b37078
+SHA1: 7f18e9594ba0658cf92a2e60f44af1e06564e0aa
+MD5sum: 50719df7c78eceded3f4b2a7e444e90a
+Description: MIME files 'mime.types' & 'mailcap', and support programs
+ As these files can be used by all MIME compliant programs, they
+ have been moved into their own package that others can depend upon.
+ .
+ Other packages add themselves as viewers/editors/composers/etc by
+ using the provided "update-mime" program.
+ .
+ In addition, the commands "see", "edit", "compose", and "print"
+ will display, alter, create, and print (respectively) any file using
+ a program determined from the entries in the mime.types and mailcap
+ files.
+Original-Maintainer: Mime-Support Maintainers <mime-support@plessy.org>
+
+Package: mysql-common
+Source: mysql-5.7
+Version: 5.7.19-0ubuntu0.16.04.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 191
+Conflicts: mariadb-server-5.5, mysql-common-5.6, mysql-server-5.5, percona-xtradb-cluster-common-5.5
+Breaks: mariadb-common (<< 10.0.20-3~)
+Replaces: mariadb-server-5.5, mysql-common-5.6, mysql-server-5.5, percona-xtradb-cluster-common-5.5
+Provides: mysql-common-5.6
+Multi-Arch: foreign
+Homepage: http://dev.mysql.com/
+Priority: optional
+Section: database
+Filename: pool/main/m/mysql-5.7/mysql-common_5.7.19-0ubuntu0.16.04.1_all.deb
+Size: 15676
+SHA256: 5501cb027f5ab30e161c0d6fae960ed983bd07635627a3298f370a4c8c01df5e
+SHA1: b66b7417034c301d3858b89b1a1d1088f884f827
+MD5sum: c582af663b7f8a8fa80621cd20806920
+Description: MySQL database common files, e.g. /etc/mysql/my.cnf
+ MySQL is a fast, stable and true multi-user, multi-threaded SQL database
+ server. SQL (Structured Query Language) is the most popular database query
+ language in the world. The main goals of MySQL are speed, robustness and
+ ease of use.
+ .
+ This package includes files needed by all versions of the client library,
+ e.g. /etc/mysql/my.cnf.
+Original-Maintainer: Debian MySQL Maintainers <pkg-mysql-maint@lists.alioth.debian.org>
+
+Package: ndiff
+Source: nmap
+Version: 7.01-2ubuntu2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Hilko Bengen <bengen@debian.org>
+Installed-Size: 97
+Depends: python:any (<< 2.8), python:any (>= 2.7.5-5~), python-lxml
+Recommends: nmap
+Conflicts: nmap (<< 7.01-2ubuntu2)
+Breaks: zenmap (<< 6.47-5~)
+Replaces: zenmap (<< 6.47-5~)
+Homepage: http://nmap.org/
+Priority: extra
+Section: net
+Filename: pool/main/n/nmap/ndiff_7.01-2ubuntu2_all.deb
+Size: 20138
+SHA256: eb90e8ae67223829ed27c51be237165b3afc2ac8cc080d043654d102a98ffc8b
+SHA1: 65648d576c87ef27643bd0c30e389a5112a5ee10
+MD5sum: d0fc792d302d5da6520e102c74797386
+Description: The Network Mapper - result compare utility
+ Ndiff is a tool to aid in the comparison of Nmap scans. It takes two
+ Nmap XML output files and prints the differences between them.
+
+Package: python-bs4
+Source: beautifulsoup4
+Version: 4.4.1-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Installed-Size: 341
+Depends: python:any (<< 2.8), python:any (>= 2.7.5-5~)
+Recommends: python-chardet, python-lxml | python-html5lib
+Homepage: http://www.crummy.com/software/BeautifulSoup
+Priority: optional
+Section: python
+Filename: pool/main/b/beautifulsoup4/python-bs4_4.4.1-1_all.deb
+Size: 64160
+SHA256: 9e55c74c9eac4c143e8367c2e7a59b67cf4c1ac098fa3bf05962d21e07e36d52
+SHA1: b7b7eed681e73b4e5e2cc051386dee38cf41da9e
+MD5sum: a02c2da0986199d67e05893397d62ee6
+Description: error-tolerant HTML parser for Python
+ Beautiful Soup is a Python library for pulling data out of HTML and XML files.
+ It works with your favorite parser to provide idiomatic ways of navigating,
+ searching, and modifying the parse tree. It commonly saves programmers hours
+ or days of work.
+ .
+ This package contains BeautifulSoup 4, for Python 2.x.
+
+Package: python-chardet
+Source: chardet
+Version: 2.3.0-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Piotr Ożarowski <piotr@debian.org>
+Installed-Size: 496
+Depends: python:any (<< 2.8), python:any (>= 2.7.5-5~), python-pkg-resources
+Homepage: https://github.com/chardet/chardet
+Priority: optional
+Section: python
+Filename: pool/main/c/chardet/python-chardet_2.3.0-2_all.deb
+Size: 96322
+SHA256: e3cd3f4c56d86333c8b6e626084d0f520543716ed1c55de34d9ba758dc79bd45
+SHA1: e2d822b1eb921e47db9c1f28dc3866f67dfc383f
+MD5sum: e4f1558b376066ea2a2fc32da122bc05
+Description: universal character encoding detector for Python2
+ Chardet takes a sequence of bytes in an unknown character encoding, and
+ attempts to determine the encoding.
+ .
+ Supported encodings:
+  * ASCII, UTF-8, UTF-16 (2 variants), UTF-32 (4 variants)
+  * Big5, GB2312, EUC-TW, HZ-GB-2312, ISO-2022-CN (Traditional and Simplified
+    Chinese)
+  * EUC-JP, SHIFT_JIS, ISO-2022-JP (Japanese)
+  * EUC-KR, ISO-2022-KR (Korean)
+  * KOI8-R, MacCyrillic, IBM855, IBM866, ISO-8859-5, windows-1251 (Cyrillic)
+  * ISO-8859-2, windows-1250 (Hungarian)
+  * ISO-8859-5, windows-1251 (Bulgarian)
+  * windows-1252 (English)
+  * ISO-8859-7, windows-1253 (Greek)
+  * ISO-8859-8, windows-1255 (Visual and Logical Hebrew)
+  * TIS-620 (Thai)
+ .
+ This library is a port of the auto-detection code in Mozilla.
+
+Package: python-html5lib
+Source: html5lib
+Version: 0.999-4
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Installed-Size: 519
+Depends: python-six, python:any (<< 2.8), python:any (>= 2.7.5-5~)
+Suggests: python-chardet, python-genshi, python-lxml
+Homepage: https://github.com/html5lib/html5lib-python
+Priority: optional
+Section: python
+Filename: pool/main/h/html5lib/python-html5lib_0.999-4_all.deb
+Size: 83106
+SHA256: bb1d8178f19569896cfbe45a673379417c61274176c43867e5496408ab54b487
+SHA1: fc7a36fda2bf10255596c51cc12c5dec85d0767d
+MD5sum: 85ed02bba313a56746d5e1a222b44e1c
+Description: HTML parser/tokenizer based on the WHATWG HTML5 specification (Python 2)
+ html5lib is a pure-python library for parsing HTML. It is designed to
+ conform to the HTML 5 specification, which has formalized the error handling
+ algorithms of popular web browsers.
+ .
+ This package contains the Python 2 version of html5lib.
+
+Package: python-pkg-resources
+Source: python-setuptools
+Version: 20.7.0-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Matthias Klose <doko@debian.org>
+Installed-Size: 441
+Depends: python:any (<< 2.8), python:any (>= 2.7.5-5~)
+Suggests: python-setuptools
+Homepage: https://pypi.python.org/pypi/setuptools
+Priority: optional
+Section: python
+Filename: pool/main/p/python-setuptools/python-pkg-resources_20.7.0-1_all.deb
+Size: 108428
+SHA256: 3701889d543f25fe371b238fce8aaa3ce62215fe38b6afe879ab8b10109fc1d8
+SHA1: 2794d9d3ded701f6f7e2b684af24762e0e32fcb5
+MD5sum: 33fb00c7fd20b868b36407e0210cda2c
+Description: Package Discovery and Resource Access using pkg_resources
+ The pkg_resources module provides an API for Python libraries to
+ access their resource files, and for extensible applications and
+ frameworks to automatically discover plugins.  It also provides
+ runtime support for using C extensions that are inside zipfile-format
+ eggs, support for merging packages that have separately-distributed
+ modules or subpackages, and APIs for managing Python's current
+ "working set" of active packages.
+
+Package: python-six
+Source: six
+Version: 1.10.0-3
+Architecture: all
+Maintainer: Colin Watson <cjwatson@debian.org>
+Installed-Size: 53
+Depends: python:any (<< 2.8), python:any (>= 2.7.5-5~)
+Multi-Arch: foreign
+Homepage: https://pythonhosted.org/six/
+Priority: optional
+Section: python
+Filename: pool/main/s/six/python-six_1.10.0-3_all.deb
+Size: 10900
+SHA256: b126333e5fc21d97ceda0ca1b839093657aa4a0f90d5fca198359b583314e54d
+SHA1: 8bd94dc87a0abb3958f31fe5da245062d5868718
+MD5sum: 62195646aa503c3a64167c578bd5b741
+Description: Python 2 and 3 compatibility library (Python 2 interface)
+ Six is a Python 2 and 3 compatibility library. It provides utility
+ functions for smoothing over the differences between the Python versions
+ with the goal of writing Python code that is compatible on both Python
+ versions.
+ .
+ This package provides Six on the Python 2 module path. It is complemented
+ by python3-six and pypy-six.
+
+Package: qtcore4-l10n
+Source: qt4-x11
+Version: 4:4.8.7+dfsg-5ubuntu2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 4816
+Breaks: libqtcore4 (<< 4:4.8.5+dfsg-1~)
+Replaces: libqtcore4 (<< 4:4.8.5+dfsg-1~)
+Multi-Arch: foreign
+Homepage: http://qt-project.org/
+Priority: optional
+Section: libs
+Filename: pool/main/q/qt4-x11/qtcore4-l10n_4.8.7+dfsg-5ubuntu2_all.deb
+Size: 619500
+SHA256: 44f22fba825c83ed60b88004bd6599b4ebec6f0bc456d8aa1edded0abececff5
+SHA1: bc8898de21578e169eb1cdeb1a3590c5e997aef9
+MD5sum: 6789b82465381091e7b252ecd3f5ba6b
+Description: Qt 4 core module translations
+ Qt is a cross-platform C++ application framework. Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This package contains the translations of the QtCore module.
+Original-Maintainer: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+
+Package: rake
+Version: 10.5.0-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Installed-Size: 211
+Depends: ruby | ruby-interpreter
+Recommends: zip
+Multi-Arch: foreign
+Homepage: https://github.com/jimweirich/rake
+Priority: optional
+Section: ruby
+Filename: pool/main/r/rake/rake_10.5.0-2_all.deb
+Size: 48238
+SHA256: 7d128619f2b00e5f9fe6c3a3b12c0dfe9168730dc985902f3ce52c0d380674e3
+SHA1: e47859c965e5bd257d1d91760fb04f093f97b96d
+MD5sum: 909b66a955640b5ecd22ceb3d9dadde6
+Description: ruby make-like utility
+ Rake is a simple ruby build program with capabilities similar to make.
+ .
+ Rake has the following features:
+   * Rakefiles (rakes version of Makefiles) are completely defined in
+     standard Ruby syntax. No XML files to edit. No quirky Makefile
+     syntax to worry about (is that a tab or a space?)
+   * Users can specify tasks with prerequisites.
+   * Rake supports rule patterns to sythesize implicit tasks.
+   * Rake is lightweight. It can be distributed with other
+     projects as a single file. Projects that depend upon
+     rake do not require that rake be installed on target
+     systems.
+Ruby-Versions: all
+
+Package: readline-common
+Source: readline6
+Version: 6.3-8ubuntu2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 76
+Depends: dpkg (>= 1.15.4) | install-info
+Suggests: readline-doc
+Conflicts: libreadline-common, libreadline5 (<< 5.0-11)
+Replaces: libreadline-common, libreadline4 (<< 4.3-16), libreadline5 (<< 5.0-11)
+Multi-Arch: foreign
+Priority: important
+Section: utils
+Filename: pool/main/r/readline6/readline-common_6.3-8ubuntu2_all.deb
+Size: 51352
+SHA256: be5af598638bb4721ac268dce8d2b76e9d251781915a0511e896556cc2cc579e
+SHA1: ff8bede1a0859f4035b134307a0b407d37ad17bf
+MD5sum: 52dd3555651b6c71d9e3a392cda1fbd0
+Description: GNU readline and history libraries, common files
+ The GNU readline library aids in the consistency of user interface
+ across discrete programs that need to provide a command line
+ interface.
+ .
+ The GNU history library provides a consistent user interface for
+ recalling lines of previously typed input.
+Original-Maintainer: Matthias Klose <doko@debian.org>
+
+Package: ruby
+Source: ruby-defaults
+Version: 1:2.3.0+1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Antonio Terceiro <terceiro@debian.org>
+Installed-Size: 36
+Depends: ruby2.3
+Suggests: ri, ruby-dev
+Conflicts: ruby-activesupport-2.3, ruby-activesupport-3.2
+Breaks: apt-listbugs (<< 0.1.6), rbenv (<= 0.4.0-1), ruby-debian (<< 0.3.8+b3), ruby-switch (<= 0.1.0)
+Replaces: irb, rdoc, rubygems
+Provides: irb, rdoc, rubygems
+Homepage: http://www.ruby-lang.org/
+Priority: optional
+Section: ruby
+Filename: pool/main/r/ruby-defaults/ruby_2.3.0+1_all.deb
+Size: 5530
+SHA256: 5bf2907339443b092800e1b471612f8024c015434bdd14aa1dcae2a39b9bd7a9
+SHA1: 08927ac768f3d922884df2b0b6aa49b9372b03f5
+MD5sum: da532a3b540c86b75e53271dcc5e9084
+Description: Interpreter of object-oriented scripting language Ruby (default version)
+ Ruby is the interpreted scripting language for quick and easy
+ object-oriented programming.  It has many features to process text
+ files and to do system management tasks (as in perl).  It is simple,
+ straight-forward, and extensible.
+ .
+ This package is a dependency package, which depends on Debian's default Ruby
+ version (currently v2.3).
+
+Package: ruby-did-you-mean
+Version: 1.0.0-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Installed-Size: 50
+Multi-Arch: foreign
+Homepage: https://github.com/yuki24/did_you_mean
+Priority: optional
+Section: ruby
+Filename: pool/main/r/ruby-did-you-mean/ruby-did-you-mean_1.0.0-2_all.deb
+Size: 8390
+SHA256: 9365f3b5b2b40ff7c02ad6a9a490f20dbd6dbbfcbe733e6392d6c00fc9edcd95
+SHA1: 001abc740665c45e734274d6e18825ad309c1818
+MD5sum: 7a8649b4c07ae9ef560a6e7e2c9dac64
+Description: smart error messages for Ruby > 2.3
+ This package provides the infrastructure to produce smart error messages on
+ Ruby > 2.3.  When an undefined method is called, it will suggest similar
+ method names. It will also catch mispellings on known method names, such as
+ "initialize", and warn developers about them.
+ .
+ Starting with version 2.3, the Ruby interpreter will automatically load this
+ library on startup.
+Ruby-Versions: all
+
+Package: ruby-minitest
+Version: 5.8.4-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Installed-Size: 137
+Suggests: ruby-test-unit
+Multi-Arch: foreign
+Homepage: https://github.com/seattlerb/minitest
+Priority: optional
+Section: ruby
+Filename: pool/main/r/ruby-minitest/ruby-minitest_5.8.4-2_all.deb
+Size: 36556
+SHA256: 893c88ef6ba04001dc397b7245149c82309534652a2b3545327117e0eb5d6fd6
+SHA1: 16c263bbbe35df5061c991740655d6a7d35c83aa
+MD5sum: 1978b3f18ba28606bba4e7350b2c290b
+Description: Ruby test tools supporting TDD, BDD, mocking, and benchmarking
+ minitest provides a complete suite of testing facilities supporting
+ TDD, BDD, mocking, and benchmarking.
+ .
+ minitest/unit is a small and incredibly fast unit testing framework.
+ It provides a rich set of assertions to make your tests clean and
+ readable.
+ .
+ minitest/spec is a functionally complete spec engine. It hooks onto
+ minitest/unit and seamlessly bridges test assertions over to spec
+ expectations.
+ .
+ minitest/benchmark is an awesome way to assert the performance of your
+ algorithms in a repeatable manner. Now you can assert that your newb
+ co-worker doesn't replace your linear algorithm with an exponential
+ one!
+ .
+ minitest/mock by Steven Baker, is a beautifully tiny mock object
+ framework.
+ .
+ minitest/pride shows pride in testing and adds coloring to your test
+ output.
+ .
+ minitest/unit is meant to have a clean implementation for language
+ implementors that need a minimal set of methods to bootstrap a working
+ test suite. For example, there is no magic involved for test-case
+ discovery.
+Ruby-Versions: all
+
+Package: ruby-net-telnet
+Version: 0.1.1-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Installed-Size: 57
+Multi-Arch: foreign
+Homepage: https://github.com/ruby/net-telnet
+Priority: optional
+Section: ruby
+Filename: pool/main/r/ruby-net-telnet/ruby-net-telnet_0.1.1-2_all.deb
+Size: 12596
+SHA256: 7416c264eae929c25610a4a0732156840457facf2c1e18c4e2b23633934fe158
+SHA1: f209e78593cc18b6fb32698775aa0da4846e545f
+MD5sum: 5dc506e0a9946ee774694500c114f79a
+Description: telnet client library
+ This package provides a telnet client library to use in Ruby programs. It used
+ to be part of the Ruby standard library before Ruby 2.3, and was extracted to
+ a standalone package.
+Ruby-Versions: all
+
+Package: ruby-power-assert
+Version: 0.2.7-1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Installed-Size: 34
+Multi-Arch: foreign
+Homepage: https://github.com/k-tsj/power_assert
+Priority: optional
+Section: ruby
+Filename: pool/main/r/ruby-power-assert/ruby-power-assert_0.2.7-1_all.deb
+Size: 7668
+SHA256: 0130a73cb7e0913326efce255120a8d9974ebe6b75044964b8fb1b021430fa6c
+SHA1: 688dbbb5e9d5f933819ec59f5e2905046ca7a93f
+MD5sum: 07f5f5f339cde15eaba389e0f085da7b
+Description: library showing values of variables and method calls in an expression
+ Power Assert shows each value of variables and method calls in the
+ expression. It is useful for testing, providing which value wasn't
+ correct when the condition is not satisfied.
+Ruby-Versions: all
+
+Package: ruby-test-unit
+Version: 3.1.7-2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Installed-Size: 374
+Depends: ruby-power-assert
+Multi-Arch: foreign
+Homepage: http://test-unit.github.io/
+Priority: optional
+Section: ruby
+Filename: pool/main/r/ruby-test-unit/ruby-test-unit_3.1.7-2_all.deb
+Size: 60324
+SHA256: f6c439c3d1f7ec234e1e0ab4e650586a274521a55b295ae087306db07dcb0353
+SHA1: 37ed6c5bfc5c4693676c405f8b9925adab2f559e
+MD5sum: ec4ceee76999a85ec44b51dfd406a595
+Description: unit testing framework for Ruby
+ Test::Unit (test-unit) is a unit testing framework for Ruby, based on xUnit
+ principles. It allows writing tests, checking results and automated testing in
+ Ruby.
+ .
+ Note that this version of Test::Unit will override the one possibly shipped
+ with the Ruby interpreter.
+Ruby-Versions: all
+
+Package: rubygems-integration
+Version: 1.10
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Installed-Size: 20
+Depends: ca-certificates
+Suggests: bundler
+Multi-Arch: foreign
+Priority: optional
+Section: ruby
+Filename: pool/main/r/rubygems-integration/rubygems-integration_1.10_all.deb
+Size: 4966
+SHA256: 8753f73732f6c22c79f0f8b6adc28756e8275e6d1e7e1bda35dc90f1f8192030
+SHA1: 97c65d8992a96d22c4e42642b211078907011c9a
+MD5sum: e6b595bf80e9f5dab122cae61caf2e55
+Description: integration of Debian Ruby packages with Rubygems
+ rubygems-integration makes Debian Ruby packages recognizable by Rubygems.
+ Debian Ruby packages may be used to satisfy Rubygems dependencies both with
+ plain Rubygems and with Bundler. This also allows one to use Debian Ruby
+ packages to satisfy dependencies in Rails 3 applications.
+
+Package: sensible-utils
+Version: 0.0.9
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Anibal Monsalve Salazar <anibal@debian.org>
+Installed-Size: 110
+Replaces: debianutils (<= 2.32.3), manpages-pl (<= 20060617-3~)
+Multi-Arch: foreign
+Priority: required
+Section: utils
+Filename: pool/main/s/sensible-utils/sensible-utils_0.0.9_all.deb
+Size: 10502
+SHA256: de75c4690051dfb43c8faa8f37afe276f78d41dc89d9258fa080e6a7a450c826
+SHA1: d8383323633d56d6d25a058cb4711ab3057502e4
+MD5sum: 18f69bbed048d2d39f7a13c26a949ccf
+Description: Utilities for sensible alternative selection
+ This package provides a number of small utilities which are used
+ by programs to sensibly select and spawn an appropriate browser,
+ editor, or pager.
+ .
+ The specific utilities included are: sensible-browser sensible-editor
+ sensible-pager
+
+Package: sgml-base
+Version: 1.26+nmu4ubuntu1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 113
+Pre-Depends: dpkg (>= 1.16.4)
+Suggests: sgml-base-doc
+Conflicts: sgml-data (<= 0.02), sgmltools-2 (<= 2.0.2-4)
+Priority: optional
+Section: text
+Filename: pool/main/s/sgml-base/sgml-base_1.26+nmu4ubuntu1_all.deb
+Size: 12522
+SHA256: 095047a66f12fedc3cf2d916d2c32e59f5f2212377c6338b7fe2e749b19e9ae4
+SHA1: 8c574426ae2cd893eaedac1fe16191280e4d6eeb
+MD5sum: c0b66a92d49691657b38b25d632b0495
+Description: SGML infrastructure and SGML catalog file support
+ This package creates the SGML infrastructure directories and provides
+ SGML catalog file support in compliance with the current Debian SGML
+ Policy draft:
+ .
+   * infrastructure directories:
+      - /etc/sgml
+      - /usr/share/sgml/{declaration,dtd,entities,misc,stylesheet}
+      - /usr/share/local/sgml/{declaration,dtd,entities,misc,stylesheet}
+ .
+   * update-catalog(8): tool for maintaining the root SGML catalog
+     file and the package SGML catalog files in the '/etc/sgml' directory
+Original-Maintainer: Debian XML/SGML Group <debian-xml-sgml-pkgs@lists.alioth.debian.org>
+
+Package: sysv-rc
+Source: sysvinit
+Version: 2.88dsf-59.3ubuntu2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Installed-Size: 127
+Pre-Depends: init-system-helpers (>= 1.25~)
+Depends: debconf (>= 0.5) | debconf-2.0, sysvinit-utils (>= 2.86.ds1-62), insserv (>> 1.12.0-10)
+Recommends: lsb-base (>= 3.2-14)
+Suggests: bum
+Breaks: initscripts (<< 2.86.ds1-63), systemd (<< 215)
+Multi-Arch: foreign
+Homepage: http://savannah.nongnu.org/projects/sysvinit
+Priority: required
+Section: admin
+Filename: pool/main/s/sysvinit/sysv-rc_2.88dsf-59.3ubuntu2_all.deb
+Size: 18180
+SHA256: e77cbe5bb5dfec2ac1c214fc2fd8cce6d30d50fc3302ce69773c46c5d9e43997
+SHA1: e7e80167f6b23a7d9ea1b4d37683f339052f688d
+MD5sum: 21684a8162a0dc9279456e061434c6d7
+Description: System-V-like runlevel change mechanism
+ This package provides support for the System-V like system
+ for booting, changing runlevels, and shutting down,
+ configured through symbolic links in /etc/rc?.d/.
+Original-Maintainer: Debian sysvinit maintainers <pkg-sysvinit-devel@lists.alioth.debian.org>
+
+Package: ubuntu-keyring
+Version: 2012.05.19
+Architecture: all
+Maintainer: Michael Vogt <michael.vogt@canonical.com>
+Installed-Size: 46
+Recommends: gpgv
+Multi-Arch: foreign
+Priority: important
+Section: misc
+Filename: pool/main/u/ubuntu-keyring/ubuntu-keyring_2012.05.19_all.deb
+Size: 16738
+SHA256: 315a58b14eec1e9252b2a2e294f2a4be1ccd043adb58bf5b7f56a538843ed504
+SHA1: 407a0c22698566eaec921d8277e01ba0f9187787
+MD5sum: 5ea5547e8f83b77d913b152a51d44edc
+Description: GnuPG keys of the Ubuntu archive
+ The Ubuntu project digitally signs its Release files. This package
+ contains the archive keys used for that.
+
+Package: ucf
+Version: 3.0036
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Manoj Srivastava <srivasta@debian.org>
+Installed-Size: 191
+Depends: debconf (>= 1.5.19), coreutils (>= 5.91)
+Multi-Arch: foreign
+Priority: standard
+Section: utils
+Filename: pool/main/u/ucf/ucf_3.0036_all.deb
+Size: 52946
+SHA256: 51d6a88fd746fe1f6f9e9933f096cf53dc42aac357600e498d038d2c775afa80
+SHA1: 3c6423a767ff6f4c9fa38a00c6c3046e37642f3b
+MD5sum: 69c8bd539f6f461f680bf2bc1ef33fcd
+Description: Update Configuration File(s): preserve user changes to config files
+ Debian policy mandates that user changes to configuration files must be
+ preserved during package upgrades. The easy way to achieve this behavior
+ is to make the configuration file a 'conffile', in which case dpkg
+ handles the file specially during upgrades, prompting the user as
+ needed.
+ .
+ This is appropriate only if it is possible to distribute a default
+ version that will work for most installations, although some system
+ administrators may choose to modify it. This implies that the
+ default version will be part of the package distribution, and must
+ not be modified by the maintainer scripts during installation (or at
+ any other time).
+ .
+ This script attempts to provide conffile-like handling for files that
+ may not be labelled conffiles, and are not shipped in a Debian package,
+ but handled by the postinst instead. This script allows one to
+ maintain files in /etc, preserving user changes and in general
+ offering the same facilities while upgrading that dpkg normally
+ provides for 'conffiles'.
+ .
+ Additionally, this script provides facilities for transitioning a
+ file that had not been provided with conffile-like protection to come
+ under this schema, and attempts to minimize questions asked at
+ installation time. Indeed, the transitioning facility is better than the
+ one offered by dpkg while transitioning a file from a non-conffile to
+ conffile status.
+
+Package: update-motd
+Version: 3.6-0ubuntu1
+Architecture: all
+Maintainer: Dustin Kirkland <kirkland@ubuntu.com>
+Installed-Size: 51
+Depends: libpam-modules (>= 1.0.1-9ubuntu3)
+Priority: extra
+Section: admin
+Filename: pool/main/u/update-motd/update-motd_3.6-0ubuntu1_all.deb
+Size: 5378
+SHA256: b5427b69605e63f5ec814144e6b0011610bc77e7cc4eebb8d2a72c7e2a13f4ab
+SHA1: ee73ae7f5fbd3176e85c0b6b1f826e2b4a8b7995
+MD5sum: bf0a8ce6b140c874a215bc39e1a95199
+Description: compliments pam_motd in libpam-modules
+ .
+ This package installs a script that immediately dynamically generates
+ a message-of-the-day by running scripts installed in /etc/update-motd.d,
+ in lexical order.
+ .
+ Other packages, or system administrators should symlink scripts into
+ /etc/update-motd.d, pre-pending a 2-digit number to handle ordering.
+ .
+ The functionality formerly provided by this package is now integrated into
+ pam_motd, in libpam-modules.
+
+Package: virtualbox-dkms
+Source: virtualbox
+Version: 5.0.40-dfsg-0ubuntu1.16.04.1
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian Virtualbox Team <pkg-virtualbox-devel@lists.alioth.debian.org>
+Installed-Size: 4931
+Depends: dkms (>= 2.1.0.0)
+Recommends: virtualbox (>= 5.0.40-dfsg-0ubuntu1.16.04.1)
+Provides: virtualbox-modules
+Homepage: http://www.virtualbox.org/
+Priority: optional
+Section: contrib/kernel
+Filename: pool/main/v/virtualbox/virtualbox-dkms_5.0.40-dfsg-0ubuntu1.16.04.1_all.deb
+Size: 623168
+SHA256: 01bd0f596a866d531c10fa2eee51a6b9ff97400ac8b5755e576af433e2370d37
+SHA1: 0c1295c73fb30d3e2ce9d05b973f6d1f1c97427f
+MD5sum: d1ab33e1638b6708ea3565d025d783f8
+Description: x86 virtualization solution - kernel module sources for dkms
+ VirtualBox is a free x86 virtualization solution allowing a wide range
+ of x86 operating systems such as Windows, DOS, BSD or Linux to run on a
+ Linux system.
+ .
+ This package provides the source code for the virtualbox kernel module to be
+ build with dkms. Kernel sources or headers are required to compile this
+ module.
+
+Package: x11-common
+Source: xorg
+Version: 1:7.7+13ubuntu3
+Architecture: all
+Maintainer: Ubuntu X-SWAT <ubuntu-x@lists.ubuntu.com>
+Installed-Size: 309
+Depends: lsb-base (>= 1.3-9ubuntu2)
+Multi-Arch: foreign
+Homepage: http://www.x.org/
+Priority: optional
+Section: x11
+Filename: pool/main/x/xorg/x11-common_7.7+13ubuntu3_all.deb
+Size: 22390
+SHA256: 273a4e8d035f97b8b62a260d27649de4b1d7ad92cc311d027154986ac61cbfda
+SHA1: 5c4e04af26db08e489a808be851616841df45065
+MD5sum: b0943f823b6f471e8c41ca66c2b5a2dd
+Description: X Window System (X.Org) infrastructure
+ x11-common contains the filesystem infrastructure required for further
+ installation of the X Window System in any configuration; it does not
+ provide a full installation of clients, servers, libraries, and utilities
+ required to run the X Window System.
+ .
+ A number of terms are used to refer to the X Window System, including "X",
+ "X Version 11", "X11", "X11R6", and "X11R7".  The version of X used in
+ Debian is derived from the version released by the X.Org Foundation, and
+ is thus often also referred to as "X.Org".  All of the preceding quoted
+ terms are functionally interchangeable in an Debian system.
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+
+Package: xkb-data
+Source: xkeyboard-config
+Version: 2.16-1ubuntu1
+Architecture: all
+Maintainer: Ubuntu X-SWAT <ubuntu-x@lists.ubuntu.com>
+Installed-Size: 2995
+Breaks: libx11-6 (<< 2:1.4.3)
+Multi-Arch: foreign
+Homepage: http://www.freedesktop.org/Software/XKeyboardConfig
+Priority: extra
+Section: x11
+Filename: pool/main/x/xkeyboard-config/xkb-data_2.16-1ubuntu1_all.deb
+Size: 304834
+SHA256: aa9883926d1ce956aecca0375ffc6b62ff010329c75c3779c72f616f14617ccb
+SHA1: 2cf7178cf674a955caa4bb94bce58b6d4ddc751d
+MD5sum: 60b7dbf9920377e5bc3e90d8f86ecb87
+Description: X Keyboard Extension (XKB) configuration data
+ This package contains configuration data used by the X Keyboard
+ Extension (XKB), which allows selection of keyboard layouts when
+ using a graphical interface.
+ .
+ Every X11 vendor provides its own XKB data files, so keyboard layout
+ designers have to send their layouts to several places.  The
+ xkeyboard-config project has been launched at FreeDesktop in order
+ to provide a central repository that could be used by all vendors.
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+
+Package: xml-core
+Version: 0.13+nmu2
+Architecture: all
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian XML/SGML Group <debian-xml-sgml-pkgs@lists.alioth.debian.org>
+Installed-Size: 188
+Depends: sgml-base (>= 1.26+nmu2), sed (>= 4.1.2-8)
+Suggests: debhelper (>= 9.20120909)
+Priority: optional
+Section: text
+Filename: pool/main/x/xml-core/xml-core_0.13+nmu2_all.deb
+Size: 23274
+SHA256: c1dbc6d07db2e26821597b5cf67ee2a0d39e42ad8c992f65a5881260d8723d05
+SHA1: 0d2b5a2eb86c6f53a9374c7e694e39b85637314e
+MD5sum: 1c3346c29931346fdfc60b64db3f502b
+Description: XML infrastructure and XML catalog file support
+ This package creates the XML infrastructure directories and provides
+ XML catalog file support in compliance with the current Debian XML
+ Policy draft:
+ .
+   * infrastructure directories:
+      - /etc/xml
+      - /usr/share/xml/{declaration,entities,misc,schema}
+      - /usr/local/share/xml/{declaration,entities,misc,schema}
+ .
+   * XML catalog schema: OASIS XML Catalog Committee Specification 1.0
+ .
+   * update-xmlcatalog(8): tool for maintaining the root XML catalog
+     file and the package XML catalog files in the '/etc/xml' directory
+     as well as local XML catalog files.
+ .
+   * dh_installxmlcatalogs(1): debhelper tool for installing local XML
+     catalog files and registering XML entities in package XML catalog
+     files and the root XML catalog file (requires debhelper package)
+
