@@ -2,6 +2,11 @@
 #include <ImageBoard.h>
 #include <Layer.h>
 
+#include <QWebHistory>
+#include <QWebHistoryItem>
+#include <QWebPage>
+#include <QWebView>
+
 ResultBoard* result;
 ImageBoard* board;
 	

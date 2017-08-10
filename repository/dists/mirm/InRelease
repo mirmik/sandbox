@@ -1,0 +1,61 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: RadioLine
+Label: Repo
+Codename: mirm
+Architectures: amd64 i386
+Components: main
+Description: TODO
+Date: Thu, 03 Aug 2017 11:30:37 UTC
+MD5Sum:
+ 867e1698d8629e7d2a4daa099f09d62b           347575 contrib/binary-amd64/Packages
+ 8f2b7bd9ba3ffc12f4844610cf17ab07           102100 contrib/binary-amd64/Packages.gz
+ 1dfa3c29af4c333773338ececaafca98              142 dists/mirm/Release
+ 002b67e1cd53aa27d68c0fa8d4a75001           347483 dists/mirm/main/binary-amd64/Packages
+ 9847aa12f6227a8899934786ba13daf1           102899 dists/mirm/main/binary-amd64/Packages.gz
+ 9346cf51f30fb866ec0ac841727c15f1               84 dists/mirm/main/binary-amd64/Release
+ eb2d3a32768ca21c8d72d74509f16ea9            60945 dists/mirm/main/binary-i386/Packages
+ 135bcf7788c52f8ad78e73e1392e5bda            20618 dists/mirm/main/binary-i386/Packages.gz
+ 20c579ff967ed1cf921f2021978930f5               83 dists/mirm/main/binary-i386/Release
+SHA1:
+ a9c2a86ca2a3f8824035ffa4d959536deda66e23           347575 contrib/binary-amd64/Packages
+ 81f621e43b014a520825e5fd944e82dd0cada4bf           102100 contrib/binary-amd64/Packages.gz
+ efd06e9a37fa09251239200ff7f802cdf428b77c              142 dists/mirm/Release
+ 23649ff719467c2a70a88bdc84587398f0a5b77a           347483 dists/mirm/main/binary-amd64/Packages
+ a09fabef357a03c5458b6c0a1c3eeae2ef52e9cc           102899 dists/mirm/main/binary-amd64/Packages.gz
+ 34d87d7fc84078332648751adeb7d00d84a691bb               84 dists/mirm/main/binary-amd64/Release
+ f14f0bd966de3bae7ab380ac38fd4935a9686262            60945 dists/mirm/main/binary-i386/Packages
+ 25f02432c6bae492e9eb1a383917f95d41b6b3c8            20618 dists/mirm/main/binary-i386/Packages.gz
+ a26a003e6d287158c7a9af32e99150cc7bac9d6f               83 dists/mirm/main/binary-i386/Release
+SHA256:
+ 40fe14b44065cf40a4037a2f74961e48d6994dd067d1647af2be9984f00fa0a0           347575 contrib/binary-amd64/Packages
+ 6d6aff3029eb1bbfc88e421e311a46c680f837897d07b837737170e39a41f8a5           102100 contrib/binary-amd64/Packages.gz
+ 0ac2e605b217f99b0158e91607f2f4270bea098464686d2d9c9426c7db2c0d33              142 dists/mirm/Release
+ 87138589c112f659e7abe9c1e5c5631b1b31a9fee78954b6417a96cec1f034e0           347483 dists/mirm/main/binary-amd64/Packages
+ 1c945f7ab23098ba4d819e9ebc361536f8b85a494220d7f121afcf5d9d86faaa           102899 dists/mirm/main/binary-amd64/Packages.gz
+ 30dc1c41fa37b7cf0ba0c4c1aafc577d5ea333daa949935607b5ee6a05e1e5ef               84 dists/mirm/main/binary-amd64/Release
+ b37eaffd76c17c989991a4997ee7e3d7476c00b136e56b46304a9c832959f6ec            60945 dists/mirm/main/binary-i386/Packages
+ d9ec32569b23686ea1311a158285a566181375c488dc2c7d4d8b45868f395021            20618 dists/mirm/main/binary-i386/Packages.gz
+ 625f86cb3199e0145101dc7fcf1c86da71e3f4a291c630bf0cc861fe04efae22               83 dists/mirm/main/binary-i386/Release
+SHA512:
+ 0b0e963f70b0dc7f9d7479c5cb5295aff544002ca1665e84c4b540fd3619c36586ddc652accbcc75c832daf66df132ac347befbfcc09c85583d78d374ab97a4e           347575 contrib/binary-amd64/Packages
+ da93c1546c344970d586f87004c3e12c810195a473a8d60cf35bc286ac74afbb2ecf7c0938342cebacddda51aeea6f42f92ac0036a632b4a252e4b3d23211a68           102100 contrib/binary-amd64/Packages.gz
+ 9631cc6f92a7572b1cefd73383ff39d14f0119ba76d57c55e56419b1875eebefe436a51c00b0a79ef82ec82e8ffa1d1bd9e7358c9fc6cd25ceac955be90b1b8a              142 dists/mirm/Release
+ 333df284e1b153b38bdc981098e9c9e3789a3c7f57a2a4ec25c9abe8d8398dee1f6215f6983df2e866d2f00cb1481eadacb09fb7e6bb4e2890a310e095ea91f5           347483 dists/mirm/main/binary-amd64/Packages
+ 504d12f3e37b561f832b1c35640c6cf96dcbf1882c54fb555a30d5cbbea8d4c182a31c1b01ce5d29059c5e71063a17f60722ea9a83dc555af58298951d116fac           102899 dists/mirm/main/binary-amd64/Packages.gz
+ 99bd37961a438b0fa8012a17847e42e21b552e66fd3e30e04bfe5234c8bfac819e35a4425362abcc6615f5b1b9b1b136eb16036535295a5b4307b4c8ac72d78b               84 dists/mirm/main/binary-amd64/Release
+ 341d6baa325eaf037aa706f0be10f4deb2d1093d90b4c459780961c4c8c1d0ae6e907cd73b95799b6eed17eebe54b7b16bea0866bb092eccb3ebd02ff2583eb6            60945 dists/mirm/main/binary-i386/Packages
+ ed5d4769504a02d6f4b2ec62b542bef7aa049dee74d47f95661cd3d754a53ca5104851f8718407b5ada363b00247e499d47ea74ca256a0854b575ccd63c6048a            20618 dists/mirm/main/binary-i386/Packages.gz
+ 275e0dfa85b3ca09431ad1b1cea0f8b1378ae64cdd6fb84300911db2a414662754574ac30f4254797021bb35b0288bf596c1dc9a3cf8d4c5dc5067c8fc49147b               83 dists/mirm/main/binary-i386/Release
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBCgAGBQJZgwleAAoJEBWJOdgdZc9CCQwIAK2RRR5jVKr4cQwar1On0e16
+JBjcGpEfIq8TLRIwKdwpHE6s3f3b7CM0QhHCKOxIysjlReCKO5QYn7sAq8XJRn+m
+TAAyBu32ZOUKQ07yv5DNOTb1fjmvfv7uFAMEs36ya05kR+gbO1tWZTP/siRHP7RF
+y8cnTmGAYZbQpB/pXN7eF2/mvUzxDy7uAwtUTNQq67br02zAf/x8wop5EX3rnXs9
+8xv0XOtHvhcnKEu0umy3Idai9yl/rd6cfZHQvLUNpPEG+JR1kGLla7ia59Ic9N0n
+Q27dwkhfiVdbSYjdLBOwZoP/qnODFo4gy6AU5pGjsttVlsDWO17uI+65qUIjRyE=
+=tLjb
+-----END PGP SIGNATURE-----

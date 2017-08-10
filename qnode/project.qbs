@@ -5,7 +5,7 @@ Product {
 	targetName: "target"
 	type: "application"
 	Depends { name: "cpp" }
-	Depends { name: "Qt"; submodules: ["core", "gui", "opengl", "charts"] }
+	Depends { name: "Qt"; submodules: ["core", "gui", "opengl"] }
 	files: [ 
 		"main.cpp", "ColorSlider.h", "CentralFrame.h"
 	]
