@@ -4,26 +4,33 @@
 import sys
 sys.path.append("..")
 
-import glink.core
+print(sys.path)
 
-gl = glink.core.context()
+import glink.cpp
+import glink.util as gu
+print(glink.util.green("Script start"))
 
-gl.copy(src="first", tgt="second", echo=True)
-gl.copy(src="second", tgt="third", echo=True)
+cpp = glink.cpp.host_cxx_maker()
 
-gl.set_unresolve_handler(glink.core.try_resolve_as_file)
-print(gl.depends_as_set("third"))
+srcs = [
+	"main.cpp", 
+	"ttt.cpp"
+]
 
-#print(gl.get_target("forth"))
+objs = ["build/main/" + gu.changeext(s,"o") for s in srcs]
 
-#gl.translations["second"].do_action(message = "COPY {tgt}")
-#gl.translations["third"].do_action(message = "COPY {tgt}")
+for s, o in zip(srcs, objs):
+    cpp.object(src=s, tgt=o)
 
-#gl.targets["second"].invoke("act")
-#gl.targets["third"].invoke("act")
+cpp.executable(tgt="target", srcs=objs)
 
-#gl.clean_translations()
+target = "target"
 
-#gl.execute()
+def all():
+	return cpp.make(target)
 
-#gl.clean_translations()
+def clean():
+	return cpp.clean(target)
+
+result = glink.util.do_argv_routine(arg=1, default="all", locs=locals())
+cpp.print_result_string(result)

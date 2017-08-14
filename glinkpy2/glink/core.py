@@ -1,26 +1,8 @@
-import os
-
-class executor:
-	def __init__(self, rule, echo=False, message=None):
-		self.rule = rule
-		self.echo = echo
-		self.message = message
-
-	def __call__(self, target):
-		rule = self.rule.format(**target.__dict__)
-		#print(rule)
-
-		if self.echo:
-			print(rule)
-	
-		if self.message:
-			print(self.message.format(**target.__dict__))
-
-		return os.system(rule)
-
+import glink.util
 
 class target:
-	def __init__(self, tgt, deps, **kwargs):
+	def __init__(self, context, tgt, deps, **kwargs):
+		self.context = context
 		self.depends = set()
 		self.tgt = tgt
 
@@ -31,51 +13,46 @@ class target:
 			setattr(self, k, v)
 
 	def invoke(self, func):
-		getattr(self, func)(self)
+		if (isinstance(func ,str)):
+			res = getattr(self, func, None)
+			if (res == None):
+				return None
+			ret = res(self)
+			return ret
+		else:
+			return func(self)
+
+	def __repr__(self):
+		return "target:"+self.tgt
 
 class context:
 	def __init__(self):
 		self.targets={}
-		self.unresolve_handler=None
+		self.unresolve_handlers=[]
 
-	def add_target(self, tgt, deps, **kwargs):
-		self.targets[tgt] = target(tgt, deps, **kwargs)
-
-	def copy(self, src, tgt, echo=False, message=None):
-		self.add_target(
-			tgt=tgt, 
-			act=executor("cp {src} {tgt}", echo, message), 
-			src=src,
-			isfile=True,
-			deps=[src]
-		)	
-
-	def rename(self, src, tgt, echo=False, message=None):
-		self.add_target(
-			tgt=tgt, 
-			act=executor("mv {src} {tgt}", echo, message), 
-			src=src,
-			isfile=True,
-			deps=[src]
-		)	
+	def virtual(self, tgt, deps):
+		self.targets[tgt] = target(context=self, tgt=tgt, deps=deps)
 
 	def get_target(self, tgt):
 		if tgt in self.targets:
 			return self.targets[tgt]
 		
-		if self.unresolve_handler:
-			res = self.unresolve_handler(self, tgt)
+		for hndlr in self.unresolve_handlers:
+			res = hndlr(self, tgt)
 			if res:
 				return self.targets[tgt]
 
-		print("Попытка получить несущесвыющую цель: {0}".format(tgt))
+		print("Попытка получить несуществующую цель: {0}".format(tgt))
 		exit(-1)
 
-	def set_unresolve_handler(self, hndlr):
-		self.unresolve_handler = hndlr
+	def add_unresolve_handler(self, hndlr):
+		self.unresolve_handlers.append(hndlr)
 
-	def depends_as_set(self, tgt):
+	def depends_as_set(self, tgt, incroot=True):
 		res = set()
+		if incroot:
+			res.add(tgt)
+		
 		target = self.get_target(tgt)
 		
 		for d in target.depends:
@@ -86,113 +63,83 @@ class context:
 				res = res.union(subres)
 		return res
 
-def try_resolve_as_file(cntxt, tgt):
-	if os.path.exists(tgt):
-		cntxt.add_target(tgt=tgt, deps=[], isfile=True)
-		return True
-	return False
+	def invoke_foreach(self, func):
+		save = dict(self.targets)
+		for k, v in save.items():
+			v.invoke(func)
+
+	def generate_rdepends_lists(self, targets):
+		for t in targets:
+			t.rdepends = []
+
+		for t in targets:
+			for dname in t.depends:
+				dtarget = self.get_target(dname)
+				dtarget.rdepends.append(t.tgt)
 
 
-#def executor(str, trans, echo=False, message=None):
-#	if echo:
-#		print(str)
-#	
-#	if message:
-#		print(message.format(tgt=trans.tgt))
-#
-#	return os.system(str)
-#
-#def always_true(self):
-#		return True
-#
-#def src_as_dep(self):
-#	return self.src
-#
-#def quite_remove(self):
-#	return os.system("rm {tgt} || true".format(tgt=self.tgt))
-#
-#def if_deps_is_exists(self):
-#	for d in self.dep(self):
-#		if os.path.exists(d) == False:
-#			return False
-#	return True
-#
-#def copy_action(self, **kwargs):
-#		if (len(self.src) != 1):
-#			print("src can't to be list")
-#			exit(-1)
-#
-#		return executor("cp {src} {tgt}".format(src=self.src[0], tgt=self.tgt), self, **kwargs)
-#
-#		#return os.system("cp {src} {tgt}".format(src=self.src[0], tgt=self.tgt))
-#
-#class context:
-#
-#	endpoints = {}
-#	translations = {}
-#
-#	class endpoint:
-#		def __init__(self, tgt, chk):
-#			self.tgt = tgt
-#			self.chk = chk
-#
-#		def check(self):
-#			return self.chk(self)
-#
-#	class translation:
-#		def __init__(self, src, tgt, act, chk, dep, rem):
-#			self.src = src
-#			self.tgt = tgt
-#			self.act = act
-#			self.chk = chk
-#			self.dep = dep
-#			self.rem = rem
-#
-#		def check(self):
-#			return self.chk(self)
-#
-#		def depends(self):
-#			return self.dep(self)
-#
-#		def remove(self):
-#			return self.rem(self)
-#
-#		def do_action(self, **kwargs):
-#			return self.act(self, **kwargs)
-#
-#
-#	def add_trans(self, src, tgt, act, 
-#		chk=always_true, 
-#		dep=src_as_dep,
-#		rem=quite_remove
-#	):
-#		trans = context.translation(as_list(src), tgt, act, chk, dep, rem)
-#		self.translations[tgt] = trans
-#
-#	def add_virtual(self, src, tgt, act, chk=always_true, dep=src_as_dep):
-#		virt = context.virtual(src, tgt, act, chk, dep)
-#		self.virtuals[tgt] = virt
-#
-#	def add_endpoint(self, tgt, chk):
-#		ep = context.endpoint(tgt, chk)
-#		self.endpoints[tgt] = ep
-#
-#	def clean_translations(self):
-#		for k in self.translations:
-#			self.translations[k].remove()
-#
-#
-#	def copy(self, src, tgt):
-#		self.add_trans(src, tgt, 
-#			act=copy_action, 
-#			chk=if_deps_is_exists, 
-#			dep=src_as_dep
-#		)
-#
-#	def execute(self):
-#		print("execute")
+	def reverse_recurse_invoke(self, root, ops, cond=glink.util.always_true):
+		depset = self.depends_as_set(root)
+		targets_list = [self.get_target(t) for t in depset]
+		sum = 0
+
+		self.generate_rdepends_lists(targets_list)
+		for t in targets_list:
+			t.rcounter = 0
+
+		works = glink.util.queue()
+
+		for t in targets_list:
+			if t.rcounter == len(t.depends):
+				works.put(t)
+
+		while(not works.empty()):
+			w = works.get()
+
+			if cond(self, w):
+				ret = w.invoke(ops)
+				if not (ret == 0 or ret == None):
+					raise context.ResultIsNotNull()
+				if ret == 0:
+					sum += 1
+
+			for r in [self.get_target(t) for t in w.rdepends]:
+				r.rcounter = r.rcounter + 1
+				if r.rcounter == len(r.depends):
+					works.put(r)
+
+		return sum
+
+	def invoke_for_depends(self, root, ops, cond=None):
+		depset = self.depends_as_set(root)
+		sum = 0
+		ret = None
+
+		for d in depset:
+			target = self.get_target(d)
+			if cond==None:
+				ret = target.invoke(ops)
+			else:
+				if cond(self, target):
+					ret = target.invoke(ops)
+			if ret == 0:
+				sum+=1
+
+		return sum
+
 
 def as_list(src):
 	if (not isinstance(src, list)):
 		return [src]
 	return src
+
+class operations_chain:
+	def __init__(self, lst):
+		self.lst = lst 
+
+	def __call__(self, target):
+		for l in self.lst:
+			ret = target.invoke(l)
+			if ret != 0 and ret != None:
+				return ret
+		return 0
