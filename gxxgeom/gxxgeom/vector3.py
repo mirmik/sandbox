@@ -1,5 +1,5 @@
 class vector3:
-	def __init__(self, x,y,z):
+	def __init__(self, x, y, z):
 		self.x = x
 		self.y = y
 		self.z = z
@@ -21,3 +21,26 @@ class direction(vector3):
 
 class vector(vector3):
 	pass
+
+class matrix3: 
+	def __init__(self):
+		self.a11 = 1
+		self.a12 = 0
+		self.a13 = 0
+		self.a21 = 0
+		self.a22 = 1
+		self.a23 = 0
+		self.a31 = 0
+		self.a32 = 0
+		self.a33 = 1
+		
+class quaternion:
+	def __init__(self):
+		self arr = np.narray([1,0,0,0])
+
+	def self_normalize(self):
+		arr.normalize()
+
+	def __repr__(self):
+		return arr.__repr__()
+
