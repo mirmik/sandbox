@@ -43,7 +43,6 @@ class MQMainWindow(widgets.QMainWindow) :
 			event.ignore()
 
 	def wheelEvent(self, event):
-		print(event.angleDelta())
 		self.wheelSignal.emit(event.angleDelta().y())
 
 class GUI:

@@ -47,7 +47,10 @@ gui.connectWheelHandler(wheelEvent)
 gui.connectCenterHandler(centerEvent)
 
 def zhandler():
-	camera.quaternion = gxxgeom.base.quaternion(1, 0, 0, 0)
+	#camera.quaternion = gxxgeom.base.quaternion(1, 0, 0, 0)
+	camera.yaw = -1
+	camera.pitch = -1.3
+	camera.scale = 1
 
 def xhandler():
 	camera.quaternion = gxxgeom.base.quaternion(0.71, 0.71, 0, 0)
@@ -112,10 +115,10 @@ render.add_line(pnts[2], pnts[9])
 render.add_line(pnts[6], pnts[9])
 render.add_line(pnts[7], pnts[9])
 
-render.add_line(pnts[4], pnts[10])
-render.add_line(pnts[5], pnts[10])
-render.add_line(pnts[6], pnts[10])
-render.add_line(pnts[7], pnts[10])
+#render.add_line(pnts[4], pnts[10])
+#render.add_line(pnts[5], pnts[10])
+#render.add_line(pnts[6], pnts[10])
+#render.add_line(pnts[7], pnts[10])
 
 render.add_line(pnts[0], pnts[11])
 render.add_line(pnts[0], pnts[12])

@@ -2,25 +2,72 @@ import numpy as np
 import math
 
 class vector3:
-	def __init__(self, x,y,z):
-		self.x = x
-		self.y = y
-		self.z = z
+	def __init__(self,*arg):
+		self.arr = [0]*3
+		if len(arg) == 0:
+			pass
+		elif len(arg) == 1:
+			self.arr[0] = arg[0][0]
+			self.arr[1] = arg[0][1]
+			self.arr[2] = arg[0][2]
+		else: 
+			self.arr[0] = arg[0]
+			self.arr[1] = arg[1]
+			self.arr[2] = arg[2]
+			
 
 	def scale(self,scl):
-		return vector3(self.x * scl, self.y * scl, self.z * scl)
+		return vector3(self.x() * scl, self.y() * scl, self.z() * scl)
 
 	def __add__(self, oth):
-		return vector3(self.x + oth.x, self.y + oth.y, self.z + oth.z)
+		return vector3(self.x() + oth.x(), self.y() + oth.y(), self.z() + oth.z())
+
+	def __sub__(self, oth):
+		return vector3(self.x() - oth.x(), self.y() - oth.y(), self.z() - oth.z())
 
 	def __repr__(self):
-		return "({},{},{})".format(self.x, self.y, self.z)
+		return "({},{},{})".format(self.x(), self.y(), self.z())
+
+	def __getitem__(self, i):
+		return self.arr[i]
+
+	def abs(self):
+		return np.linalg.norm(self.arr)
+
+	def vecmul(self, b):
+		return vector(self.y()*b.z() - self.z()*b.y(), self.z()*b.x() - self.x()*b.z(), self.x()*b.y() - self.y()*b.x());
+
+	def normalize(self):
+		a = self.abs()
+		return vector(self.x()/a, self.y()/a, self.z()/a)
+
+	def x(self):
+		return self.arr[0]
+
+	def y(self):
+		return self.arr[1]
+
+	def z(self):
+		return self.arr[2]
+
 
 class point(vector3):
-	pass
+	def distance_to_point(self, pnt):
+		return math.sqrt((pnt.x() - self.x())**2 + (pnt.y() - self.y())**2 + (pnt.z() - self.z())**2)
+
+def origin():
+	return point(0,0,0)
 
 class direction(vector3):
-	pass
+	def __init__(self, *args):
+		if len(args) == 2:
+			vec = args[1] - args[0]
+			vector3.__init__(self, vec.normalize())
+		else:
+			vector3.__init__(self, *args)
+			self.normalize()
+			
+
 
 class vector(vector3):
 	pass
@@ -28,6 +75,31 @@ class vector(vector3):
 class matrix3: 
 	def __init__(self):
 		pass
+
+class axis2:
+	def __init__(self, pnt, norm=None, dirx=None, diry=None ):
+		self.pnt = point(pnt)
+		#self.vec = direction(vec)
+
+		if norm != None:
+			vecmul = norm.vecmul(vector(0,0,1))
+			if vecmul.abs() < 0.0000001:
+				self.vecx = vector(1, 0, 0)
+				self.vecy = vector(0, 1, 0)
+
+			self.vecx = vecmul.normalize()
+			self.vecy = self.vecx.vecmul(norm).normalize()
+
+		return None
+
+	def loc(self):
+		return self.pnt
+
+	def dirx(self):
+		return self.vecx
+
+	def diry(self):
+		return self.vecy
 
 
 

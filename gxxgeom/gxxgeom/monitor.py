@@ -86,7 +86,7 @@ class Monitor:
 
 class Camera:
 	def __init__(self, scene, camera):
-		self.distance = 500
+		#self.distance = 500
 		self.center = np.array([0,0,0])
 		self.quaternion = gxxgeom.base.quaternion()
 		#self.matrix = np.array([[1,0,0],[0,1,0],[0,0,1]])
@@ -95,14 +95,16 @@ class Camera:
 		self.pitch = -1.3
 		self.scale = 1
 
+		self.rk = 2
 		self.mode = False
+		self.evaluate_transformation_matrix()
 
 	def change_mode():
 		self.mode = not self.mode	
 
-	def transformation_matrix(self):
+	def evaluate_transformation_matrix(self):
 		if self.mode:
-			return self.quaternion.rotation_matrix()
+			self.transmat = self.quaternion.rotation_matrix()
 		else:
 			yawM = np.array([
 				[math.cos(self.yaw), -math.sin(self.yaw), 0],
@@ -116,68 +118,77 @@ class Camera:
 				[-math.sin(self.pitch),	0, 					+math.cos(self.pitch)],
 			])
 
-			scaleM = np.array([
-				[self.scale, 0, 0],
-				[0, self.scale, 0],
-				[0,	0, self.scale],
-			])
+			self.transmat = pitchM.dot(yawM)
+			
+		scaleM = np.array([
+			[self.scale, 0, 0],
+			[0, self.scale, 0],
+			[0,	0, self.scale],
+		])
 
-			return scaleM.dot(pitchM.dot(yawM))
+		self.transmat = scaleM.dot(self.transmat)
 			#return yawM
 
-	def rotation_matrix(self):
-		if self.mode:
-			return self.quaternion.rotation_matrix()
-		else:
-			yawM = np.array([
-				[math.cos(self.yaw), -math.sin(self.yaw), 0],
-				[math.sin(self.yaw), +math.cos(self.yaw), 0],
-				[0				   , 0					, 1],
-			])
-
-			pitchM = np.array([
-				[math.cos(self.pitch), 	0, 					math.sin(self.pitch)],
-				[0, 					1, 					0],
-				[-math.sin(self.pitch),	0, 					+math.cos(self.pitch)],
-			])
-
-			return pitchM.dot(yawM)
+	#def rotation_matrix(self):
+	#	if self.mode:
+	#		return self.quaternion.rotation_matrix()
+	#	else:
+	#		yawM = np.array([
+	#			[math.cos(self.yaw), -math.sin(self.yaw), 0],
+	#			[math.sin(self.yaw), +math.cos(self.yaw), 0],
+	#			[0				   , 0					, 1],
+	#		])
+#
+	#		pitchM = np.array([
+	#			[math.cos(self.pitch), 	0, 					math.sin(self.pitch)],
+	#			[0, 					1, 					0],
+	#			[-math.sin(self.pitch),	0, 					+math.cos(self.pitch)],
+	#		])
+#
+	#		return pitchM.dot(yawM)
 		
+	def transformation_matrix(self):
+		return self.transmat
 
 	def xevent(self, i):
 		if self.mode:
-			self.quaternion = camera.quaternion.small_rotate1(float(diff.x()) * i * 0.001)
+			self.quaternion = self.quaternion.small_rotate1(i * 0.001)
 		else:
-			self.yaw -= i * 0.001
+			self.yaw -= i * 0.001 * self.rk
+		self.evaluate_transformation_matrix()
 
 	def yevent(self, i):
 		if self.mode:
-			self.quaternion = camera.quaternion.small_rotate2(float(diff.y()) * i * 0.001)
+			self.quaternion = self.quaternion.small_rotate2(i * 0.001)
 		else:
-			self.pitch += i * 0.001
+			self.pitch += i * 0.001 * self.rk
+		self.evaluate_transformation_matrix()
 
 	def xstrfevent(self, i):
-		pass
-		#rotmat = np.linalg.inv(self.rotation_matrix())
-		#mvec = np.array([0,i,0])
-		#rvec = rotmat.dot(mvec)
-		#self.center = np.add(self.center, rvec)
-		
-	def ystrfevent(self, i):
-		rotmat = np.linalg.inv(self.rotation_matrix())
-		mvec = np.array([i,0,0])
+		rotmat = np.linalg.inv(self.transformation_matrix())
+		mvec = np.array([0,i,0])
 		rvec = rotmat.dot(mvec)
 		self.center = np.add(self.center, rvec)
+		#self.evaluate_transformation_matrix()
+		
+	def ystrfevent(self, i):
+		rotmat = np.linalg.inv(self.transformation_matrix())
+		mvec = np.array([-i,0,0])
+		rvec = rotmat.dot(mvec)
+		self.center = np.add(self.center, rvec)
+		#self.evaluate_transformation_matrix()
+		#print(self.center)
 		
 
 	def zevent(self, i):
-		if self.mode:
-			pass
+		#if self.mode:
+		#	pass
+		#else:
+		if i > 0:
+			self.scale *= 1.1
 		else:
-			if i > 0:
-				self.scale *= 1.1
-			else:
-				self.scale /= 1.1 
+			self.scale /= 1.1 
+		self.evaluate_transformation_matrix()
 
 
 	def __repr__(self):
