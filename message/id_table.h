@@ -1,8 +1,13 @@
+#ifndef GENOS_ID_TABLE_H
+#define GENOS_ID_TABLE_H
+
 #include <stdint.h>
+#include <stdlib.h>
+#include <gxx/datastruct/hlist_head.h>
 
-typedef size_t id_t;
+//typedef size_t id_t;
 
-struct id_table {
+/*struct id_table {
 	size_t size;
 	struct hlist_head* harray;
 };
@@ -22,4 +27,6 @@ static inline struct hlist_node* id_table_find(struct id_table* tbl, id_t id, si
 		if (*((id_t*)((char*)it + keyoff)) == id) return it;
 	}
 	return 0;
-}
+}*/
+
+#endif

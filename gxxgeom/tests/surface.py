@@ -91,13 +91,13 @@ sph1 = surface.sphere_surface(point(40,0,0), 100);
 sph3 = surface.sphere_surface(point(0,300,200), 100);
 sph2 = surface.sphere_surface(point(0,500,300), 100);
 
-#res = surface_intersection(sph0, sph1)
+res = surface_intersection(sph0, sph1)
 
-#for i in res:
-#	scene.add_curve(i)
+for i in res:
+	scene.add_curve(i)
 
 scene.add_surface(sph0)
-#scene.add_surface(sph1)
+scene.add_surface(sph1)
 #scene.add_surface(sph2)
 #scene.add_surface(sph3)
 
