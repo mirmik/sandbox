@@ -13,6 +13,11 @@ void g0_dealloc_message(struct g0_message* msg) {
 	free(msg);
 }
 
+void g0_utilize_message(struct g0_message* msg) {
+	free(msg->data);
+	free(msg);
+}
+
 /*static inline void g0_info(struct g0_message*, g0id_t receiver, g0id_t sender, void* data, size_t size) {
 	msg->stsbyte = 0;
 	msg->rid = receiver;
@@ -21,7 +26,7 @@ void g0_dealloc_message(struct g0_message* msg) {
 	msg->size = size;
 }*/
 
-g0id_t g0_send(g0id_t receiver, g0id_t sender, const void* data, size_t size) {
+g0id_t g0_send(g0id_t sender, g0id_t receiver, const void* data, size_t size) {
 	struct g0_message* msg = g0_alloc_message();
 	void* msgdata = malloc(size);
 	memcpy(msgdata, data, size);

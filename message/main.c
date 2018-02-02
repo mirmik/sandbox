@@ -40,12 +40,12 @@ int main() {
 	struct test_service srvs1;
 	g0id_t sender = test_service_init(&srvs1, "test1");
 
-	struct test_service srvs2;
-	g0id_t receiver = test_service_init(&srvs2, "test2");
+	struct echo_service srvs2;
+	g0id_t receiver = echo_service_init(&srvs2, "echo1");
 
 	const char* msg = "HelloWorld";
 
-	g0_send(receiver, sender, msg, strlen(msg));
+	g0_send(sender, receiver, msg, strlen(msg));
 
 /*
 	int a = 33;
