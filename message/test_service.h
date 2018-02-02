@@ -6,11 +6,12 @@
 
 struct test_service {
 	struct g0_service serv;
+	const char* name;
 };
 
 __BEGIN_DECLS
 
-void test_service_init(struct test_service* tserv);
+g0id_t test_service_init(struct test_service* tserv, const char* name);
 
 __END_DECLS
 

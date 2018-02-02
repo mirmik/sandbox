@@ -7,12 +7,11 @@
 
 #include "id_table.h"
 #include "service.h"
+#include "msgops.h"
 #include "test_service.h"
 
 #include <gxx/debug/dprint.h>
-
-
-
+#include <string.h>
 
 /*
 void genos_message_transport(msg_t* msg) {
@@ -38,8 +37,16 @@ void genos_sendv(struct iovec* iov, struct service * rptr, struct service * sptr
 int main() {
 	g0_init();
 
-	struct test_service srvs;
-	test_service_init(&srvs);
+	struct test_service srvs1;
+	g0id_t sender = test_service_init(&srvs1, "test1");
+
+	struct test_service srvs2;
+	g0id_t receiver = test_service_init(&srvs2, "test2");
+
+	const char* msg = "HelloWorld";
+
+	g0_send(receiver, sender, msg, strlen(msg));
+
 /*
 	int a = 33;
 	double b = 33.6;

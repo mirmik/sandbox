@@ -7,7 +7,7 @@ from licant.libs import include
 include("gxx")
 
 application("target",
-	sources = ["main.c", "service.c", "test_service.c"],
+	sources = ["main.c", "service.c", "test_service.c", "msgops.c"],
 	include_paths = ["."],
 
 	include_modules = [
