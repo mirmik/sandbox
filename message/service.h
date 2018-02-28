@@ -9,9 +9,8 @@ struct g0_message;
 struct g0_service;
 
 struct g0_message {
-	//struct hlist_node hlnk; //к таблице сообщений.
-	g0id_t qid;				//ид сообщения. хэш таблицы сообщений.
 	struct dlist_head qlnk; //к листу входящих сервиса.
+	g0id_t qid;				//ид сообщения. хэш таблицы сообщений.
 	
 	g0id_t sid; 			//ид отправителя.
 	g0id_t rid;				//ид получателя.
@@ -21,11 +20,8 @@ struct g0_message {
 
 	union {
 		struct {
-//			uint8_t sended : 1;
-//			uint8_t recved : 1;
 			uint8_t repled : 1;
 			uint8_t noreply : 1;
-			//uint8_t nodeallocate : 1;
 		};
 		uint8_t stsbyte;
 	};
@@ -39,16 +35,10 @@ struct g0_service_operations {
 struct g0_service {
 	struct hlist_node hlnk;		//к таблице сервисов.
 	g0id_t id;					//ид. хэш таблицы сервисов.
-	
-	//struct dlist_head imsgs; 	//лист входящих сообщений.	
-	
 	const struct g0_service_operations* service_ops;
 };
 
 __BEGIN_DECLS
-
-g0id_t g0_getid_service();
-g0id_t g0_getid_message();
 
 g0id_t g0_init_service(struct g0_service* srv);
 g0id_t g0_init_message(struct g0_message* srv);
