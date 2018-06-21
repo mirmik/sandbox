@@ -5,10 +5,21 @@
 #include <gxx/debug/dprint.h>
 
 #include <g1/tower.h>
-#include <g1/gates/uartgate.h>
+//#include <g1/gates/uartgate.h>
 
+#include <genos/sched/schedee.h>
+#include <genos/sched/tasklet.h>
+#include <genos/sched/timer.h>
+
+#include <genos/schedule.h>
 
 void incoming_handler(g1::packet* pack);
+
+void led_toggle() {
+	dprln("ledtoggle");
+	board::led.tgl();
+};
+
 
 int main() {
 	board_init();
@@ -16,12 +27,15 @@ int main() {
 
 	g1::incoming_handler = incoming_handler;
 
-	auto* pack = g1::create_packet(nullptr, 0, 10);
-	memcpy(pack->dataptr(), "HelloWorld", 10);
+	genos::timer ledtim(led_toggle, 1);
+	ledtim.autorepeat(true).plan();
 
-	g1::transport(pack);
+	//g1::send(nullptr, 0, "HelloWorld", 10);
 
-	g1::spin();
+	//g1::spin();
+
+	while(1) genos::schedule();
+
 }
 
 void incoming_handler(g1::packet* pack) {
@@ -36,4 +50,11 @@ namespace g1 {
 	uint16_t millis() {
 		return systime::millis();
 	}
+}
+
+void genos::schedule() {
+	dprln(systime::millis());
+	genos::tasklet_manager.execute();
+	genos::timer_manager.execute();
+	genos::schedee_manager.execute();
 }

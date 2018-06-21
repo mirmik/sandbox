@@ -27,9 +27,9 @@ application("main",
 
 		
 		("genos.irqtbl"),
-		#submodule("genos.tasklet"),
-		#submodule("genos.timer"),
-		#submodule("genos.schedee"),
+		("genos.tasklet"),
+		("genos.timer"),
+		("genos.schedee"),
 		("gxx.syslock", "genos.atomic"),
 		("genos.malloc", "lin"),
 		
