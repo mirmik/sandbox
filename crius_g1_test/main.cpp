@@ -23,10 +23,9 @@ void led_toggle() {
 
 int main() {
 	board_init();
-	genos::hal::irqs::enable();
-
 	g1::incoming_handler = incoming_handler;
 
+<<<<<<< HEAD
 	genos::timer ledtim(led_toggle, 1);
 	ledtim.autorepeat(true).plan();
 
@@ -36,6 +35,14 @@ int main() {
 
 	while(1) genos::schedule();
 
+=======
+	//gxx::println("mirmik");
+
+	genos::hal::irqs::enable();
+
+	g1::send(nullptr, 0, "HelloWorld", 10, 1, (g1::QoS)0, 20);
+	g1::spin();
+>>>>>>> e5d64f5e981809cc80f59c5ec7c2589809ea8e73
 }
 
 void incoming_handler(g1::packet* pack) {
@@ -43,8 +50,6 @@ void incoming_handler(g1::packet* pack) {
 	board::led.clr();
 	g1::release(pack);
 }
-
-
 
 namespace g1 {
 	uint16_t millis() {

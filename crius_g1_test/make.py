@@ -55,4 +55,4 @@ def install():
 def terminal():
 	os.system("sudo gtkterm -p /dev/ttyUSB0 -s 115200")
 
-licant.ex(default = "main")
+licant.ex(default = "main", colorwrap = True)

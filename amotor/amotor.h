@@ -17,12 +17,15 @@ namespace robo {
 	}*/
 
 
-	template <typename T, typename D = gxx::delegate<void, T>>
+	/*template <typename T, typename D = gxx::delegate<void, T>>
 	struct syncval {
 		T value;
 		D updated;
-		void update(const T& newvalue) { value = newvalue; updated(value); }
-	}
+		void update(const T& newvalue) { 
+			std::swap(value, newvalue); 
+			if (value != newvalue) updated(value); 
+		}
+	}*/
 
 
 	struct power_driver {

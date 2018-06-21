@@ -85,9 +85,13 @@ main.o: main.cpp /home/mirmik/project/genos/./src/genos/hal/board.h \
  /home/mirmik/project/gxx/std/iterator_base_types.h \
  /home/mirmik/project/gxx/./gxx/util/ctrdtr.h \
  /home/mirmik/project/gxx/std/map /home/mirmik/project/gxx/std/set \
+<<<<<<< HEAD
  /home/mirmik/project/gxx/std/list \
  /home/mirmik/project/genos/./src/genos/sched/schedee.h \
  /home/mirmik/project/gxx/./gxx/syslock.h \
  /home/mirmik/project/genos/./src/genos/sched/tasklet.h \
  /home/mirmik/project/genos/./src/genos/sched/timer.h \
  /home/mirmik/project/genos/./src/genos/schedule.h
+=======
+ /home/mirmik/project/gxx/std/list
+>>>>>>> e5d64f5e981809cc80f59c5ec7c2589809ea8e73
