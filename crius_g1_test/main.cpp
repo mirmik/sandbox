@@ -23,26 +23,21 @@ void led_toggle() {
 
 int main() {
 	board_init();
+
 	g1::incoming_handler = incoming_handler;
 
-<<<<<<< HEAD
-	genos::timer ledtim(led_toggle, 1);
+	genos::timer ledtim(led_toggle, 1000);
 	ledtim.autorepeat(true).plan();
-
-	//g1::send(nullptr, 0, "HelloWorld", 10);
-
-	//g1::spin();
-
-	while(1) genos::schedule();
-
-=======
-	//gxx::println("mirmik");
 
 	genos::hal::irqs::enable();
 
-	g1::send(nullptr, 0, "HelloWorld", 10, 1, (g1::QoS)0, 20);
-	g1::spin();
->>>>>>> e5d64f5e981809cc80f59c5ec7c2589809ea8e73
+	//g1::send(nullptr, 0, "HelloWorld", 10);
+	//g1::spin();
+
+	//while(1) 
+	//dprln(systime::now());
+	while(1) genos::schedule();
+
 }
 
 void incoming_handler(g1::packet* pack) {
@@ -58,7 +53,6 @@ namespace g1 {
 }
 
 void genos::schedule() {
-	dprln(systime::millis());
 	genos::tasklet_manager.execute();
 	genos::timer_manager.execute();
 	genos::schedee_manager.execute();

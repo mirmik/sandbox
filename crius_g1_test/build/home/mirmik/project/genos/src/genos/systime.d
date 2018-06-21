@@ -10,4 +10,5 @@ systime.o: /home/mirmik/project/genos/src/genos/systime.cpp \
  /home/mirmik/project/gxx/libc/include/libc/defines/wchar_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/ptrdiff_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/off_t.h \
- /home/mirmik/project/gxx/libc/include/sys/cdefs.h
+ /home/mirmik/project/gxx/libc/include/sys/cdefs.h \
+ /home/mirmik/project/gxx/./gxx/debug/dprint.h
