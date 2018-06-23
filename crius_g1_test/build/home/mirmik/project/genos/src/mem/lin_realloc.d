@@ -1,4 +1,4 @@
-lin_realloc.o: /home/mirmik/project/genos/src/mem/lin_realloc.c \
+lin_realloc.o: /home/mirmik/project/genos/src/mem/lin_realloc.cpp \
  /home/mirmik/project/gxx/libc/include/stdlib.h \
  /home/mirmik/project/gxx/libc/include/stddef.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/null.h \
@@ -18,4 +18,5 @@ lin_realloc.o: /home/mirmik/project/genos/src/mem/lin_realloc.c \
  /home/mirmik/project/genos/src/asm-generic/types16.h \
  /home/mirmik/project/gxx/libc/include/string.h \
  /home/mirmik/project/gxx/libc/include/string_bsd.h \
- /home/mirmik/project/genos/src/mem/lin_malloc.h
+ /home/mirmik/project/genos/src/mem/lin_malloc.h \
+ /home/mirmik/project/gxx/./gxx/syslock.h

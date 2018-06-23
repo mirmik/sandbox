@@ -26,15 +26,16 @@ void led_toggle() {
 }
 
 void tim1func() { 
-	char arr[20];
-	i32toa(idx++, arr, 10);
-	g0::send(0, 0, "\x42", 1, arr, strlen(arr), g1::QoS(1));
+	char arr[40] = "Mirmik was here ";
+	i32toa(idx++, arr + strlen(arr), 10);
+	g0::send(0, 0, "\x42\x0C\xC0\xA8\x01\x87\x27\x14\x0C\xC0\xA8\x01\xF0\x27\x14", 15, arr, strlen(arr), g1::QoS(2), 100);
 }
 
 void tim2func() { 
 	char arr[20];
 	i32toa(idx2++, arr, 10);
-	g0::send(0, 0, "\x42\x0C\x7F\x00\x00\x01\x27\x14", 8, arr, strlen(arr), g1::QoS(2));
+	g0::send(0, 0, "\x42", 1, arr, strlen(arr), g1::QoS(2), 100);
+	g0::send(0, 0, "\x42\x0C\xC0\xA8\x01\x87\x27\x14", 8, arr, strlen(arr), g1::QoS(2), 100);
 }
 
 g0::echo_service echo(true);
