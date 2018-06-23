@@ -1,7 +1,7 @@
 dprint_func_impl.o: /home/mirmik/project/gxx/gxx/debug/dprint_func_impl.c \
  /home/mirmik/project/gxx/libc/include/stdint.h \
  /home/mirmik/project/genos/arch/avr/include/asm/types.h \
- /home/mirmik/project/genos/./src/asm-generic/types16.h \
+ /home/mirmik/project/genos/src/asm-generic/types16.h \
  /home/mirmik/project/gxx/libc/include/ctype.h \
  /home/mirmik/project/gxx/libc/include/sys/cdefs.h \
  /home/mirmik/project/gxx/./gxx/debug/dprint.h \

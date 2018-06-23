@@ -11,6 +11,7 @@ import os
 include("genos")
 include("gxx")
 include("g1")
+include("g0")
 binutils = make_gcc_binutils("avr")
 
 application("main", 
@@ -36,19 +37,25 @@ application("main",
 		("gxx.libc"),
 		("gxx.std"),
 		("gxx.include"),
+		("gxx.util"),
+		("gxx.log2", "stub"),
 		
-		("gxx.dprint", "diag"),
 		("gxx.diag", "impl"),
-		#submodule("gxx.panic", "abort"),
-		#submodule("gxx.format"),
+		("gxx.dprint", "diag"),
+		("gxx.print", "dprint"),
+
+		("gxx.panic", "abort"),
 
 		("g1"),
 		("g1.allocator", "malloc"),
+
+		("g0"),
 	]
 )
 
 @licant.routine
 def install():
+	#os.system("sudo avrdude -P/dev/ttyUSB0 -v -cwiring -patmega2560 -b115200 -D -Uflash:w:./firmware.bin -u")
 	os.system("sudo avrdude -P/dev/ttyUSB0 -v -cwiring -patmega2560 -b115200 -D -Uflash:w:./firmware.bin -u")
 
 @licant.routine
