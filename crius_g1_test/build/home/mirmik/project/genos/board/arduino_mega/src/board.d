@@ -18,7 +18,7 @@ board.o: /home/mirmik/project/genos/board/arduino_mega/src/board.cpp \
  /home/mirmik/project/gxx/libc/include/libc/defines/off_t.h \
  /home/mirmik/project/genos/arch/avr/include/arch/gpio.h \
  /home/mirmik/project/genos/arch/avr/atmega2560/include/periph/regs/gpio.h \
- /home/mirmik/project/genos/arch/avr/include/arch/uart.h \
+ /home/mirmik/project/genos/arch/avr/include/arch/usart.h \
  /home/mirmik/project/genos/arch/avr/atmega2560/include/periph/usart.h \
  /home/mirmik/project/genos/arch/avr/atmega2560/include/periph/regs/usart.h \
  /home/mirmik/project/genos/arch/avr/include/periph/irqdefs.h \
