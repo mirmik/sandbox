@@ -38,7 +38,7 @@ application("main",
 		("gxx.std"),
 		("gxx.include"),
 		("gxx.util"),
-		("gxx.log2", "stub"),
+#		("gxx.log2", "stub"),
 		
 		("gxx.diag", "impl"),
 		("gxx.dprint", "diag"),

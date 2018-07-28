@@ -54,30 +54,36 @@ main.o: main.cpp /home/mirmik/project/genos/./genos/hal/board.h \
  /home/mirmik/project/gxx/libc/include/string.h \
  /home/mirmik/project/gxx/libc/include/string_bsd.h \
  /home/mirmik/project/gxx/./gxx/util/setget.h \
+ /home/mirmik/project/g1/./g1/indexes.h \
+ /home/mirmik/project/gxx/./gxx/print.h \
+ /home/mirmik/project/gxx/./gxx/print/meta.h \
+ /home/mirmik/project/gxx/./gxx/io/ostream.h \
+ /home/mirmik/project/gxx/./gxx/util/numconvert.h \
+ /home/mirmik/project/gxx/./gxx/util/asciiconvert.h \
+ /home/mirmik/project/gxx/./gxx/util/booltype.h \
+ /home/mirmik/project/gxx/./gxx/print/format.h \
+ /home/mirmik/project/gxx/./gxx/arglist.h \
+ /home/mirmik/project/gxx/std/memory \
+ /home/mirmik/project/gxx/std/shared.h \
+ /home/mirmik/project/gxx/libc/include/assert.h \
+ /home/mirmik/project/gxx/./gxx/panic.h \
+ /home/mirmik/project/gxx/./gxx/util/location.h \
+ /home/mirmik/project/gxx/std/cstring /home/mirmik/project/gxx/std/cstdio \
+ /home/mirmik/project/gxx/libc/include/stdio.h \
+ /home/mirmik/project/gxx/libc/include/stdarg.h \
+ /home/mirmik/project/gxx/./gxx/io/stdstream.h \
+ /home/mirmik/project/gxx/std/string \
+ /home/mirmik/project/gxx/std/iostream \
+ /home/mirmik/project/gxx/./gxx/datastruct/iovec.h \
+ /home/mirmik/project/g0/./g0/services/echo.h \
+ /home/mirmik/project/g0/./g0/service.h \
+ /home/mirmik/project/g0/./g0/message.h \
+ /home/mirmik/project/g0/./g0/core.h \
  /home/mirmik/project/gxx/./gxx/log/logger2.h \
  /home/mirmik/project/gxx/./gxx/time/datetime.h \
  /home/mirmik/project/gxx/./gxx/log/manager.h \
  /home/mirmik/project/gxx/./gxx/log/base.h \
  /home/mirmik/project/gxx/./gxx/util/text.h \
- /home/mirmik/project/gxx/std/string \
- /home/mirmik/project/gxx/./gxx/util/numconvert.h \
- /home/mirmik/project/gxx/libc/include/stdarg.h \
- /home/mirmik/project/gxx/libc/include/stdio.h \
- /home/mirmik/project/gxx/libc/include/assert.h \
- /home/mirmik/project/gxx/std/memory \
- /home/mirmik/project/gxx/std/shared.h \
- /home/mirmik/project/gxx/./gxx/print.h \
- /home/mirmik/project/gxx/./gxx/print/meta.h \
- /home/mirmik/project/gxx/./gxx/io/ostream.h \
- /home/mirmik/project/gxx/./gxx/util/asciiconvert.h \
- /home/mirmik/project/gxx/./gxx/util/booltype.h \
- /home/mirmik/project/gxx/./gxx/print/format.h \
- /home/mirmik/project/gxx/./gxx/arglist.h \
- /home/mirmik/project/gxx/./gxx/panic.h \
- /home/mirmik/project/gxx/./gxx/util/location.h \
- /home/mirmik/project/gxx/std/cstring /home/mirmik/project/gxx/std/cstdio \
- /home/mirmik/project/gxx/./gxx/io/stdstream.h \
- /home/mirmik/project/gxx/std/iostream \
  /home/mirmik/project/gxx/./gxx/print/stdprint.h \
  /home/mirmik/project/gxx/std/array /home/mirmik/project/gxx/std/vector \
  /home/mirmik/project/gxx/std/algorithm \
@@ -86,12 +92,7 @@ main.o: main.cpp /home/mirmik/project/genos/./genos/hal/board.h \
  /home/mirmik/project/gxx/std/iterator_base_types.h \
  /home/mirmik/project/gxx/./gxx/util/ctrdtr.h \
  /home/mirmik/project/gxx/std/map /home/mirmik/project/gxx/std/set \
- /home/mirmik/project/gxx/std/list /home/mirmik/project/g1/./g1/indexes.h \
- /home/mirmik/project/g0/./g0/services/echo.h \
- /home/mirmik/project/g0/./g0/service.h \
- /home/mirmik/project/g0/./g0/message.h \
- /home/mirmik/project/g0/./g0/core.h \
- /home/mirmik/project/gxx/./gxx/datastruct/iovec.h \
+ /home/mirmik/project/gxx/std/list \
  /home/mirmik/project/genos/./genos/drivers/g1/uartgate.h \
  /home/mirmik/project/gxx/./gxx/gstuff/automate.h \
  /home/mirmik/project/gxx/./gxx/io/iostorage.h \
