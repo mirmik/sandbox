@@ -56,7 +56,7 @@ application("main",
 @licant.routine
 def install():
 	#os.system("sudo avrdude -P/dev/ttyUSB0 -v -cwiring -patmega2560 -b115200 -D -Uflash:w:./firmware.bin -u")
-	os.system("sudo avrdude -P/dev/ttyACM0 -v -cwiring -patmega328 -b115200 -D -Uflash:w:./firmware.bin -u")
+	os.system("sudo avrdude -P/dev/ttyACM0 -v -carduino -patmega328p -b115200 -D -Uflash:w:./firmware.bin -u")
 
 @licant.routine
 def terminal():
