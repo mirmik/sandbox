@@ -3,12 +3,12 @@ main.o: main.cpp /home/mirmik/project/genos/./genos/hal/board.h \
  /home/mirmik/project/gxx/./gxx/util/compiler.h \
  /home/mirmik/project/gxx/libc/include/sys/cdefs.h \
  /home/mirmik/project/genos/arch/avr/include/arch/arch.h \
- /home/mirmik/project/genos/board/arduino_mega/include/curboard.h \
+ /home/mirmik/project/genos/board/arduino/curboard.h \
  /home/mirmik/project/genos/./genos/hal/gpio.h \
  /home/mirmik/project/gxx/libc/include/inttypes.h \
  /home/mirmik/project/gxx/libc/include/stdint.h \
  /home/mirmik/project/genos/arch/avr/include/asm/types.h \
- /home/mirmik/project/genos/src/asm-generic/types16.h \
+ /home/mirmik/project/gxx/libc/include/asm-generic/types16.h \
  /home/mirmik/project/gxx/libc/include/stddef.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/null.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
@@ -16,11 +16,9 @@ main.o: main.cpp /home/mirmik/project/genos/./genos/hal/board.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/ptrdiff_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/off_t.h \
  /home/mirmik/project/genos/arch/avr/include/arch/gpio.h \
- /home/mirmik/project/genos/arch/avr/atmega2560/include/periph/regs/gpio.h \
+ /home/mirmik/project/genos/arch/avr/include/periph/regs/gpio.h \
  /home/mirmik/project/genos/arch/avr/include/arch/usart.h \
- /home/mirmik/project/genos/arch/avr/atmega2560/include/periph/usart.h \
- /home/mirmik/project/genos/arch/avr/atmega2560/include/periph/regs/usart.h \
- /home/mirmik/project/genos/arch/avr/include/periph/irqdefs.h \
+ /home/mirmik/project/genos/arch/avr/include/periph/regs/usart.h \
  /home/mirmik/project/genos/./genos/hal/uart.h \
  /home/mirmik/project/gxx/./gxx/event/delegate.h \
  /home/mirmik/project/gxx/./gxx/util/horrible_cast.h \
@@ -29,8 +27,8 @@ main.o: main.cpp /home/mirmik/project/genos/./genos/hal/board.h \
  /home/mirmik/project/gxx/libc/include/stdlib.h \
  /home/mirmik/project/gxx/libc/include/limits.h \
  /home/mirmik/project/genos/arch/avr/include/asm/limits.h \
- /home/mirmik/project/genos/src/asm-generic/limits16.h \
- /home/mirmik/project/genos/src/asm-generic/limits.h \
+ /home/mirmik/project/gxx/libc/include/asm-generic/limits16.h \
+ /home/mirmik/project/gxx/libc/include/asm-generic/limits.h \
  /home/mirmik/project/gxx/libc/include/ctype.h \
  /home/mirmik/project/gxx/std/move.h \
  /home/mirmik/project/gxx/std/type_traits \
@@ -42,19 +40,19 @@ main.o: main.cpp /home/mirmik/project/genos/./genos/hal/board.h \
  /home/mirmik/project/genos/./genos/hal/irqs.h \
  /home/mirmik/project/genos/arch/avr/include/arch/irqs.h \
  /home/mirmik/project/genos/./genos/time/systime.h \
- /home/mirmik/project/g1/./g1/tower.h \
+ /home/mirmik/project/crow/./crow/tower.h \
  /home/mirmik/project/gxx/./gxx/container/dlist.h \
  /home/mirmik/project/gxx/./gxx/datastruct/dlist_head.h \
  /home/mirmik/project/gxx/./gxx/util/member.h \
  /home/mirmik/project/gxx/./gxx/util/memberxx.h \
- /home/mirmik/project/g1/./g1/gateway.h \
- /home/mirmik/project/g1/./g1/packet.h \
+ /home/mirmik/project/crow/./crow/gateway.h \
+ /home/mirmik/project/crow/./crow/packet.h \
  /home/mirmik/project/gxx/std/cstdint \
  /home/mirmik/project/gxx/./gxx/buffer.h \
  /home/mirmik/project/gxx/libc/include/string.h \
  /home/mirmik/project/gxx/libc/include/string_bsd.h \
  /home/mirmik/project/gxx/./gxx/util/setget.h \
- /home/mirmik/project/g1/./g1/indexes.h \
+ /home/mirmik/project/crow/./crow/indexes.h \
  /home/mirmik/project/gxx/./gxx/print.h \
  /home/mirmik/project/gxx/./gxx/print/meta.h \
  /home/mirmik/project/gxx/./gxx/io/ostream.h \
@@ -75,24 +73,8 @@ main.o: main.cpp /home/mirmik/project/genos/./genos/hal/board.h \
  /home/mirmik/project/gxx/std/string \
  /home/mirmik/project/gxx/std/iostream \
  /home/mirmik/project/gxx/./gxx/datastruct/iovec.h \
- /home/mirmik/project/g0/./g0/services/echo.h \
- /home/mirmik/project/g0/./g0/service.h \
- /home/mirmik/project/g0/./g0/message.h \
- /home/mirmik/project/g0/./g0/core.h \
- /home/mirmik/project/gxx/./gxx/log/logger2.h \
- /home/mirmik/project/gxx/./gxx/time/datetime.h \
- /home/mirmik/project/gxx/./gxx/log/manager.h \
- /home/mirmik/project/gxx/./gxx/log/base.h \
- /home/mirmik/project/gxx/./gxx/util/text.h \
- /home/mirmik/project/gxx/./gxx/print/stdprint.h \
- /home/mirmik/project/gxx/std/array /home/mirmik/project/gxx/std/vector \
- /home/mirmik/project/gxx/std/algorithm \
- /home/mirmik/project/gxx/std/functional \
- /home/mirmik/project/gxx/std/iterator_base_funcs.h \
- /home/mirmik/project/gxx/std/iterator_base_types.h \
- /home/mirmik/project/gxx/./gxx/util/ctrdtr.h \
- /home/mirmik/project/gxx/std/map /home/mirmik/project/gxx/std/set \
- /home/mirmik/project/gxx/std/list \
+ /home/mirmik/project/crow/./crow/node.h \
+ /home/mirmik/project/crow/./crow/nodes/echo.h \
  /home/mirmik/project/genos/./genos/drivers/g1/uartgate.h \
  /home/mirmik/project/gxx/./gxx/gstuff/automate.h \
  /home/mirmik/project/gxx/./gxx/io/iostorage.h \
@@ -103,6 +85,7 @@ main.o: main.cpp /home/mirmik/project/genos/./genos/hal/board.h \
  /home/mirmik/project/gxx/./gxx/util/gstuff.h \
  /home/mirmik/project/gxx/./gxx/syslock.h \
  /home/mirmik/project/genos/./genos/sched/schedee.h \
+ /home/mirmik/project/gxx/./gxx/debug/delay.h \
  /home/mirmik/project/genos/./genos/sched/tasklet.h \
  /home/mirmik/project/genos/./genos/sched/timer.h \
  /home/mirmik/project/genos/./genos/time/timer.h \
