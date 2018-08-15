@@ -6,7 +6,6 @@
 
 #include <crow/tower.h>
 #include <crow/node.h>
-#include <crow/indexes.h>
 
 #include <crow/nodes/echo.h>
 

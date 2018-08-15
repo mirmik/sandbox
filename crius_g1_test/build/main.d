@@ -14,7 +14,6 @@ main.o: main.cpp /home/mirmik/project/genos/./genos/hal/board.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/wchar_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/ptrdiff_t.h \
- /home/mirmik/project/gxx/libc/include/libc/defines/off_t.h \
  /home/mirmik/project/genos/arch/avr/include/arch/gpio.h \
  /home/mirmik/project/genos/arch/avr/include/periph/regs/gpio.h \
  /home/mirmik/project/genos/arch/avr/include/arch/usart.h \
@@ -23,17 +22,18 @@ main.o: main.cpp /home/mirmik/project/genos/./genos/hal/board.h \
  /home/mirmik/project/gxx/./gxx/event/delegate.h \
  /home/mirmik/project/gxx/./gxx/util/horrible_cast.h \
  /home/mirmik/project/gxx/./gxx/util/stub.h \
- /home/mirmik/project/gxx/std/utility /home/mirmik/project/gxx/std/new \
+ /home/mirmik/project/gxx/std/./utility \
+ /home/mirmik/project/gxx/std/./new \
  /home/mirmik/project/gxx/libc/include/stdlib.h \
  /home/mirmik/project/gxx/libc/include/limits.h \
  /home/mirmik/project/genos/arch/avr/include/asm/limits.h \
  /home/mirmik/project/gxx/libc/include/asm-generic/limits16.h \
  /home/mirmik/project/gxx/libc/include/asm-generic/limits.h \
  /home/mirmik/project/gxx/libc/include/ctype.h \
- /home/mirmik/project/gxx/std/move.h \
- /home/mirmik/project/gxx/std/type_traits \
- /home/mirmik/project/gxx/std/cstddef \
- /home/mirmik/project/gxx/std/utility_impl/pair.hpp \
+ /home/mirmik/project/gxx/std/./move.h \
+ /home/mirmik/project/gxx/std/./type_traits \
+ /home/mirmik/project/gxx/std/./cstddef \
+ /home/mirmik/project/gxx/std/./utility_impl/pair.hpp \
  /home/mirmik/project/gxx/./gxx/debug/dprint.h \
  /home/mirmik/project/genos/./genos/hal/irqtbl.h \
  /home/mirmik/project/gxx/./gxx/util/bits.h \
@@ -41,50 +41,58 @@ main.o: main.cpp /home/mirmik/project/genos/./genos/hal/board.h \
  /home/mirmik/project/genos/arch/avr/include/arch/irqs.h \
  /home/mirmik/project/genos/./genos/time/systime.h \
  /home/mirmik/project/crow/./crow/tower.h \
- /home/mirmik/project/gxx/./gxx/container/dlist.h \
- /home/mirmik/project/gxx/./gxx/datastruct/dlist_head.h \
- /home/mirmik/project/gxx/./gxx/util/member.h \
- /home/mirmik/project/gxx/./gxx/util/memberxx.h \
  /home/mirmik/project/crow/./crow/gateway.h \
  /home/mirmik/project/crow/./crow/packet.h \
- /home/mirmik/project/gxx/std/cstdint \
- /home/mirmik/project/gxx/./gxx/buffer.h \
- /home/mirmik/project/gxx/libc/include/string.h \
- /home/mirmik/project/gxx/libc/include/string_bsd.h \
- /home/mirmik/project/gxx/./gxx/util/setget.h \
- /home/mirmik/project/crow/./crow/indexes.h \
- /home/mirmik/project/gxx/./gxx/print.h \
- /home/mirmik/project/gxx/./gxx/print/meta.h \
- /home/mirmik/project/gxx/./gxx/io/ostream.h \
- /home/mirmik/project/gxx/./gxx/util/numconvert.h \
- /home/mirmik/project/gxx/./gxx/util/asciiconvert.h \
- /home/mirmik/project/gxx/./gxx/util/booltype.h \
- /home/mirmik/project/gxx/./gxx/print/format.h \
- /home/mirmik/project/gxx/./gxx/arglist.h \
- /home/mirmik/project/gxx/std/memory \
- /home/mirmik/project/gxx/std/shared.h \
- /home/mirmik/project/gxx/libc/include/assert.h \
- /home/mirmik/project/gxx/./gxx/panic.h \
- /home/mirmik/project/gxx/./gxx/util/location.h \
- /home/mirmik/project/gxx/std/cstring /home/mirmik/project/gxx/std/cstdio \
- /home/mirmik/project/gxx/libc/include/stdio.h \
- /home/mirmik/project/gxx/libc/include/stdarg.h \
- /home/mirmik/project/gxx/./gxx/io/stdstream.h \
- /home/mirmik/project/gxx/std/string \
- /home/mirmik/project/gxx/std/iostream \
- /home/mirmik/project/gxx/./gxx/datastruct/iovec.h \
+ /home/mirmik/project/gxx/./gxx/datastruct/dlist.h \
+ /home/mirmik/project/gxx/./gxx/util/member.h \
+ /home/mirmik/project/gxx/./gxx/util/decltypeof.h \
+ /home/mirmik/project/crow/./crow/defs.h \
+ /home/mirmik/project/gxx/posix/include/sys/uio.h \
  /home/mirmik/project/crow/./crow/node.h \
  /home/mirmik/project/crow/./crow/nodes/echo.h \
  /home/mirmik/project/genos/./genos/drivers/g1/uartgate.h \
  /home/mirmik/project/gxx/./gxx/gstuff/automate.h \
  /home/mirmik/project/gxx/./gxx/io/iostorage.h \
  /home/mirmik/project/gxx/./gxx/io/iostream.h \
+ /home/mirmik/project/gxx/./gxx/io/ostream.h \
+ /home/mirmik/project/gxx/libc/include/string.h \
+ /home/mirmik/project/gxx/libc/include/string_bsd.h \
+ /home/mirmik/project/gxx/./gxx/buffer.h \
+ /home/mirmik/project/gxx/./gxx/util/setget.h \
+ /home/mirmik/project/gxx/./gxx/util/numconvert.h \
+ /home/mirmik/project/gxx/./gxx/util/asciiconvert.h \
  /home/mirmik/project/gxx/./gxx/io/istream.h \
+ /home/mirmik/project/gxx/./gxx/panic.h \
+ /home/mirmik/project/gxx/./gxx/util/location.h \
+ /home/mirmik/project/gxx/std/./cstring \
+ /home/mirmik/project/gxx/std/./cstdio \
+ /home/mirmik/project/gxx/libc/include/stdio.h \
+ /home/mirmik/project/gxx/libc/include/stdarg.h \
+ /home/mirmik/project/gxx/posix/include/sys/types.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/clock_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/suseconds_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/time_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/timer_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/clockid_t.h \
+ /home/mirmik/project/gxx/./gxx/print.h \
+ /home/mirmik/project/gxx/./gxx/print/meta.h \
+ /home/mirmik/project/gxx/./gxx/util/booltype.h \
+ /home/mirmik/project/gxx/./gxx/print/format.h \
+ /home/mirmik/project/gxx/./gxx/arglist.h \
+ /home/mirmik/project/gxx/std/./memory \
+ /home/mirmik/project/gxx/std/./shared.h \
+ /home/mirmik/project/gxx/libc/include/assert.h \
+ /home/mirmik/project/gxx/./gxx/io/stdstream.h \
+ /home/mirmik/project/gxx/std/./string \
+ /home/mirmik/project/gxx/std/./iostream \
  /home/mirmik/project/gxx/./gxx/sline.h \
  /home/mirmik/project/gxx/./gxx/util/crc.h \
  /home/mirmik/project/gxx/./gxx/util/gstuff.h \
  /home/mirmik/project/gxx/./gxx/syslock.h \
  /home/mirmik/project/genos/./genos/sched/schedee.h \
+ /home/mirmik/project/gxx/./gxx/container/dlist.h \
+ /home/mirmik/project/gxx/./gxx/util/memberxx.h \
  /home/mirmik/project/gxx/./gxx/debug/delay.h \
  /home/mirmik/project/genos/./genos/sched/tasklet.h \
  /home/mirmik/project/genos/./genos/sched/timer.h \

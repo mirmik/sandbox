@@ -8,7 +8,6 @@ diag_impl.o: /home/mirmik/project/gxx/gxx/diag/diag_impl.c \
  /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/wchar_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/ptrdiff_t.h \
- /home/mirmik/project/gxx/libc/include/libc/defines/off_t.h \
  /home/mirmik/project/gxx/./gxx/util/compiler.h \
  /home/mirmik/project/gxx/libc/include/limits.h \
  /home/mirmik/project/genos/arch/avr/include/asm/limits.h \

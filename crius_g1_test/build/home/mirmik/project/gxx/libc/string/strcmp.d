@@ -5,6 +5,5 @@ strcmp.o: /home/mirmik/project/gxx/libc/string/strcmp.c \
  /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/wchar_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/ptrdiff_t.h \
- /home/mirmik/project/gxx/libc/include/libc/defines/off_t.h \
  /home/mirmik/project/gxx/libc/include/sys/cdefs.h \
  /home/mirmik/project/gxx/libc/include/string_bsd.h
