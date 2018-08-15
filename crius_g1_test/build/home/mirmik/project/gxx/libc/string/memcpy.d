@@ -10,4 +10,4 @@ memcpy.o: /home/mirmik/project/gxx/libc/string/memcpy.c \
  /home/mirmik/project/gxx/libc/include/string_bsd.h \
  /home/mirmik/project/gxx/libc/include/stdint.h \
  /home/mirmik/project/genos/arch/avr/include/asm/types.h \
- /home/mirmik/project/genos/src/asm-generic/types16.h
+ /home/mirmik/project/gxx/libc/include/asm-generic/types16.h

@@ -10,8 +10,7 @@ import os
 
 include("genos")
 include("gxx")
-include("g1")
-include("g0")
+include("crow")
 binutils = make_gcc_binutils("avr")
 
 application("main", 
@@ -46,10 +45,8 @@ application("main",
 
 		("gxx.panic", "abort"),
 
-		("g1"),
-		("g1.allocator", "malloc"),
-
-		("g0"),
+		("crow"),
+		("crow.allocator", "malloc"),
 	]
 )
 

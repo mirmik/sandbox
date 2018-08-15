@@ -3,7 +3,7 @@ packet.o: /home/mirmik/project/g1/g1/src/packet.cpp \
  /home/mirmik/project/gxx/std/cstdint \
  /home/mirmik/project/gxx/libc/include/stdint.h \
  /home/mirmik/project/genos/arch/avr/include/asm/types.h \
- /home/mirmik/project/genos/src/asm-generic/types16.h \
+ /home/mirmik/project/gxx/libc/include/asm-generic/types16.h \
  /home/mirmik/project/gxx/./gxx/buffer.h \
  /home/mirmik/project/gxx/libc/include/string.h \
  /home/mirmik/project/gxx/libc/include/stddef.h \
@@ -18,8 +18,8 @@ packet.o: /home/mirmik/project/g1/g1/src/packet.cpp \
  /home/mirmik/project/gxx/./gxx/util/compiler.h \
  /home/mirmik/project/gxx/libc/include/limits.h \
  /home/mirmik/project/genos/arch/avr/include/asm/limits.h \
- /home/mirmik/project/genos/src/asm-generic/limits16.h \
- /home/mirmik/project/genos/src/asm-generic/limits.h \
+ /home/mirmik/project/gxx/libc/include/asm-generic/limits16.h \
+ /home/mirmik/project/gxx/libc/include/asm-generic/limits.h \
  /home/mirmik/project/gxx/libc/include/ctype.h \
  /home/mirmik/project/gxx/./gxx/util/setget.h \
  /home/mirmik/project/gxx/./gxx/datastruct/dlist_head.h \
