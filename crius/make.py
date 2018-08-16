@@ -18,8 +18,12 @@ application("main",
 	sources = ["main.cpp"],
 	target = "firmware.bin",
 
+	cxxstd = "gnu++14",
+	ccstd = "gnu11",
+
 	cxx_flags = "-Os -fpermissive -fno-threadsafe-statics -flto",
 	cc_flags = "-Os -flto",
+	ld_flags = "-T ../../gxx/gxx/datastruct/array_spread.lds.S",
 
 	include_modules = [
 		("genos"),
