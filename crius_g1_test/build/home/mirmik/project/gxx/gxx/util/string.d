@@ -1,18 +1,17 @@
 string.o: /home/mirmik/project/gxx/gxx/util/string.cpp \
  /home/mirmik/project/gxx/./gxx/util/string.h \
- /home/mirmik/project/gxx/std/cstdint \
+ /home/mirmik/project/gxx/std/./cstdint \
  /home/mirmik/project/gxx/libc/include/stdint.h \
  /home/mirmik/project/genos/arch/avr/include/asm/types.h \
  /home/mirmik/project/gxx/libc/include/asm-generic/types16.h \
- /home/mirmik/project/gxx/std/list /home/mirmik/project/gxx/std/memory \
- /home/mirmik/project/gxx/std/new \
+ /home/mirmik/project/gxx/std/./list \
+ /home/mirmik/project/gxx/std/./memory /home/mirmik/project/gxx/std/./new \
  /home/mirmik/project/gxx/libc/include/inttypes.h \
  /home/mirmik/project/gxx/libc/include/stddef.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/null.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/wchar_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/ptrdiff_t.h \
- /home/mirmik/project/gxx/libc/include/libc/defines/off_t.h \
  /home/mirmik/project/gxx/libc/include/sys/cdefs.h \
  /home/mirmik/project/gxx/libc/include/stdlib.h \
  /home/mirmik/project/gxx/./gxx/util/compiler.h \
@@ -21,20 +20,20 @@ string.o: /home/mirmik/project/gxx/gxx/util/string.cpp \
  /home/mirmik/project/gxx/libc/include/asm-generic/limits16.h \
  /home/mirmik/project/gxx/libc/include/asm-generic/limits.h \
  /home/mirmik/project/gxx/libc/include/ctype.h \
- /home/mirmik/project/gxx/std/move.h \
- /home/mirmik/project/gxx/std/type_traits \
- /home/mirmik/project/gxx/std/cstddef \
- /home/mirmik/project/gxx/std/shared.h \
- /home/mirmik/project/gxx/std/utility \
- /home/mirmik/project/gxx/std/utility_impl/pair.hpp \
- /home/mirmik/project/gxx/std/vector \
- /home/mirmik/project/gxx/std/algorithm \
- /home/mirmik/project/gxx/std/functional \
- /home/mirmik/project/gxx/std/iterator_base_funcs.h \
- /home/mirmik/project/gxx/std/iterator_base_types.h \
+ /home/mirmik/project/gxx/std/./move.h \
+ /home/mirmik/project/gxx/std/./type_traits \
+ /home/mirmik/project/gxx/std/./cstddef \
+ /home/mirmik/project/gxx/std/./shared.h \
+ /home/mirmik/project/gxx/std/./utility \
+ /home/mirmik/project/gxx/std/./utility_impl/pair.hpp \
+ /home/mirmik/project/gxx/std/./vector \
+ /home/mirmik/project/gxx/std/./algorithm \
+ /home/mirmik/project/gxx/std/./functional \
+ /home/mirmik/project/gxx/std/./iterator_base_funcs.h \
+ /home/mirmik/project/gxx/std/./iterator_base_types.h \
  /home/mirmik/project/gxx/./gxx/util/ctrdtr.h \
  /home/mirmik/project/gxx/./gxx/util/setget.h \
- /home/mirmik/project/gxx/std/string \
+ /home/mirmik/project/gxx/std/./string \
  /home/mirmik/project/gxx/./gxx/util/numconvert.h \
  /home/mirmik/project/gxx/libc/include/string.h \
  /home/mirmik/project/gxx/libc/include/string_bsd.h \

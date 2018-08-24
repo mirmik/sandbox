@@ -11,7 +11,6 @@ random_r.o: /home/mirmik/project/gxx/libc/stdlib/random_r.c \
  /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/wchar_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/ptrdiff_t.h \
- /home/mirmik/project/gxx/libc/include/libc/defines/off_t.h \
  /home/mirmik/project/gxx/libc/include/stdlib.h \
  /home/mirmik/project/gxx/./gxx/util/compiler.h \
  /home/mirmik/project/gxx/libc/include/stdint.h \

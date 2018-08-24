@@ -1,12 +1,11 @@
-#include <genos/hal/board.h>
-#include <genos/hal/irqs.h>
+#include <hal/board.h>
+#include <hal/irq.h>
 #include <genos/time/systime.h>
 
 #include <gxx/debug/dprint.h>
 
 #include <crow/tower.h>
 #include <crow/node.h>
-#include <crow/indexes.h>
 
 #include <crow/nodes/echo.h>
 

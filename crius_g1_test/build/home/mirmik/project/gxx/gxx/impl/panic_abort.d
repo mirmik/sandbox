@@ -11,12 +11,11 @@ panic_abort.o: /home/mirmik/project/gxx/gxx/impl/panic_abort.cpp \
  /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/wchar_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/ptrdiff_t.h \
- /home/mirmik/project/gxx/libc/include/libc/defines/off_t.h \
  /home/mirmik/project/gxx/libc/include/sys/cdefs.h \
- /home/mirmik/project/gxx/std/cstring \
+ /home/mirmik/project/gxx/std/./cstring \
  /home/mirmik/project/gxx/libc/include/string.h \
  /home/mirmik/project/gxx/libc/include/string_bsd.h \
- /home/mirmik/project/gxx/std/cstdio \
+ /home/mirmik/project/gxx/std/./cstdio \
  /home/mirmik/project/gxx/libc/include/stdio.h \
  /home/mirmik/project/gxx/libc/include/stdarg.h \
  /home/mirmik/project/gxx/libc/include/stdlib.h \

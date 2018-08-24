@@ -1,12 +1,11 @@
 lin_malloc.o: /home/mirmik/project/genos/src/mem/lin_malloc.cpp \
- /home/mirmik/project/gxx/std/cstdlib \
+ /home/mirmik/project/gxx/std/./cstdlib \
  /home/mirmik/project/gxx/libc/include/stdlib.h \
  /home/mirmik/project/gxx/libc/include/stddef.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/null.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/wchar_t.h \
  /home/mirmik/project/gxx/libc/include/libc/defines/ptrdiff_t.h \
- /home/mirmik/project/gxx/libc/include/libc/defines/off_t.h \
  /home/mirmik/project/gxx/./gxx/util/compiler.h \
  /home/mirmik/project/gxx/libc/include/sys/cdefs.h \
  /home/mirmik/project/gxx/libc/include/limits.h \
@@ -19,11 +18,11 @@ lin_malloc.o: /home/mirmik/project/genos/src/mem/lin_malloc.cpp \
  /home/mirmik/project/gxx/libc/include/asm-generic/types16.h \
  /home/mirmik/project/genos/src/mem/lin_malloc.h \
  /home/mirmik/project/gxx/./gxx/syslock.h \
- /home/mirmik/project/gxx/std/memory /home/mirmik/project/gxx/std/new \
+ /home/mirmik/project/gxx/std/./memory /home/mirmik/project/gxx/std/./new \
  /home/mirmik/project/gxx/libc/include/inttypes.h \
- /home/mirmik/project/gxx/std/move.h \
- /home/mirmik/project/gxx/std/type_traits \
- /home/mirmik/project/gxx/std/cstddef \
- /home/mirmik/project/gxx/std/shared.h \
- /home/mirmik/project/gxx/std/utility \
- /home/mirmik/project/gxx/std/utility_impl/pair.hpp
+ /home/mirmik/project/gxx/std/./move.h \
+ /home/mirmik/project/gxx/std/./type_traits \
+ /home/mirmik/project/gxx/std/./cstddef \
+ /home/mirmik/project/gxx/std/./shared.h \
+ /home/mirmik/project/gxx/std/./utility \
+ /home/mirmik/project/gxx/std/./utility_impl/pair.hpp
