@@ -17,6 +17,13 @@ hexascii.o: /home/mirmik/project/gxx/gxx/util/hexascii.cpp \
  /home/mirmik/project/gxx/libc/include/string_bsd.h \
  /home/mirmik/project/gxx/libc/include/stdarg.h \
  /home/mirmik/project/gxx/libc/include/stdio.h \
+ /home/mirmik/project/gxx/posix/include/sys/types.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/clock_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/suseconds_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/time_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/timer_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/clockid_t.h \
  /home/mirmik/project/gxx/libc/include/assert.h \
  /home/mirmik/project/gxx/./gxx/debug/dprint.h \
  /home/mirmik/project/gxx/std/./memory /home/mirmik/project/gxx/std/./new \

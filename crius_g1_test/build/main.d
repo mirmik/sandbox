@@ -93,6 +93,9 @@ main.o: main.cpp /home/mirmik/project/genos/src/hal/board.h \
  /home/mirmik/project/gxx/./gxx/util/crc.h \
  /home/mirmik/project/gxx/./gxx/util/gstuff.h \
  /home/mirmik/project/gxx/./gxx/syslock.h \
+ /home/mirmik/project/genos/./genos/drivers/uartring.h \
+ /home/mirmik/project/gxx/./gxx/event/flag.h \
+ /home/mirmik/project/gxx/./gxx/datastruct/bytering.h \
  /home/mirmik/project/genos/./genos/sched/schedee.h \
  /home/mirmik/project/gxx/./gxx/debug/delay.h \
  /home/mirmik/project/genos/./genos/sched/tasklet.h \
