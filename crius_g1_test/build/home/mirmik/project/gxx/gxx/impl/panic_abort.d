@@ -18,6 +18,13 @@ panic_abort.o: /home/mirmik/project/gxx/gxx/impl/panic_abort.cpp \
  /home/mirmik/project/gxx/std/./cstdio \
  /home/mirmik/project/gxx/libc/include/stdio.h \
  /home/mirmik/project/gxx/libc/include/stdarg.h \
+ /home/mirmik/project/gxx/posix/include/sys/types.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/clock_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/suseconds_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/time_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/timer_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/clockid_t.h \
  /home/mirmik/project/gxx/libc/include/stdlib.h \
  /home/mirmik/project/gxx/./gxx/util/compiler.h \
  /home/mirmik/project/gxx/libc/include/limits.h \

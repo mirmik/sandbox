@@ -10,6 +10,7 @@
 #include <crow/nodes/echo.h>
 
 #include <genos/drivers/g1/uartgate.h>
+#include <genos/drivers/uartring.h>
 
 #include <genos/sched/schedee.h>
 #include <genos/sched/tasklet.h>
@@ -18,6 +19,7 @@
 #include <genos/schedule.h>
 
 genos::uartgate usart0gate(&board::usart0, 128);
+//genos::uartring serial0(&board::usart0);
 
 int idx = 0;
 int idx2 = 0;
@@ -56,7 +58,7 @@ int main() {
 	genos::timer_tasklet tim1(tim1func, 300);
 	tim1.autorepeat(true).plan();
 
-	genos::hal::irqs::enable();
+	irqs_enable();
 
 	//crow::send("\x42", 1, "Hello\xACW\xADo\xAEr\xAFld", 14, 1, (crow::QoS)1);
 
@@ -67,7 +69,7 @@ int main() {
 
 namespace crow {
 	uint16_t millis() {
-		return systime::millis();
+		return ::millis();
 	}
 }
 
