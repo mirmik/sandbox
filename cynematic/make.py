@@ -8,7 +8,7 @@ licant.libs.include("gxx")
 
 licant.cxx_application("target",
 	sources=["main.cpp"],
-	mdepends=["linalg.v3", "gxx"],	
+	mdepends=["linalg-v3", "gxx"],	
 )
 
 licant.ex("target")
