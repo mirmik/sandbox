@@ -91,4 +91,5 @@ main.o: main.cpp /home/mirmik/project/genos/src/hal/board.h \
  /home/mirmik/project/gxx/./gxx/io/stdstream.h \
  /home/mirmik/project/gxx/./gxx/event/delegate.h \
  /home/mirmik/project/gxx/./gxx/util/horrible_cast.h \
- /home/mirmik/project/gxx/./gxx/util/stub.h
+ /home/mirmik/project/gxx/./gxx/util/stub.h \
+ /home/mirmik/project/genos/src/drivers/gpio/arduino_pinout.h
