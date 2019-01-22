@@ -6,6 +6,8 @@
 #include <drivers/serial/uartring.h>
 #include <drivers/gpio/arduino_pinout.h>
 
+#include <drivers/timer/avr_timer.h>
+
 uartring serial0;
 char rxbuf[16];
 char txbuf[128];

@@ -1,6 +1,5 @@
 main.o: main.cpp /home/mirmik/project/linalg/./linalg.h \
  /home/mirmik/project/linalg/./linalg-ext.h \
- /home/mirmik/project/linalg/./linalg-add.h \
  /home/mirmik/project/gxx/./gxx/print.h \
  /home/mirmik/project/gxx/./gxx/print/meta.h \
  /home/mirmik/project/gxx/./gxx/io/ostream.h \
