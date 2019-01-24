@@ -7,6 +7,8 @@
 
 #include <addons/ramps/ramps.h>
 
+#include <drivers/timer/avr_timer.h>
+
 uartring serial0;
 char rxbuf[16];
 char txbuf[128];

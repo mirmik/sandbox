@@ -1,6 +1,5 @@
 #include <linalg.h>
 #include <linalg-ext.h>
-#include <linalg-add.h>
 
 #include <iostream>
 #include <vector>
@@ -22,7 +21,7 @@ namespace cynematic
 	struct abstract_link
 	{
 		virtual double4x4 get(const std::vector<double>& coords, uint8_t pos) = 0;
-		virtual double4x4 sensmat(double pos) = 0;
+		virtual double4x4 sensmat() = 0;
 		virtual uint8_t count_of_coords() = 0;
 	};
 
@@ -30,7 +29,7 @@ namespace cynematic
 	{
 		double4x4 mat;
 		double4x4 get(const std::vector<double>& coords, uint8_t pos) override { return mat; }
-		double4x4 sensmat(double pos) { return double4x4(); }
+		double4x4 sensmat() { return double4x4(); }
 		uint8_t count_of_coords() override { return 0; }
 		constant_link(double4x4 _mat) : mat(_mat) {};
 	};
@@ -43,7 +42,7 @@ namespace cynematic
 		{
 			return func(coords[pos]);
 		}
-		double4x4 sensmat(double pos) { return double4x4(); }
+		double4x4 sensmat() { return double4x4(); }
 		uint8_t count_of_coords() override { return 1; }
 		one_dof_link_t(F _func) : func(_func) {};
 	};
@@ -59,7 +58,8 @@ namespace cynematic
 		{
 			return homogeneous_transformation<double, 3>::rotation( rotation_quat(axvec, coords[pos]) );
 		}
-		double4x4 sensmat(double pos) { return homogeneous_transformation_diff<double, 3>::rotation( axvec, pos ); }
+		double4x4 sensmat() { //return homogeneous_transformation<double, 3>::rotation( rotation_quat(axvec, ) ); 
+		}
 
 		uint8_t count_of_coords() override { return 1; }
 	};
@@ -73,7 +73,7 @@ namespace cynematic
 		{
 			return homogeneous_transformation<double, 3>::translation( axvec * coords[pos] );
 		}
-		double4x4 sensmat(double pos) { return homogeneous_transformation<double, 3>::translation( axvec ) - double4x4(identity); }
+		double4x4 sensmat() { return homogeneous_transformation<double, 3>::translation( axvec ) - double4x4(identity); }
 
 		uint8_t count_of_coords() override { return 1; }
 	};
@@ -122,7 +122,7 @@ namespace cynematic
 				{
 					if (count_of_coords == 1)
 					{
-						auto sensmat = links[i]->sensmat(coords[coord_pos]);
+						auto sensmat = links[i]->sensmat();
 						result.emplace_back(curtrans * sensmat);
 					}
 					else
@@ -174,6 +174,11 @@ int main ()
 		return homogeneous_transformation<double, 3>::rotation( rotation_quat(double3(0, 1, 0), coord) );
 	}
 	             );
+
+	mat<double, 4, 4> m;
+	m[0].x;
+
+	std::cout << m;
 
 	chain.add_link(new cynematic::constant_link(
 	                   homogeneous_transformation<double, 3>::translation(double3(5, 0, 5))
