@@ -92,4 +92,9 @@ main.o: main.cpp /home/mirmik/project/genos/src/hal/board.h \
  /home/mirmik/project/gxx/./gxx/event/delegate.h \
  /home/mirmik/project/gxx/./gxx/util/horrible_cast.h \
  /home/mirmik/project/gxx/./gxx/util/stub.h \
- /home/mirmik/project/genos/src/drivers/gpio/arduino_pinout.h
+ /home/mirmik/project/genos/src/addons/ramps/ramps.h \
+ /home/mirmik/project/genos/src/drivers/gpio/arduino_pinout.h \
+ /home/mirmik/project/ralgo/./ralgo/servo/impulse_writer.h \
+ /home/mirmik/project/ralgo/./ralgo/info.h \
+ /home/mirmik/project/ralgo/./ralgo/util/math.h \
+ /home/mirmik/project/gxx/./gxx/syslock.h

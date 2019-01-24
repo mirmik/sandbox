@@ -4,7 +4,8 @@
 //#include <sched/sched.h>
 
 #include <drivers/serial/uartring.h>
-#include <drivers/gpio/arduino_pinout.h>
+
+#include <addons/ramps/ramps.h>
 
 uartring serial0;
 char rxbuf[16];
@@ -26,17 +27,17 @@ int main()
 	irqs_enable();
 	delay(1000);
 
-	pinMode(24, 1); //enable
-	pinMode(26, 1); //step
-	pinMode(28, 1); //dir
-	digitalWrite(24, 0);
-	digitalWrite(28, 0);
+	ramps::x_driver.enable();
+	ramps::y_driver.enable();
+	ramps::z_driver.enable();
 
 	while (1) {
-		//board::sysled.toggle();
+		board::sysled.toggle();
 		//serial0.println("HelloWorld");
 		//board::usart0.sendbyte('A');
-		PINOUT[26].tgl();
+		ramps::x_driver.step_toggle();
+		ramps::y_driver.step_toggle();
+		ramps::z_driver.step_toggle();
 
 		delay(1);
 	}

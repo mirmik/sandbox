@@ -8,6 +8,7 @@ import licant.cxx_make
 licant.include("nos")
 licant.include("gxx")
 licant.include("crow")
+licant.include("ralgo")
 licant.include("genos")
 
 avr_binutils = licant.cxx_make.make_gcc_binutils("avr")
@@ -40,6 +41,8 @@ licant.cxx_application("firmware.bin",
 		("genos.malloc", "lin"),
 		#"genos.mvfs",
 		#("genos.mvfs.schedee_support"),
+
+		"ralgo",
 	]
 
 )
