@@ -92,15 +92,14 @@ main.o: main.cpp /home/mirmik/project/genos/src/hal/board.h \
  /home/mirmik/project/gxx/./gxx/event/delegate.h \
  /home/mirmik/project/gxx/./gxx/util/horrible_cast.h \
  /home/mirmik/project/gxx/./gxx/util/stub.h \
-<<<<<<< HEAD
  /home/mirmik/project/genos/src/addons/ramps/ramps.h \
  /home/mirmik/project/genos/src/drivers/gpio/arduino_pinout.h \
  /home/mirmik/project/ralgo/./ralgo/servo/impulse_writer.h \
  /home/mirmik/project/ralgo/./ralgo/info.h \
  /home/mirmik/project/ralgo/./ralgo/util/math.h \
- /home/mirmik/project/gxx/./gxx/syslock.h
-=======
- /home/mirmik/project/genos/src/drivers/gpio/arduino_pinout.h \
+ /home/mirmik/project/gxx/./gxx/syslock.h \
  /home/mirmik/project/genos/src/drivers/timer/avr_timer.h \
- /home/mirmik/project/genos/arch/avr/include/periph/regs/timer.h
->>>>>>> b216e22b4d9efb30bbb8fe3e2f43879b037b4531
+ /home/mirmik/project/genos/arch/avr/include/periph/regs/timer.h \
+ /home/mirmik/project/genos/arch/avr/include/periph/irqdefs.h \
+ /home/mirmik/project/gxx/libc/include/math.h \
+ /home/mirmik/project/gxx/libc/include/../math/math_builtins.h
