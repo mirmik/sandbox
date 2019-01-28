@@ -12,8 +12,9 @@ avr_usart.o: /home/mirmik/project/genos/src/drivers/serial/avr_usart.cpp \
  /home/mirmik/project/genos/src/hal/irqtable.h \
  /home/mirmik/project/genos/src/hal/irq.h \
  /home/mirmik/project/genos/arch/avr/include/arch/irq.h \
- /home/mirmik/project/gxx/./gxx/util/member.h \
- /home/mirmik/project/gxx/./gxx/util/decltypeof.h \
+ /home/mirmik/project/gxx/./gxx/event/delegate.h \
+ /home/mirmik/project/gxx/./gxx/util/horrible_cast.h \
+ /home/mirmik/project/gxx/./gxx/util/stub.h \
  /home/mirmik/project/gxx/std/./utility \
  /home/mirmik/project/gxx/std/./new \
  /home/mirmik/project/gxx/libc/include/stdlib.h \
@@ -27,6 +28,10 @@ avr_usart.o: /home/mirmik/project/genos/src/drivers/serial/avr_usart.cpp \
  /home/mirmik/project/gxx/std/./type_traits \
  /home/mirmik/project/gxx/std/./cstddef \
  /home/mirmik/project/gxx/std/./utility_impl/pair.hpp \
+ /home/mirmik/project/gxx/./gxx/debug/dprint.h \
+ /home/mirmik/project/gxx/./gxx/util/macro.h \
+ /home/mirmik/project/gxx/./gxx/util/member.h \
+ /home/mirmik/project/gxx/./gxx/util/decltypeof.h \
  /home/mirmik/project/genos/src/hal/board.h \
  /home/mirmik/project/genos/src/hal/arch.h \
  /home/mirmik/project/gxx/./gxx/util/compiler.h \

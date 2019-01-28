@@ -17,6 +17,8 @@ char txbuf[128];
 
 int i = 0;
 
+ramps::ramps_driver<genos::avr::timer16> rampsdrv(&periph::timer1);
+
 void handler(void*) 
 {
 	i++;
@@ -35,35 +37,40 @@ int main()
 
 	PINOUT[11].mode(GPIO_MODE_OUTPUT);
 
-	periph::timer1.set_overflow_irq_handler(handler, &periph::timer1);
+	rampsdrv.init(16000);
 
-	periph::timer1.irq_ovf_enable(true);
-
-	periph::timer1.set_wgm(0b0111);
+	//periph::timer1.set_overflow_irq_handler(handler, &periph::timer1);
+	//periph::timer1.irq_ovf_enable(true);
+	//periph::timer1.set_wgm(0b0111);
 
 	//periph::timer1.set_compare_a(255);
-	periph::timer1.set_compare_a(0x3ff / 2);
-	periph::timer1.set_output_a_mode(0b10);
+	//periph::timer1.set_compare_a(0x3ff / 2);
+	//periph::timer1.set_output_a_mode(0b10);
 
-	periph::timer1.enable(256);
-
-	periph::timer1.debug_print_regs();
-
+	//periph::timer1.enable(256);
+	//periph::timer1.debug_print_regs();
 
 	//periph::timer1.irq_overflow_enable(true);
 
+	periph::timer1.debug_print_regs();
 	//pinMode(24, 1);
 	//digitalWrite(24, 1);
 //	schedee_manager_init();
 	irqs_enable();
 
+	periph::timer1.debug_print_regs();
+	periph::timer1.debug_print_regs();
+
+	//serial0.println("HelloWorld");
+
 
 	while(1) 
 	{
-		auto m = millis() % 1000;
-		float a = (float)m / 1000 * M_PI * 2;
-		periph::timer1.set_compare_a(0x3ff / 2 + sin(a)*0x100);
-		//delay(100);
+	//	auto m = millis() % 1000;
+	//	float a = (float)m / 1000 * M_PI * 2;
+	//	periph::timer1.set_compare_a(0x3ff / 2 + sin(a)*0x100);
+		delay(1000);
+		//serial0.println("HelloWorld");
 	}
 
 
