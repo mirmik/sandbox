@@ -63,6 +63,14 @@ int main()
 
 	//serial0.println("HelloWorld");
 
+	ramps::x_driver.enabled=true;
+	ramps::y_driver.enabled=true;
+	ramps::z_driver.enabled=true;
+
+
+	ramps::x_driver.step_width = 10000;
+	ramps::y_driver.step_width = 20000;
+	ramps::z_driver.step_width = 40000;
 
 	while(1) 
 	{
