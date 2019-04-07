@@ -11,7 +11,7 @@
 
 #include <math.h>
 
-uartring serial0;
+genos::uartring serial0;
 char rxbuf[16];
 char txbuf[128];
 

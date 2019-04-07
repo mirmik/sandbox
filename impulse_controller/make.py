@@ -6,7 +6,7 @@ import licant
 import licant.cxx_make
 
 licant.include("nos")
-licant.include("gxx")
+licant.include("igris")
 licant.include("crow")
 licant.include("ralgo")
 licant.include("genos")
@@ -18,29 +18,25 @@ licant.cxx_application("firmware.bin",
 	sources = ["main.cpp"], 
 
 	mdepends = [
-
-		"gxx.std",
-		"gxx.libc",
-		"gxx.posix",
-		"gxx.include",
-		
 		"genos.include",
-
-		("genos.board", "arduino_mega"),
 		"genos.irqtbl",
 		"genos.systime",
-		#"genos.sched",
-		"genos.drivers.avr",
-		"genos.drivers.gpio.avr",
+		("genos.board", "arduino_mega"),
 
-		("gxx.dprint", "diag"),
-		("gxx.syslock", "genos.atomic"),
-		"genos.cpudelay",
-		"gxx.cxx_support",
-		"gxx.panic",
-		("genos.malloc", "lin"),
-		#"genos.mvfs",
-		#("genos.mvfs.schedee_support"),
+		"igris.include",
+		
+		"igris.libc",
+		"igris.posix",
+		"igris.std",
+
+		"igris.cxx_support",
+		("igris.syslock", "genos.atomic"),
+		("igris.dprint", "diag"),
+		
+		"genos.drivers.avr",
+
+		"nos",
+		("nos.current_ostream", "nullptr"),
 
 		"ralgo",
 	]
