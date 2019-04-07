@@ -140,3 +140,5 @@ pyservoce/libs
 build
 cxxbuild 
 dist
+
+*.bin
