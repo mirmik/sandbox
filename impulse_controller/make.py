@@ -39,7 +39,9 @@ licant.cxx_application("firmware.bin",
 		("nos.current_ostream", "nullptr"),
 
 		"ralgo",
-	]
+	],
+
+	cxx_flags = "-O3",
 
 )
 
