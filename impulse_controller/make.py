@@ -9,6 +9,8 @@ licant.include("nos")
 licant.include("igris")
 licant.include("crow")
 licant.include("ralgo")
+licant.include("malgo")
+licant.include("linalg-v3")
 licant.include("genos")
 
 avr_binutils = licant.cxx_make.make_gcc_binutils("avr")

@@ -52,7 +52,7 @@ int main()
 	}
 }
 
-void emergency_stop() 
+void ramps::emergency_stop() 
 {
 	irqs_disable();
 	abort();
