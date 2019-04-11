@@ -40,6 +40,18 @@ int main()
 
 	delay(1000);
 
+
+			periph::timer3.set_value(0);
+			periph::timer3.set_divcode(1);
+	
+	delay(1000);
+
+			periph::timer3.set_divcode(0);
+			uint32_t timer3_value = periph::timer3.value();
+	
+			dprln(timer3_value);
+
+	while(1);
 	xservo.move_mode_speed = 2;
 	xservo.move_mode_acctime = 1000;
 
@@ -49,6 +61,7 @@ int main()
 	{
 		time_t curtime = millis();
 		xservo.serve(curtime);
+		dprln(rampsdrv.timer3_value);
 	}
 }
 
