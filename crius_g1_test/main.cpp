@@ -1,13 +1,16 @@
-#include <genos/hal/board.h>
-#include <genos/hal/irqs.h>
+#include <hal/board.h>
+#include <hal/irq.h>
 #include <genos/time/systime.h>
 
 #include <gxx/debug/dprint.h>
 
-#include <g1/tower.h>
-#include <g1/indexes.h>
-#include <g0/services/echo.h>
+#include <crow/tower.h>
+#include <crow/node.h>
+
+#include <crow/nodes/echo.h>
+
 #include <genos/drivers/g1/uartgate.h>
+#include <genos/drivers/uartring.h>
 
 #include <genos/sched/schedee.h>
 #include <genos/sched/tasklet.h>
@@ -15,73 +18,63 @@
 #include <genos/sched/action.h>
 #include <genos/schedule.h>
 
-arch::usart usart0(usart0_data);
-genos::uartgate usart0gate(&usart0, 128);
+genos::uartgate usart0gate(&board::usart0, 128);
+//genos::uartring serial0(&board::usart0);
 
 int idx = 0;
 int idx2 = 0;
-void incoming_handler(g1::packet* pack);
+void incoming_handler(crow::packet* pack);
 void led_toggle() { 
 	board::led.tgl(); 
 }
 
 void tim1func() { 
-	char arr[40] = "Mirmik was here ";
+	char arr[40] = "Mirmik was here \n";
 	i32toa(idx++, arr + strlen(arr), 10);
-	g0::send(0, 0, "\x42\x0C\xC0\xA8\x01\x87\x27\x14\x0C\xC0\xA8\x01\xF0\x27\x14", 15, arr, strlen(arr), g1::QoS(2), 100);
+	//crow::__node_send(0, 0, "\x42\x0C\xC0\xA8\x01\x87\x27\x14\x0C\xC0\xA8\x01\xF0\x27\x14", 15, arr, strlen(arr), crow::QoS(2), 100);
 }
 
 void tim2func() { 
 	char arr[20];
 	i32toa(idx2++, arr, 10);
-	g0::send(0, 0, "\x42", 1, arr, strlen(arr), g1::QoS(2), 100);
-	g0::send(0, 0, "\x42\x0C\xC0\xA8\x01\x87\x27\x14", 8, arr, strlen(arr), g1::QoS(2), 100);
+	//crow::__node_send(0, 0, "\x42", 1, arr, strlen(arr), crow::QoS(2), 100);
+	//crow::__node_send(0, 0, "\x42\x0C\xC0\xA8\x01\x87\x27\x14", 8, arr, strlen(arr), crow::QoS(2), 100);
 }
 
-g0::echo_service echo(true);
+crow::echo_node echo(true);
 
 int main() {
 	board_init();
-	usart0.enable(false);
-	g1::link_gate(&usart0gate, 0x42);
-	g0::link_service(&echo, 2);
+	board::usart0.enable(false);
+	crow::link_gate(&usart0gate, 0x42);
+	crow::link_node(&echo, 2);
 
-	usart0.setup(115200);
+	board::usart0.setup(115200);
 	usart0gate.init();
-	usart0.enable();
-
-	g1::incoming_handler = incoming_handler;
+	board::usart0.enable();
 
 	genos::timer_tasklet tim2(tim2func, 1000);
 	tim2.autorepeat(true).plan();
-	genos::timer_tasklet tim1(tim1func, 30);
+	genos::timer_tasklet tim1(tim1func, 300);
 	tim1.autorepeat(true).plan();
 
-	genos::hal::irqs::enable();
+	irqs_enable();
 
-	//g1::send("\x42", 1, "Hello\xACW\xADo\xAEr\xAFld", 14, 1, (g1::QoS)1);
+	//crow::send("\x42", 1, "Hello\xACW\xADo\xAEr\xAFld", 14, 1, (crow::QoS)1);
 
 
 	while(1) genos::schedule();
 
 }
 
-void incoming_handler(g1::packet* pack) {
-	if (pack->header.type == G1_G0TYPE) {
-		g0::travell(pack);
-	} else {
-		g1::release(pack);
-	}
-}
-
-namespace g1 {
+namespace crow {
 	uint16_t millis() {
-		return systime::millis();
+		return ::millis();
 	}
 }
 
 void genos::schedule() {
-	g1::onestep();
+	crow::onestep();
 	genos::tasklet_manager.execute();
 	genos::timer_manager.execute();
 	genos::schedee_manager.execute();

@@ -1,0 +1,37 @@
+schedule_displace.o: \
+ /home/mirmik/project/genos/genos/impls/schedule_displace.cpp \
+ /home/mirmik/project/genos/./genos/schedule.h \
+ /home/mirmik/project/genos/./genos/sched/schedee.h \
+ /home/mirmik/project/gxx/./gxx/container/dlist.h \
+ /home/mirmik/project/gxx/./gxx/datastruct/dlist_head.h \
+ /home/mirmik/project/gxx/libc/include/inttypes.h \
+ /home/mirmik/project/gxx/libc/include/stdint.h \
+ /home/mirmik/project/genos/arch/avr/include/asm/types.h \
+ /home/mirmik/project/gxx/libc/include/asm-generic/types16.h \
+ /home/mirmik/project/gxx/libc/include/stddef.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/null.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/size_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/wchar_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/ptrdiff_t.h \
+ /home/mirmik/project/gxx/libc/include/libc/defines/off_t.h \
+ /home/mirmik/project/gxx/libc/include/sys/cdefs.h \
+ /home/mirmik/project/gxx/./gxx/util/member.h \
+ /home/mirmik/project/gxx/./gxx/util/memberxx.h \
+ /home/mirmik/project/gxx/./gxx/syslock.h \
+ /home/mirmik/project/gxx/libc/include/assert.h \
+ /home/mirmik/project/gxx/./gxx/debug/dprint.h \
+ /home/mirmik/project/genos/./genos/sched/impl/process.h \
+ /home/mirmik/project/genos/arch/avr/include/arch/context.h \
+ /home/mirmik/project/genos/./genos/hal/subst.h \
+ /home/mirmik/project/genos/arch/avr/include/arch/startup.h \
+ /home/mirmik/project/gxx/./gxx/buffer.h \
+ /home/mirmik/project/gxx/libc/include/string.h \
+ /home/mirmik/project/gxx/libc/include/string_bsd.h \
+ /home/mirmik/project/gxx/libc/include/stdlib.h \
+ /home/mirmik/project/gxx/./gxx/util/compiler.h \
+ /home/mirmik/project/gxx/libc/include/limits.h \
+ /home/mirmik/project/genos/arch/avr/include/asm/limits.h \
+ /home/mirmik/project/gxx/libc/include/asm-generic/limits16.h \
+ /home/mirmik/project/gxx/libc/include/asm-generic/limits.h \
+ /home/mirmik/project/gxx/libc/include/ctype.h \
+ /home/mirmik/project/gxx/./gxx/util/setget.h
