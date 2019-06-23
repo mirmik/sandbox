@@ -19,7 +19,7 @@ char txbuf[128];
 
 ramps::ramps_driver rampsdrv(&periph::timer1);
 
-int main() 
+int main()
 {
 	ralgo::servo<> xservo;
 
@@ -30,10 +30,10 @@ int main()
 
 	rampsdrv.init(4000, 8);
 
-	ramps::x_driver.enabled=true;
+	ramps::x_driver.enabled = true;
 	//ramps::y_driver.enabled=true;
 	//ramps::z_driver.enabled=true;
-	
+
 	xservo.writer = &ramps::x_driver;
 
 	irqs_enable();
@@ -41,23 +41,29 @@ int main()
 	delay(1000);
 
 
-			periph::timer3.set_value(0);
-			periph::timer3.set_divcode(1);
-	
+	periph::timer3.set_value(0);
+	periph::timer3.set_divcode(1);
+
 	delay(1000);
 
-			periph::timer3.set_divcode(0);
-			uint32_t timer3_value = periph::timer3.value();
-	
-			dprln(timer3_value);
+	uint32_t timer3_value = periph::timer3.value();
 
-	while(1);
+	dprln(periph::timer3.value());
+	dprln(periph::timer3.value());
+	dprln(periph::timer3.value());
+	dprln(periph::timer3.value());
+	dprln(periph::timer3.value());
+	dprln(periph::timer3.value());
+	dprln(periph::timer3.value());
+
+	while (1);
+
 	xservo.move_mode_speed = 2;
 	xservo.move_mode_acctime = 1000;
 
 	xservo.relative_move(30000);
 
-	while(1) 
+	while (1)
 	{
 		time_t curtime = millis();
 		xservo.serve(curtime);
@@ -65,7 +71,7 @@ int main()
 	}
 }
 
-void ramps::emergency_stop() 
+void ramps::emergency_stop()
 {
 	irqs_disable();
 	abort();

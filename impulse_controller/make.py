@@ -41,6 +41,8 @@ licant.cxx_application("firmware.bin",
 		("nos.current_ostream", "nullptr"),
 
 		"ralgo",
+
+		"genos.addon.ramps"
 	],
 
 	cxx_flags = "-O3",
