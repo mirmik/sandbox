@@ -23,13 +23,14 @@ licant.cxx_application("crow-chart",
 	"src",
 	"/usr/include/x86_64-linux-gnu/qt5/", 
 	"/usr/include/x86_64-linux-gnu/qt5/QtCore",
-	"/usr/include/x86_64-linux-gnu/qt5/QtWidgets"],
+	"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+	"/usr/include/x86_64-linux-gnu/qt5/QtCharts"],
 
 	cxx_flags = "-fPIC",
 
 	moc=["src/DisplayWidget.h"],
 
-	libs=["Qt5Core", "Qt5Gui", "Qt5Widgets"]
+	libs=["Qt5Core", "Qt5Gui", "Qt5Widgets", "Qt5Charts"]
 )
 
 licant.ex("crow-chart")
