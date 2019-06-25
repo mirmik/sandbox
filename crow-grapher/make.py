@@ -26,7 +26,8 @@ licant.cxx_application("crow-chart",
 	"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
 	"/usr/include/x86_64-linux-gnu/qt5/QtCharts"],
 
-	cxx_flags = "-fPIC",
+	cxx_flags = "-fPIC -Xlinker -Map=output.map",
+	ld_flags = "-fPIC -Xlinker -Map=output.map",
 
 	moc=["src/DisplayWidget.h"],
 
