@@ -12,6 +12,8 @@ licant.include("crow")
 licant.cxx_application("crow-chart",
 	mdepends = [
 		"crow",
+		"crow.threads",
+
 		"igris",
 
 		"crow.udpgate",
@@ -31,7 +33,7 @@ licant.cxx_application("crow-chart",
 
 	moc=["src/DisplayWidget.h"],
 
-	libs=["Qt5Core", "Qt5Gui", "Qt5Widgets", "Qt5Charts"]
+	libs=["Qt5Core", "Qt5Gui", "Qt5Widgets", "Qt5Charts", "pthread"]
 )
 
 licant.ex("crow-chart")
