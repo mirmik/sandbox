@@ -14,6 +14,21 @@ crow::subscriber data_theme;
 
 void data_theme_handler(crow::packet * pack) 
 {
+	std::vector<float> vec;
+
+	igris::buffer data = crow::pubsub::get_data(pack);
+	if (data.size() % sizeof(float) != 0) 
+	{
+		nos::println("Warn: wrong data size {}", data.size());
+		crow::release(pack);
+		return;
+	}
+
+	vec.resize(data.size() / 4);
+
+	memcpy(data.data(), vec.data(), data.size());
+	nos::println(vec);
+
 	crow::release(pack);
 }
 
