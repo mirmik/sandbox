@@ -2,103 +2,103 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "main.c"
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 1 3
-# 10 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/ieeefp.h" 1 3
-# 11 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 2 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/_ansi.h" 1 3
-# 10 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/_ansi.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/newlib.h" 1 3
-# 14 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/newlib.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/_newlib_version.h" 1 3
-# 15 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/newlib.h" 2 3
-# 11 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/_ansi.h" 2 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/config.h" 1 3
+# 1 "/usr/include/newlib/stdlib.h" 1 3
+# 10 "/usr/include/newlib/stdlib.h" 3
+# 1 "/usr/include/newlib/machine/ieeefp.h" 1 3
+# 11 "/usr/include/newlib/stdlib.h" 2 3
+# 1 "/usr/include/newlib/_ansi.h" 1 3
+# 10 "/usr/include/newlib/_ansi.h" 3
+# 1 "/usr/include/newlib/newlib.h" 1 3
+# 14 "/usr/include/newlib/newlib.h" 3
+# 1 "/usr/include/newlib/_newlib_version.h" 1 3
+# 15 "/usr/include/newlib/newlib.h" 2 3
+# 11 "/usr/include/newlib/_ansi.h" 2 3
+# 1 "/usr/include/newlib/sys/config.h" 1 3
 
 
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/ieeefp.h" 1 3
-# 5 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/config.h" 2 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/features.h" 1 3
-# 6 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/config.h" 2 3
-# 12 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/_ansi.h" 2 3
-# 12 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 2 3
+# 1 "/usr/include/newlib/machine/ieeefp.h" 1 3
+# 5 "/usr/include/newlib/sys/config.h" 2 3
+# 1 "/usr/include/newlib/sys/features.h" 1 3
+# 6 "/usr/include/newlib/sys/config.h" 2 3
+# 12 "/usr/include/newlib/_ansi.h" 2 3
+# 12 "/usr/include/newlib/stdlib.h" 2 3
 
 
 
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 1 3 4
-# 209 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 3 4
+# 1 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 1 3 4
+# 209 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 3 4
 
-# 209 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 3 4
+# 209 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 3 4
 typedef unsigned int size_t;
-# 321 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 3 4
+# 321 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 3 4
 typedef unsigned int wchar_t;
-# 17 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 2 3
+# 17 "/usr/include/newlib/stdlib.h" 2 3
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 1 3
-# 13 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/_ansi.h" 1 3
-# 14 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 2 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 1 3 4
-# 143 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 3 4
+# 1 "/usr/include/newlib/sys/reent.h" 1 3
+# 13 "/usr/include/newlib/sys/reent.h" 3
+# 1 "/usr/include/newlib/_ansi.h" 1 3
+# 14 "/usr/include/newlib/sys/reent.h" 2 3
+# 1 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 1 3 4
+# 143 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 3 4
 typedef int ptrdiff_t;
-# 415 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 3 4
+# 415 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 3 4
 typedef struct {
   long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
   long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
-# 426 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 3 4
+# 426 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 3 4
 } max_align_t;
-# 15 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 2 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_types.h" 1 3
-# 24 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_types.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 1 3 4
-# 350 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 3 4
+# 15 "/usr/include/newlib/sys/reent.h" 2 3
+# 1 "/usr/include/newlib/sys/_types.h" 1 3
+# 24 "/usr/include/newlib/sys/_types.h" 3
+# 1 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 1 3 4
+# 350 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 3 4
 typedef unsigned int wint_t;
-# 25 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_types.h" 2 3
+# 25 "/usr/include/newlib/sys/_types.h" 2 3
 
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_types.h" 1 3
-
-
-
+# 1 "/usr/include/newlib/machine/_types.h" 1 3
 
 
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h" 1 3
-# 41 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h" 3
+
+
+
+# 1 "/usr/include/newlib/machine/_default_types.h" 1 3
+# 41 "/usr/include/newlib/machine/_default_types.h" 3
 typedef signed char __int8_t;
 
 typedef unsigned char __uint8_t;
-# 55 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h" 3
+# 55 "/usr/include/newlib/machine/_default_types.h" 3
 typedef short int __int16_t;
 
 typedef short unsigned int __uint16_t;
-# 77 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h" 3
+# 77 "/usr/include/newlib/machine/_default_types.h" 3
 typedef long int __int32_t;
 
 typedef long unsigned int __uint32_t;
-# 103 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h" 3
+# 103 "/usr/include/newlib/machine/_default_types.h" 3
 typedef long long int __int64_t;
 
 typedef long long unsigned int __uint64_t;
-# 134 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h" 3
+# 134 "/usr/include/newlib/machine/_default_types.h" 3
 typedef signed char __int_least8_t;
 
 typedef unsigned char __uint_least8_t;
-# 160 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h" 3
+# 160 "/usr/include/newlib/machine/_default_types.h" 3
 typedef short int __int_least16_t;
 
 typedef short unsigned int __uint_least16_t;
-# 182 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h" 3
+# 182 "/usr/include/newlib/machine/_default_types.h" 3
 typedef long int __int_least32_t;
 
 typedef long unsigned int __uint_least32_t;
-# 200 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h" 3
+# 200 "/usr/include/newlib/machine/_default_types.h" 3
 typedef long long int __int_least64_t;
 
 typedef long long unsigned int __uint_least64_t;
-# 214 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_default_types.h" 3
+# 214 "/usr/include/newlib/machine/_default_types.h" 3
 typedef long long int __intmax_t;
 
 
@@ -118,8 +118,8 @@ typedef long long unsigned int __uintmax_t;
 typedef int __intptr_t;
 
 typedef unsigned int __uintptr_t;
-# 8 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_types.h" 2 3
-# 28 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_types.h" 2 3
+# 8 "/usr/include/newlib/machine/_types.h" 2 3
+# 28 "/usr/include/newlib/sys/_types.h" 2 3
 
 
 typedef long __blkcnt_t;
@@ -168,7 +168,7 @@ typedef __uint32_t __id_t;
 
 
 typedef unsigned short __ino_t;
-# 90 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_types.h" 3
+# 90 "/usr/include/newlib/sys/_types.h" 3
 typedef __uint32_t __mode_t;
 
 
@@ -196,11 +196,11 @@ typedef long __key_t;
 
 
 typedef long _fpos_t;
-# 131 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_types.h" 3
+# 131 "/usr/include/newlib/sys/_types.h" 3
 typedef unsigned int __size_t;
-# 147 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_types.h" 3
+# 147 "/usr/include/newlib/sys/_types.h" 3
 typedef signed int _ssize_t;
-# 158 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_types.h" 3
+# 158 "/usr/include/newlib/sys/_types.h" 3
 typedef _ssize_t __ssize_t;
 
 
@@ -263,7 +263,7 @@ typedef unsigned long __useconds_t;
 
 
 typedef __builtin_va_list __va_list;
-# 16 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 2 3
+# 16 "/usr/include/newlib/sys/reent.h" 2 3
 
 
 
@@ -271,39 +271,13 @@ typedef __builtin_va_list __va_list;
 
 
 typedef unsigned long __ULong;
-# 34 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/lock.h" 1 3
-# 33 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/lock.h" 3
-struct __lock;
-typedef struct __lock * _LOCK_T;
-
-
-
-
-
-
-extern void __retarget_lock_init(_LOCK_T *lock);
-
-extern void __retarget_lock_init_recursive(_LOCK_T *lock);
-
-extern void __retarget_lock_close(_LOCK_T lock);
-
-extern void __retarget_lock_close_recursive(_LOCK_T lock);
-
-extern void __retarget_lock_acquire(_LOCK_T lock);
-
-extern void __retarget_lock_acquire_recursive(_LOCK_T lock);
-
-extern int __retarget_lock_try_acquire(_LOCK_T lock);
-
-extern int __retarget_lock_try_acquire_recursive(_LOCK_T lock);
-
-
-extern void __retarget_lock_release(_LOCK_T lock);
-
-extern void __retarget_lock_release_recursive(_LOCK_T lock);
-# 35 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 2 3
-typedef _LOCK_T _flock_t;
+# 34 "/usr/include/newlib/sys/reent.h" 3
+# 1 "/usr/include/newlib/sys/lock.h" 1 3
+# 11 "/usr/include/newlib/sys/lock.h" 3
+typedef int _LOCK_T;
+typedef int _LOCK_RECURSIVE_T;
+# 35 "/usr/include/newlib/sys/reent.h" 2 3
+typedef _LOCK_RECURSIVE_T _flock_t;
 
 
 
@@ -356,7 +330,7 @@ struct _on_exit_args {
 
  __ULong _is_cxa;
 };
-# 98 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 3
+# 98 "/usr/include/newlib/sys/reent.h" 3
 struct _atexit {
  struct _atexit *_next;
  int _ind;
@@ -364,12 +338,12 @@ struct _atexit {
  void (*_fns[32])(void);
         struct _on_exit_args _on_exit_args;
 };
-# 122 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 3
+# 122 "/usr/include/newlib/sys/reent.h" 3
 struct __sbuf {
  unsigned char *_base;
  int _size;
 };
-# 186 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 3
+# 186 "/usr/include/newlib/sys/reent.h" 3
 struct __sFILE {
   unsigned char *_p;
   int _r;
@@ -420,7 +394,7 @@ struct __sFILE {
   _mbstate_t _mbstate;
   int _flags2;
 };
-# 292 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 3
+# 292 "/usr/include/newlib/sys/reent.h" 3
 typedef struct __sFILE __FILE;
 
 
@@ -431,7 +405,7 @@ struct _glue
   int _niobs;
   __FILE *_iobs;
 };
-# 324 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 3
+# 324 "/usr/include/newlib/sys/reent.h" 3
 struct _rand48 {
   unsigned short _seed[3];
   unsigned short _mult[3];
@@ -441,7 +415,7 @@ struct _rand48 {
 
 
 };
-# 613 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 3
+# 613 "/usr/include/newlib/sys/reent.h" 3
 struct _reent
 {
   int _errno;
@@ -524,23 +498,23 @@ struct _reent
   __FILE __sf[3];
 
 };
-# 819 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/reent.h" 3
+# 819 "/usr/include/newlib/sys/reent.h" 3
 extern struct _reent *_impure_ptr ;
 extern struct _reent *const _global_impure_ptr ;
 
 void _reclaim_reent (struct _reent *);
-# 19 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 2 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/cdefs.h" 1 3
-# 47 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/cdefs.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 1 3 4
-# 48 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/cdefs.h" 2 3
-# 20 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 2 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/stdlib.h" 1 3
-# 21 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 2 3
+# 19 "/usr/include/newlib/stdlib.h" 2 3
+# 1 "/usr/include/newlib/sys/cdefs.h" 1 3
+# 47 "/usr/include/newlib/sys/cdefs.h" 3
+# 1 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 1 3 4
+# 48 "/usr/include/newlib/sys/cdefs.h" 2 3
+# 20 "/usr/include/newlib/stdlib.h" 2 3
+# 1 "/usr/include/newlib/machine/stdlib.h" 1 3
+# 21 "/usr/include/newlib/stdlib.h" 2 3
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/alloca.h" 1 3
-# 23 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 2 3
-# 33 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 3
+# 1 "/usr/include/newlib/alloca.h" 1 3
+# 23 "/usr/include/newlib/stdlib.h" 2 3
+# 33 "/usr/include/newlib/stdlib.h" 3
 
 
 typedef struct
@@ -683,7 +657,7 @@ long strtol (const char *restrict __n, char **restrict __end_PTR, int __base);
 long _strtol_r (struct _reent *,const char *restrict __n, char **restrict __end_PTR, int __base);
 unsigned long strtoul (const char *restrict __n, char **restrict __end_PTR, int __base);
 unsigned long _strtoul_r (struct _reent *,const char *restrict __n, char **restrict __end_PTR, int __base);
-# 191 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 3
+# 191 "/usr/include/newlib/stdlib.h" 3
 int system (const char *__string);
 
 
@@ -706,7 +680,7 @@ void * _reallocf_r (struct _reent *, void *, size_t);
 int setenv (const char *__string, const char *__value, int __overwrite);
 
 int _setenv_r (struct _reent *, const char *__string, const char *__value, int __overwrite);
-# 224 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 3
+# 224 "/usr/include/newlib/stdlib.h" 3
 char * __itoa (int, char *, int);
 char * __utoa (unsigned, char *, int);
 
@@ -786,10 +760,10 @@ void _mstats_r (struct _reent *, char *);
 int _system_r (struct _reent *, const char *);
 
 void __eprintf (const char *, const char *, unsigned int, const char *);
-# 312 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 3
+# 312 "/usr/include/newlib/stdlib.h" 3
 void qsort_r (void *__base, size_t __nmemb, size_t __size, void *__thunk, int (*_compar)(void *, const void *, const void *))
              __asm__ ("" "__bsd_qsort_r");
-# 322 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdlib.h" 3
+# 322 "/usr/include/newlib/stdlib.h" 3
 extern long double _strtold_r (struct _reent *, const char *restrict, char **restrict);
 
 extern long double strtold (const char *restrict, char **restrict);
@@ -809,26 +783,26 @@ _Noreturn void
 
 
 # 2 "main.c" 2
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 1 3
-# 36 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h" 1 3 4
-# 37 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 2 3
+# 1 "/usr/include/newlib/stdio.h" 1 3
+# 36 "/usr/include/newlib/stdio.h" 3
+# 1 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h" 1 3 4
+# 37 "/usr/include/newlib/stdio.h" 2 3
 
 
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stdarg.h" 1 3 4
-# 40 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/lib/gcc/arm-none-eabi/9.3.1/include/stdarg.h" 3 4
+# 1 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h" 1 3 4
+# 40 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h" 3 4
 typedef __builtin_va_list __gnuc_va_list;
-# 41 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 2 3
+# 41 "/usr/include/newlib/stdio.h" 2 3
 
 
 
 
 
 typedef __gnuc_va_list va_list;
-# 61 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/types.h" 1 3
-# 28 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/types.h" 3
+# 61 "/usr/include/newlib/stdio.h" 3
+# 1 "/usr/include/newlib/sys/types.h" 1 3
+# 28 "/usr/include/newlib/sys/types.h" 3
 typedef __uint8_t u_int8_t;
 
 
@@ -847,8 +821,8 @@ typedef __intptr_t register_t;
 
 
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_stdint.h" 1 3
-# 20 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_stdint.h" 3
+# 1 "/usr/include/newlib/sys/_stdint.h" 1 3
+# 20 "/usr/include/newlib/sys/_stdint.h" 3
 typedef __int8_t int8_t ;
 
 
@@ -912,58 +886,58 @@ typedef __intptr_t intptr_t;
 
 
 typedef __uintptr_t uintptr_t;
-# 47 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/types.h" 2 3
+# 47 "/usr/include/newlib/sys/types.h" 2 3
 
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/endian.h" 1 3
+# 1 "/usr/include/newlib/machine/endian.h" 1 3
 
 
 
 
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/_endian.h" 1 3
-# 7 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/endian.h" 2 3
-# 50 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/types.h" 2 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/select.h" 1 3
-# 14 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/select.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_sigset.h" 1 3
-# 41 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_sigset.h" 3
+# 1 "/usr/include/newlib/machine/_endian.h" 1 3
+# 7 "/usr/include/newlib/machine/endian.h" 2 3
+# 50 "/usr/include/newlib/sys/types.h" 2 3
+# 1 "/usr/include/newlib/sys/select.h" 1 3
+# 14 "/usr/include/newlib/sys/select.h" 3
+# 1 "/usr/include/newlib/sys/_sigset.h" 1 3
+# 41 "/usr/include/newlib/sys/_sigset.h" 3
 typedef unsigned long __sigset_t;
-# 15 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/select.h" 2 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_timeval.h" 1 3
-# 37 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_timeval.h" 3
+# 15 "/usr/include/newlib/sys/select.h" 2 3
+# 1 "/usr/include/newlib/sys/_timeval.h" 1 3
+# 37 "/usr/include/newlib/sys/_timeval.h" 3
 typedef __suseconds_t suseconds_t;
 
 
 
 
 typedef __int_least64_t time_t;
-# 54 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_timeval.h" 3
+# 54 "/usr/include/newlib/sys/_timeval.h" 3
 struct timeval {
  time_t tv_sec;
  suseconds_t tv_usec;
 };
-# 16 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/select.h" 2 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/timespec.h" 1 3
-# 38 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/timespec.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_timespec.h" 1 3
-# 47 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_timespec.h" 3
+# 16 "/usr/include/newlib/sys/select.h" 2 3
+# 1 "/usr/include/newlib/sys/timespec.h" 1 3
+# 38 "/usr/include/newlib/sys/timespec.h" 3
+# 1 "/usr/include/newlib/sys/_timespec.h" 1 3
+# 47 "/usr/include/newlib/sys/_timespec.h" 3
 struct timespec {
  time_t tv_sec;
  long tv_nsec;
 };
-# 39 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/timespec.h" 2 3
-# 58 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/timespec.h" 3
+# 39 "/usr/include/newlib/sys/timespec.h" 2 3
+# 58 "/usr/include/newlib/sys/timespec.h" 3
 struct itimerspec {
  struct timespec it_interval;
  struct timespec it_value;
 };
-# 17 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/select.h" 2 3
+# 17 "/usr/include/newlib/sys/select.h" 2 3
 
 
 
 typedef __sigset_t sigset_t;
-# 34 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/select.h" 3
+# 34 "/usr/include/newlib/sys/select.h" 3
 typedef unsigned long fd_mask;
 
 
@@ -975,7 +949,7 @@ typedef unsigned long fd_mask;
 typedef struct _types_fd_set {
  fd_mask fds_bits[(((64)+(((sizeof (fd_mask) * 8))-1))/((sizeof (fd_mask) * 8)))];
 } _types_fd_set;
-# 60 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/select.h" 3
+# 60 "/usr/include/newlib/sys/select.h" 3
 
 
 int select (int __n, _types_fd_set *__readfds, _types_fd_set *__writefds, _types_fd_set *__exceptfds, struct timeval *__timeout)
@@ -987,7 +961,7 @@ int pselect (int __n, _types_fd_set *__readfds, _types_fd_set *__writefds, _type
 
 
 
-# 51 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/types.h" 2 3
+# 51 "/usr/include/newlib/sys/types.h" 2 3
 
 
 
@@ -1045,7 +1019,7 @@ typedef __blksize_t blksize_t;
 
 
 typedef unsigned long clock_t;
-# 119 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/types.h" 3
+# 119 "/usr/include/newlib/sys/types.h" 3
 typedef long daddr_t;
 
 
@@ -1067,7 +1041,7 @@ typedef __id_t id_t;
 
 
 typedef __ino_t ino_t;
-# 157 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/types.h" 3
+# 157 "/usr/include/newlib/sys/types.h" 3
 typedef __off_t off_t;
 
 
@@ -1123,22 +1097,22 @@ typedef __timer_t timer_t;
 
 
 typedef __useconds_t useconds_t;
-# 220 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/types.h" 3
+# 220 "/usr/include/newlib/sys/types.h" 3
 typedef __int64_t sbintime_t;
 
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_pthreadtypes.h" 1 3
-# 23 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_pthreadtypes.h" 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/sched.h" 1 3
-# 48 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/sched.h" 3
+# 1 "/usr/include/newlib/sys/_pthreadtypes.h" 1 3
+# 23 "/usr/include/newlib/sys/_pthreadtypes.h" 3
+# 1 "/usr/include/newlib/sys/sched.h" 1 3
+# 48 "/usr/include/newlib/sys/sched.h" 3
 struct sched_param {
   int sched_priority;
-# 61 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/sched.h" 3
+# 61 "/usr/include/newlib/sys/sched.h" 3
 };
-# 24 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_pthreadtypes.h" 2 3
-# 32 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_pthreadtypes.h" 3
+# 24 "/usr/include/newlib/sys/_pthreadtypes.h" 2 3
+# 32 "/usr/include/newlib/sys/_pthreadtypes.h" 3
 typedef __uint32_t pthread_t;
-# 61 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_pthreadtypes.h" 3
+# 61 "/usr/include/newlib/sys/_pthreadtypes.h" 3
 typedef struct {
   int is_initialized;
   void *stackaddr;
@@ -1154,12 +1128,12 @@ typedef struct {
 
   int detachstate;
 } pthread_attr_t;
-# 154 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_pthreadtypes.h" 3
+# 154 "/usr/include/newlib/sys/_pthreadtypes.h" 3
 typedef __uint32_t pthread_mutex_t;
 
 typedef struct {
   int is_initialized;
-# 168 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/_pthreadtypes.h" 3
+# 168 "/usr/include/newlib/sys/_pthreadtypes.h" 3
   int recursive;
 } pthread_mutexattr_t;
 
@@ -1188,10 +1162,10 @@ typedef struct {
   int is_initialized;
   int init_executed;
 } pthread_once_t;
-# 224 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/types.h" 2 3
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/machine/types.h" 1 3
-# 225 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/types.h" 2 3
-# 62 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 2 3
+# 224 "/usr/include/newlib/sys/types.h" 2 3
+# 1 "/usr/include/newlib/machine/types.h" 1 3
+# 225 "/usr/include/newlib/sys/types.h" 2 3
+# 62 "/usr/include/newlib/stdio.h" 2 3
 
 
 
@@ -1209,9 +1183,9 @@ typedef _fpos_t fpos_t;
 
 
 
-# 1 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/sys/stdio.h" 1 3
-# 80 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 2 3
-# 181 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
+# 1 "/usr/include/newlib/sys/stdio.h" 1 3
+# 80 "/usr/include/newlib/stdio.h" 2 3
+# 181 "/usr/include/newlib/stdio.h" 3
 char * ctermid (char *);
 
 
@@ -1279,7 +1253,7 @@ int sprintf (char *restrict, const char *restrict, ...)
                __attribute__ ((__format__ (__printf__, 2, 3)));
 int remove (const char *);
 int rename (const char *, const char *);
-# 257 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
+# 257 "/usr/include/newlib/stdio.h" 3
 int fseeko (FILE *, off_t, int);
 off_t ftello (FILE *);
 
@@ -1299,7 +1273,7 @@ int vscanf (const char *, __gnuc_va_list)
                __attribute__ ((__format__ (__scanf__, 1, 0)));
 int vsscanf (const char *restrict, const char *restrict, __gnuc_va_list)
                __attribute__ ((__format__ (__scanf__, 2, 0)));
-# 284 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
+# 284 "/usr/include/newlib/stdio.h" 3
 int asiprintf (char **, const char *, ...)
                __attribute__ ((__format__ (__printf__, 2, 3)));
 char * asniprintf (char *, size_t *, const char *, ...)
@@ -1346,7 +1320,7 @@ int vsiscanf (const char *, const char *, __gnuc_va_list)
                __attribute__ ((__format__ (__scanf__, 2, 0)));
 int vsniprintf (char *, size_t, const char *, __gnuc_va_list)
                __attribute__ ((__format__ (__printf__, 3, 0)));
-# 339 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
+# 339 "/usr/include/newlib/stdio.h" 3
 FILE * fdopen (int, const char *);
 
 int fileno (FILE *);
@@ -1373,7 +1347,7 @@ int ftrylockfile (FILE *);
 void funlockfile (FILE *);
 int putc_unlocked (int, FILE *);
 int putchar_unlocked (int);
-# 374 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
+# 374 "/usr/include/newlib/stdio.h" 3
 int dprintf (int, const char *restrict, ...)
                __attribute__ ((__format__ (__printf__, 2, 3)));
 
@@ -1387,7 +1361,7 @@ int vdprintf (int, const char *restrict, __gnuc_va_list)
 
 
 int renameat (int, const char *, int, const char *);
-# 396 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
+# 396 "/usr/include/newlib/stdio.h" 3
 int _asiprintf_r (struct _reent *, char **, const char *, ...)
                __attribute__ ((__format__ (__printf__, 3, 4)));
 char * _asniprintf_r (struct _reent *, char *, size_t *, const char *, ...)
@@ -1536,10 +1510,10 @@ int fgetc_unlocked (FILE *);
 int fputc_unlocked (int, FILE *);
 size_t fread_unlocked (void *restrict, size_t _size, size_t _n, FILE *restrict);
 size_t fwrite_unlocked (const void *restrict , size_t _size, size_t _n, FILE *);
-# 577 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
+# 577 "/usr/include/newlib/stdio.h" 3
 int __srget_r (struct _reent *, FILE *);
 int __swbuf_r (struct _reent *, int, FILE *);
-# 601 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
+# 601 "/usr/include/newlib/stdio.h" 3
 FILE *funopen (const void *__cookie,
   int (*__readfn)(void *__cookie, char *__buf,
     int __n),
@@ -1554,7 +1528,7 @@ FILE *_funopen_r (struct _reent *, const void *__cookie,
      int __n),
   fpos_t (*__seekfn)(void *__cookie, fpos_t __off, int __whence),
   int (*__closefn)(void *__cookie));
-# 687 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
+# 687 "/usr/include/newlib/stdio.h" 3
 static __inline__ int __sputc_r(struct _reent *_ptr, int _c, FILE *_p) {
 
 
@@ -1565,7 +1539,7 @@ static __inline__ int __sputc_r(struct _reent *_ptr, int _c, FILE *_p) {
  else
   return (__swbuf_r(_ptr, _c, _p));
 }
-# 741 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
+# 741 "/usr/include/newlib/stdio.h" 3
 static __inline int
 _getchar_unlocked(void)
 {
@@ -1583,7 +1557,7 @@ _putchar_unlocked(int _c)
  _ptr = _impure_ptr;
  return (__sputc_r(_ptr, _c, ((_ptr)->_stdout)));
 }
-# 797 "/home/mirmik/soft/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/stdio.h" 3
+# 797 "/usr/include/newlib/stdio.h" 3
 
 # 3 "main.c" 2
 
@@ -1592,16 +1566,14 @@ _putchar_unlocked(int _c)
 volatile int i = 0;
 int main()
 {
- void * volatile ptr = malloc(10);
- (void) ptr;
  i = 42;
-
+ while(1);
 }
 
 void * malloc(size_t size) { return 
-# 13 "main.c" 3 4
+# 11 "main.c" 3 4
                                    ((void *)0)
-# 13 "main.c"
+# 11 "main.c"
                                        ; }
 
 void _exit(int i)

@@ -1,30 +1,23 @@
 #include <avr/io.h>
-#include <stdlib.h>
-#include <stdio.h>
 
-volatile int k;
-class A 
+
+void cpu_delay(long long arg) 
 {
-public:
-	A() {k = 22;}
-};
-
-A b;
+	volatile long long i = arg;
+	while(i--);
+}
 
 int main(void)
 {
-//	A a;
-
-	volatile int i;
 	DDRB = 0xFF;
-
-	void * volatile ptr = malloc(18);
-
-	printf("hello");
+	PORTB = 0xff;
 
 	while (1)
 	{
-		PORTB ^= 0xFF;
-		for (i = 0; i < 1000; i++); // a fake delay
+		cpu_delay(100000);
+		PORTB = 0x00;
+
+		cpu_delay(100000);
+		PORTB = 0xff;
 	}
 }
