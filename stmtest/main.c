@@ -4,10 +4,8 @@
 volatile int i = 0;
 int main() 
 {
-	void * volatile ptr = malloc(10);
-	(void) ptr;
 	i = 42;
-
+	while(1);
 }
 
 void * malloc(size_t size) { return NULL; }

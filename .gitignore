@@ -142,3 +142,8 @@ cxxbuild
 dist
 
 *.bin
+
+*.ii
+*.hex
+*.elf
+jjj
