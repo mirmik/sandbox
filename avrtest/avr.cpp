@@ -1,30 +1,16 @@
 #include <avr/io.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <avr/interrupt.h>
 
-volatile int k;
-class A 
+
+extern "C" 
+void ADC_vect (void) __attribute__ ((signal, used, externally_visible));
+void ADC_vect(void)
 {
-public:
-	A() {k = 22;}
-};
-
-A b;
+    // user code here
+}
 
 int main(void)
 {
-//	A a;
-
-	volatile int i;
-	DDRB = 0xFF;
-
-	void * volatile ptr = malloc(18);
-
-	printf("hello");
-
-	while (1)
-	{
-		PORTB ^= 0xFF;
-		for (i = 0; i < 1000; i++); // a fake delay
-	}
 }
