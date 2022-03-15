@@ -15,7 +15,7 @@ class SimplexFEM:
 
 		self.V6, self.a, self.b, self.c, self.d = self.formal_coefficients()
 
-		self.solver_indexes_map = {}
+		self.solver_element_indexes = {}
 
 	#def mass_matrix():	
 
@@ -44,14 +44,14 @@ class SimplexFEM:
 	def deformation_matrix(self):
 		return self._deformation_matrix
 
-	def eval_deformation_matrix(self):
+	def deformation_matrix(self):
 		B0 = self.vertex_deformation_matrix(0)
 		B1 = self.vertex_deformation_matrix(1)
 		B2 = self.vertex_deformation_matrix(2)
 		B3 = self.vertex_deformation_matrix(3)		
 		return numpy.concatenate((B0,B1,B2,B3), axis=1)
 
-	def eval_elastic_matrix(self):
+	def elastic_matrix(self):
 		E = self.elastic_modulus
 		v = self.Poisson
 		return E*(1-v)/(1+v)/(1-2*v) * numpy.array([
@@ -63,8 +63,17 @@ class SimplexFEM:
 			[        0,       0,       0,               0,               0, (1-2*v)/2/(1-v)]
 		])
 
-	def eval_stiffness_matrix(self):
-		return 
+	def stiffness_matrix(self):
+		B = self.deformation_matrix()
+		Bt = B.transpose()
+		D = self.elastic_matrix()
+		
+		print("B:")
+		print(B)
+		print("D:")
+		print(D)
+
+		return numpy.matmul(Bt, numpy.matmul(D,B))
 
 	def formal_coefficients(self):
 		x, y, z = self.xyz_from_vertices()
@@ -117,6 +126,9 @@ class SimplexFEM:
 
 		return six_V, a, b, c, d
 
+	def set_solver_indexes_map(self, indexes_map):
+		self.solver_element_indexes = indexes_map
+
 class FlexibleBody:
 	def __init__(self):
 		self.elements = []
@@ -126,20 +138,33 @@ class FlexibleBody:
 class FiniteElementSolver:
 	def __init__(self):
 		self.elements = []
+		self.vertexes_map = {}
+		self.index_counter = 0
 
-	def hash_for_vertex(self, vertex):
-		pass
+	def hash_of_vertex(self, v):
+		return hash(v[0]) + hash(v[1])*52435435 + hash(v[2])*241234 
 
 	def get_index_for_vertex(self, vertex):
-		pass
+		vhash = self.hash_of_vertex(vertex)
+		if vhash in self.vertexes_map:
+			return self.vertexes_map[vhash]
+		else:
+			self.vertexes_map[vhash] = self.index_counter
+			idx = self.index_counter
+			self.index_counter += 1
+			return idx
 
-	def add_element(self, elem):
+	def add(self, elem):
 		self.elements.append(elem)
 		solver_element_indexes = [self.get_index_for_vertex(v) 
 			for i, v in enumerate(elem.vertices)]
 		elem.set_solver_indexes_map(solver_element_indexes)
 
-	def global_mass_matrix(self):
+	def vertices_count(self):
+		"""Dof of system"""
+		return self.index_counter
+
+	def stiffness_matrix(self):
 		pass
 
 def fems_of_cube():
@@ -155,3 +180,11 @@ def fems_of_cube():
 if __name__ == "__main__":
 	fems = fems_of_cube()
 	
+
+	solver = FiniteElementSolver()
+	for f in fems:
+		solver.add(f)
+
+	print(solver.vertices_count())
+	for f in fems:
+		print(f.solver_element_indexes)
