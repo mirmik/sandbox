@@ -5,7 +5,7 @@ import scipy
 from zencad.libs.screw import screw
 import sys
 
-numpy.set_printoptions(threshold=sys.maxsize)
+numpy.set_printoptions(threshold=sys.maxsize, linewidth=200)
 
 class SimplexFEM:
 	def __init__(self, vertices):
@@ -193,6 +193,11 @@ class FiniteElementSolver:
 	def dim(self):
 		return self.vertices_count() * 3
 
+	def subvec_for_index(self, arr, index):
+		vec = numpy.zeros([self.dim()])
+		vec[index*3:(index+1)*3] = arr
+		return vec
+
 def fems_of_cube():
 	return [
 		SimplexFEM([[0,0,0],[1,1,1],[1,0,0],[1,0,1]]),
@@ -218,5 +223,20 @@ if __name__ == "__main__":
 	#	print(f.solver_element_indexes)
 
 	#print(solver.dim())
-	print(fems[0].stiffness_matrix())
-	print(solver.stiffness_matrix())
+	stiffness = solver.stiffness_matrix()
+
+	force = solver.subvec_for_index([0,0,1], index=solver.get_index_for_vertex([1,1,1]))
+	res = numpy.matmul(stiffness, force)
+	print(res)
+
+	force = solver.subvec_for_index([0,0,1], index=solver.get_index_for_vertex([0,1,1]))
+	res = numpy.matmul(stiffness, force)
+	print(res)
+
+	force = solver.subvec_for_index([0,0,1], index=solver.get_index_for_vertex([1,0,1]))
+	res = numpy.matmul(stiffness, force)
+	print(res)
+
+	force = solver.subvec_for_index([0,0,1], index=solver.get_index_for_vertex([0,0,1]))
+	res = numpy.matmul(stiffness, force)
+	print(res)
