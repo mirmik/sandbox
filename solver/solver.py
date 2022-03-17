@@ -3,6 +3,9 @@
 import numpy
 import scipy
 from zencad.libs.screw import screw
+import sys
+
+numpy.set_printoptions(threshold=sys.maxsize)
 
 class SimplexFEM:
 	def __init__(self, vertices):
@@ -67,11 +70,6 @@ class SimplexFEM:
 		B = self.deformation_matrix()
 		Bt = B.transpose()
 		D = self.elastic_matrix()
-		
-		print("B:")
-		print(B)
-		print("D:")
-		print(D)
 
 		return numpy.matmul(Bt, numpy.matmul(D,B))
 
@@ -129,6 +127,26 @@ class SimplexFEM:
 	def set_solver_indexes_map(self, indexes_map):
 		self.solver_element_indexes = indexes_map
 
+	def stiffness_matrix_as_blocks(self):
+		stiffness = self.stiffness_matrix()
+		blocks = [
+			[stiffness[ 0:3,0:3], stiffness[ 0:3,3:6], stiffness[ 0:3,6:9], stiffness[ 0:3,9:12]],
+			[stiffness[ 3:6,0:3], stiffness[ 3:6,3:6], stiffness[ 3:6,6:9], stiffness[ 3:6,9:12]],
+			[stiffness[ 6:9,0:3], stiffness[ 6:9,3:6], stiffness[ 6:9,6:9], stiffness[ 6:9,9:12]],
+			[stiffness[9:12,0:3], stiffness[9:12,3:6], stiffness[9:12,6:9], stiffness[9:12,9:12]],
+		]
+		return blocks
+
+	def place_stiffness_matrix(self, matrix):
+		blocks = self.stiffness_matrix_as_blocks()
+		for i in range(len(self.vertices)):
+			mi = self.solver_element_indexes[i]
+			for j in range(len(self.vertices)):
+				mj = self.solver_element_indexes[j]
+				a = 3*mi
+				b = 3*mj
+				matrix[a:a+3,b:b+3] += blocks[i][j]	
+
 class FlexibleBody:
 	def __init__(self):
 		self.elements = []
@@ -165,12 +183,20 @@ class FiniteElementSolver:
 		return self.index_counter
 
 	def stiffness_matrix(self):
-		pass
+		dim = self.dim()
+		matrix = numpy.zeros([dim, dim])
+		for elem in self.elements:
+			elem.place_stiffness_matrix(matrix)
+
+		return matrix
+
+	def dim(self):
+		return self.vertices_count() * 3
 
 def fems_of_cube():
 	return [
 		SimplexFEM([[0,0,0],[1,1,1],[1,0,0],[1,0,1]]),
-		SimplexFEM([[0,0,0],[1,1,1],[1,0,0],[0,1,1]]),
+		SimplexFEM([[0,0,0],[1,1,1],[1,0,0],[1,1,0]]),
 		SimplexFEM([[0,0,0],[1,1,1],[0,1,0],[0,1,1]]),
 		SimplexFEM([[0,0,0],[1,1,1],[0,1,0],[1,1,0]]),
 		SimplexFEM([[0,0,0],[1,1,1],[0,0,1],[1,0,1]]),
@@ -185,6 +211,12 @@ if __name__ == "__main__":
 	for f in fems:
 		solver.add(f)
 
-	print(solver.vertices_count())
-	for f in fems:
-		print(f.solver_element_indexes)
+	#print(fems[1].stiffness_matrix())
+
+	#print(solver.vertices_count())
+	#for f in fems:
+	#	print(f.solver_element_indexes)
+
+	#print(solver.dim())
+	print(fems[0].stiffness_matrix())
+	print(solver.stiffness_matrix())
