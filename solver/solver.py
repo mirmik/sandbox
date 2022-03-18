@@ -5,7 +5,7 @@ import scipy
 from zencad.libs.screw import screw
 import sys
 
-numpy.set_printoptions(threshold=sys.maxsize, linewidth=200)
+numpy.set_printoptions(threshold=sys.maxsize, linewidth=200, precision=2)
 
 class SimplexFEM:
 	def __init__(self, vertices):
@@ -15,12 +15,27 @@ class SimplexFEM:
 		self._node_deformation = screw()
 
 		self.vertices = vertices
-
+		self.reverse_if_need()
 		self.V6, self.a, self.b, self.c, self.d = self.formal_coefficients()
+		print(self.V6)
 
 		self.solver_element_indexes = {}
 
-	#def mass_matrix():	
+	def reverse_if_need(self):
+		x, y, z = self.xyz_from_vertices()
+		six_V = numpy.linalg.det([
+			[1,x[0], y[0], z[0]],
+			[1,x[1], y[1], z[1]],
+			[1,x[2], y[2], z[2]],
+			[1,x[3], y[3], z[3]]
+		])
+		if (six_V < 0):
+			self.vertices = [
+				self.vertices[0], 
+				self.vertices[1], 
+				self.vertices[3], 
+				self.vertices[2]
+			]
 
 	def xyz_from_vertices(self):
 		x = [ v[0] for v in self.vertices ]
@@ -70,8 +85,7 @@ class SimplexFEM:
 		B = self.deformation_matrix()
 		Bt = B.transpose()
 		D = self.elastic_matrix()
-
-		return numpy.matmul(Bt, numpy.matmul(D,B))
+		return numpy.matmul(Bt, numpy.matmul(D,B))*(self.V6/6)
 
 	def formal_coefficients(self):
 		x, y, z = self.xyz_from_vertices()
@@ -200,18 +214,24 @@ class FiniteElementSolver:
 
 def fems_of_cube():
 	return [
-		SimplexFEM([[0,0,0],[1,1,1],[1,0,0],[1,0,1]]),
-		SimplexFEM([[0,0,0],[1,1,1],[1,0,0],[1,1,0]]),
-		SimplexFEM([[0,0,0],[1,1,1],[0,1,0],[0,1,1]]),
-		SimplexFEM([[0,0,0],[1,1,1],[0,1,0],[1,1,0]]),
-		SimplexFEM([[0,0,0],[1,1,1],[0,0,1],[1,0,1]]),
-		SimplexFEM([[0,0,0],[1,1,1],[0,0,1],[0,1,1]]),
+		SimplexFEM([[0,0,0],[1,1,1],[1,0,1],[0,0,1]]), # red
+		SimplexFEM([[0,0,0],[1,1,1],[1,0,1],[1,0,0]]), # blue
+
+		SimplexFEM([[0,0,0],[1,1,1],[0,1,1],[0,0,1]]), # green
+		SimplexFEM([[0,0,0],[1,1,1],[0,1,1],[0,1,0]]), # yellow
+		
+		SimplexFEM([[0,0,0],[1,1,1],[1,1,0],[1,0,0]]), # orange
+		SimplexFEM([[0,0,0],[1,1,1],[1,1,0],[0,1,0]]), # violet
+
+#		SimplexFEM([[0,0,0],[0,0,1],[1,0,0],[0,1,0]]),
+#		SimplexFEM([[0,0,0],[0,0,1],[-1,0,0],[0,1,0]]),
+#		SimplexFEM([[0,0,0],[0,0,1],[-1,0,0],[0,-1,0]]),
+#		SimplexFEM([[0,0,0],[0,0,1],[1,0,0],[0,-1,0]]),
 	]
 		
 if __name__ == "__main__":
 	fems = fems_of_cube()
 	
-
 	solver = FiniteElementSolver()
 	for f in fems:
 		solver.add(f)
@@ -224,19 +244,34 @@ if __name__ == "__main__":
 
 	#print(solver.dim())
 	stiffness = solver.stiffness_matrix()
+	print(stiffness)
+	#print(solver.dim())
+	print()
 
-	force = solver.subvec_for_index([0,0,1], index=solver.get_index_for_vertex([1,1,1]))
+	index = solver.get_index_for_vertex([0,0,1])
+	force = solver.subvec_for_index([0,0,1], index=index)
 	res = numpy.matmul(stiffness, force)
-	print(res)
+	print(index, res)
 
-	force = solver.subvec_for_index([0,0,1], index=solver.get_index_for_vertex([0,1,1]))
+	index = solver.get_index_for_vertex([0,0,0])
+	force = solver.subvec_for_index([0,0,-1], index=index)
 	res = numpy.matmul(stiffness, force)
-	print(res)
+	print(index, res)
 
-	force = solver.subvec_for_index([0,0,1], index=solver.get_index_for_vertex([1,0,1]))
+	index = solver.get_index_for_vertex([0,1,1])
+	force = solver.subvec_for_index([0,0,1], index=index)
 	res = numpy.matmul(stiffness, force)
-	print(res)
+	print(index, res)
 
-	force = solver.subvec_for_index([0,0,1], index=solver.get_index_for_vertex([0,0,1]))
+	index = solver.get_index_for_vertex([1,0,1])
+	force = solver.subvec_for_index([0,0,1], index=index)
 	res = numpy.matmul(stiffness, force)
-	print(res)
+	print(index, res)
+
+	index = solver.get_index_for_vertex([1,1,1])
+	force = solver.subvec_for_index([0,0,1], index=index)
+	res = numpy.matmul(stiffness, force)
+	print(index, res)
+
+
+	#print(stiffness)
