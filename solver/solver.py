@@ -1,95 +1,14 @@
 #!/usr/bin/env python3
 
+from operator import inv
 import numpy
 import scipy
 from zencad.libs.screw import screw
+import ralgo
+import math
 import sys
 
-numpy.set_printoptions(threshold=sys.maxsize, linewidth=200, precision=2)
-
-def formal_coefficients_1d_to_2d(self):
-	x, y = self.xy_from_vertices()
-
-	a = [0] * 2
-	b = [0] * 2
-	
-	for i in range(4):
-		a_ = numpy.linalg.det([
-			[x[1],y[1]],
-			[x[2],y[2]]
-		])
-
-		b_ = -numpy.linalg.det([
-			[1,y[1]],
-			[1,y[2]]
-		])
-
-		c_ = -numpy.linalg.det([
-			[x[1],1],
-			[x[2],1],
-		])			
-
-		x = self.cyclic_shift(x)
-		y = self.cyclic_shift(y)
-
-		a[i] = a_ * (-1)**i
-		b[i] = b_ * (-1)**i
-		c[i] = c_ * (-1)**i
-
-	return a, b, c
-
-def formal_coefficients_3d(self):
-	x, y, z = self.xyz_from_vertices()
-
-	a = [0] * 4
-	b = [0] * 4
-	c = [0] * 4
-	d = [0] * 4
-
-	six_V = numpy.linalg.det([
-		[1,x[0], y[0], z[0]],
-		[1,x[1], y[1], z[1]],
-		[1,x[2], y[2], z[2]],
-		[1,x[3], y[3], z[3]]
-	])
-
-	for i in range(4):
-		a_ = numpy.linalg.det([
-			[x[1],y[1],z[1]],
-			[x[2],y[2],z[2]],
-			[x[3],y[3],z[3]]
-		])
-
-		b_ = -numpy.linalg.det([
-			[1,y[1],z[1]],
-			[1,y[2],z[2]],
-			[1,y[3],z[3]]
-		])
-
-		c_ = -numpy.linalg.det([
-			[x[1],1,z[1]],
-			[x[2],1,z[2]],
-			[x[3],1,z[3]]
-		])			
-
-		d_ = -numpy.linalg.det([
-			[x[1],y[1],1],
-			[x[2],y[2],1],
-			[x[3],y[3],1]
-		])
-
-		x = self.cyclic_shift(x)
-		y = self.cyclic_shift(y)
-		z = self.cyclic_shift(z)
-
-		a[i] = a_ * (-1)**i
-		b[i] = b_ * (-1)**i
-		c[i] = c_ * (-1)**i
-		d[i] = d_ * (-1)**i
-
-	return a, b, c, d
-	
-
+numpy.set_printoptions(threshold=sys.maxsize, linewidth=200, precision=4)
 
 class FEM:
 	def set_solver_indexes_map(self, indexes_map):
@@ -105,25 +24,34 @@ class FEM:
 				a = dim*mi
 				b = dim*mj 
 				matrix[a:a+dim,b:b+dim] += blocks[i][j]	
-
-	def stiffness_matrix(self):
-		B = self.deformation_matrix()
-		Bt = B.transpose()
-		D = self.elastic_matrix()
-		return numpy.matmul(Bt, numpy.matmul(D,B))
+#
+	#def stiffness_matrix(self):
+	#	B = self.deformation_matrix()
+	#	Bt = B.transpose()
+	#	D = self.elastic_matrix()
+	#	return numpy.matmul(Bt, numpy.matmul(D,B))
 
 class LinearFEM2(FEM):
 	def __init__(self):
 		self.Poisson = 0.25 # 0.25 for steel
-		self.elastic_modulus = 1		
+		self.elastic_modulus = 1				
 
-	def elastic_matrix(self):
+	def tension_to_deformation_matrix(self):
 		E = self.elastic_modulus
 		v = self.Poisson
-		return E*(1-v)/(1+v)/(1-2*v) * numpy.array([
-			[        1, v/(1-v),               0],
-			[  v/(1-v),       1,               0],
-			[        0,       0, (1-2*v)/2/(1-v)],
+		return 1/E * numpy.array([
+			[        1, -v,         0],
+			[       -v,  1,         0],
+			[        0,  0,   2*(1+v)],
+		])
+
+	def deformation_to_tension_matrix(self):
+		E = self.elastic_modulus
+		v = self.Poisson
+		return E/(1+v)/(1-2*v) * numpy.array([
+			[      1-v,       v,         0],
+			[  		 v,     1-v,         0],
+			[        0,       0, (1-2*v)/2],
 		])
 
 	def xy_from_vertices(self):
@@ -200,16 +128,28 @@ class LinearFEM3(FEM):
 		self.Poisson = 0.25 # 0.25 for steel
 		self.elastic_modulus = 1		
 
-	def elastic_matrix(self):
+	def tension_to_deformation_matrix(self):
 		E = self.elastic_modulus
 		v = self.Poisson
-		return E*(1-v)/(1+v)/(1-2*v) * numpy.array([
-			[        1, v/(1-v), v/(1-v),               0,               0,               0],
-			[  v/(1-v),       1, v/(1-v),               0,               0,               0],
-			[  v/(1-v), v/(1-v),       1,               0,               0,               0],
-			[        0,       0,       0, (1-2*v)/2/(1-v),               0,               0],
-			[        0,       0,       0,               0, (1-2*v)/2/(1-v),               0],
-			[        0,       0,       0,               0,               0, (1-2*v)/2/(1-v)]
+		return 1/E * numpy.array([
+			[        1, -v, -v,        0,       0,       0],
+			[       -v,  1, -v,        0,       0,       0],
+			[       -v, -v,   1,       0,       0,       0],
+			[        0,  0,   0, 2*(1+v),       0,       0],
+			[        0,  0,   0,       0, 2*(1+v),       0],
+			[        0,  0,   0,       0,       0, 2*(1+v)]
+		])
+
+	def deformation_to_tension_matrix(self):
+		E = self.elastic_modulus
+		v = self.Poisson
+		return E/(1+v)/(1-2*v) * numpy.array([
+			[      1-v,       v,       v,         0,         0,         0],
+			[  		 v,     1-v,       v,         0,         0,         0],
+			[        v,       v,     1-v,         0,         0,         0],
+			[        0,       0,       0, (1-2*v)/2,         0,         0],
+			[        0,       0,       0,         0, (1-2*v)/2,         0],
+			[        0,       0,       0,         0,         0, (1-2*v)/2]
 		])
 
 	def vertex_deformation_matrix(self, i):
@@ -229,34 +169,6 @@ class LinearFEM3(FEM):
 		y = [ v[1] for v in self.vertices ]
 		z = [ v[2] for v in self.vertices ]
 		return x, y, z
-
-class RodFEM2(LinearFEM2):
-	def __init__(self, vertices):
-		super().__init__()
-		self.vertices = [ numpy.array(v) for v in vertices ]
-
-	def stiffness_matrix(self):
-		E = self.Poisson
-		I = 1 # ???
-		l = numpy.linalg.norm(self.vertices[0] - self.vertices[1]) 
-
-		return numpy.array([
-			[  12*E*I/l**3,  6*E*I/l**2, -12*E*I/l**3,  6*E*I/l**2],
-			[   6*E*I/l**2,  4*E*I/l**1,  -6*E*I/l**2,  2*E*I/l**1],
-			[ -12*E*I/l**3, -6*E*I/l**2,  12*E*I/l**3, -6*E*I/l**2],
-			[   6*E*I/l**2,  2*E*I/l**1,  -6*E*I/l**2,  4*E*I/l**1],
-		])
-
-	def stiffness_matrix_as_blocks(self):
-		stiffness = self.stiffness_matrix()
-		blocks = [
-			[stiffness[ 0:2,0:2], stiffness[ 0:2,2:4]],
-			[stiffness[ 2:4,0:2], stiffness[ 2:4,2:4]],
-		]
-		return blocks
-
-	def vertdim(self):
-		return 2
 
 
 class RodFEM3(LinearFEM3):
@@ -322,7 +234,6 @@ class SimplexFEM3(LinearFEM3):
 		self.vertices = vertices
 		self.reverse_if_need()
 		self.V6, self.a, self.b, self.c, self.d = self.formal_coefficients()
-		print(self.V6)
 
 		self.solver_element_indexes = {}
 
@@ -427,20 +338,97 @@ class SimplexFEM3(LinearFEM3):
 				b = 3*mj
 				matrix[a:a+3,b:b+3] += blocks[i][j]	
 
-		
+
+class RodFEM2(LinearFEM2):
+	def __init__(self, vertices, section_area, section_inertia_moment):
+		super().__init__()
+		self.section_area = section_area
+		self.section_inertia_moment = section_inertia_moment
+		self.vertices = [ numpy.array(v) for v in vertices ]
+		self.locvert = self.local_vertices() 
+
+	def local_system_pose(self):
+		"""Начало координат выбирается в одной из вершин для упрощения вида матрицы жёсткости."""
+		center = ralgo.vec2(self.vertices[0])
+		diff = self.vertices[1] - self.vertices[0]
+		ang = math.atan2(diff[1], diff[0])
+		return ralgo.pose2(ang, center)
+
+	def length(self):
+		"""Длина совпадает с координатой конца стержня в локальной системе."""
+		print(self.local_vertices())
+		return self.local_vertices()[1]
+
+	def local_vertices(self):
+		pose = self.local_system_pose()
+		return [ pose.inverse_transform_point(v)[0] for v in self.vertices ]
+
+	def local_stiffnes_matrix_blocks(self):
+		E = self.elastic_modulus
+		l = self.length()
+		A = self.section_area
+		J = self.section_inertia_moment
+		l2 = l*l
+		l3 = l*l*l
+
+		K00 = numpy.array([
+			[E*A/l,          0,         0],
+			[    0,  12*E*J/l3,  6*E*J/l2],
+			[    0,   6*E*J/l2,   4*E*J/l]
+		])
+
+		K01 = numpy.array([
+			[-E*A/l,          0,         0],
+			[     0, -12*E*J/l3,  6*E*J/l2],
+			[     0,  -6*E*J/l2,   2*E*J/l],
+		])
+
+		K10 = numpy.array([
+			[-E*A/l,          0,         0],
+			[     0, -12*E*J/l3, -6*E*J/l2],
+			[     0,   6*E*J/l2,   2*E*J/l]			
+		])
+
+		K11 = numpy.array([
+			[  E*A/l,          0,         0],
+			[      0,  12*E*J/l3, -6*E*J/l2],
+			[      0,  -6*E*J/l2,   4*E*J/l]
+		])
+
+		return [
+			[K00, K01],
+			[K10, K11]
+		]
+
+	def stiffness_matrix_as_blocks(self):
+		lblocks = self.local_stiffnes_matrix_blocks()
+		pose = self.local_system_pose()
+		R = pose.numpy_vecbivec_rotmat()
+		L = numpy.transpose(R)
+		def doit(K):
+			return numpy.matmul(L, numpy.matmul(K, R))
+		return [
+			[ doit(lblocks[0][0]), doit(lblocks[0][1]) ],
+			[ doit(lblocks[1][0]), doit(lblocks[1][1]) ]
+		]
+
+	def vertdim(self):
+		return 3
 
 class FiniteElementSolver:
-	def __init__(self):
+	def __init__(self, fems, stuffs):
 		self.elements = []
 		self.vertexes_map = {}
 		self.index_counter = 0
+		self.stuffs = stuffs
+		for f in fems:
+			self.add(f)
 
 	def hash_of_vertex(self, v):
 		if len(v) == 3:
 			return hash(v[0]) + hash(v[1])*52435435 + hash(v[2])*241234 
 		elif len(v) == 2:
 			return hash(v[0]) + hash(v[1])*52435435 +341234
-			
 
 	def get_index_for_vertex(self, vertex):
 		vhash = self.hash_of_vertex(vertex)
@@ -480,6 +468,8 @@ class FiniteElementSolver:
 		vec[index*self.vertdim():(index+1)*self.vertdim()] = arr
 		return vec
 
+
+
 def fems_of_square():
 	return [
 		SimplexFEM2([[0,0],[1,1],[1,0]]), # red
@@ -496,27 +486,40 @@ def fems_of_cube():
 		SimplexFEM3([[0,0,0],[1,1,1],[1,1,0],[0,1,0]]), # violet
 	]
 
-
 if __name__ == "__main__":
 	fems = [
-		RodFEM2([[0,0], [10,0]])
+		RodFEM2([[0,0], [0,10]], section_area=1, section_inertia_moment=1),
+		RodFEM2([[0,10], [0,20]], section_area=1, section_inertia_moment=1),
+		RodFEM2([[0,20], [0,30]], section_area=1, section_inertia_moment=1)
+#		RodFEM2([[0,0], [10,0]], section_area=1, section_inertia_moment=1),
+#		RodFEM2([[10,0], [20,0]], section_area=1, section_inertia_moment=1),
+#		RodFEM2([[20,0], [30,0]], section_area=1, section_inertia_moment=1)
 	]
 
-	print(fems[0].stiffness_matrix())
-	#print(fems[0].compliance_matrix())
-#	print(numpy.matmul(fems[0].inverse_baricentric_matrix(), numpy.array([[0],[0],[1]])))
+	stuffs = [
+		[0,0]
+	]
 
-	solver = FiniteElementSolver()
-	for f in fems:
-		solver.add(f)
+	solver = FiniteElementSolver(fems=fems, stuffs=stuffs)
 
 	stiffness = solver.stiffness_matrix()
+
+	stiffness = stiffness[3:,3:]
+
 	print(stiffness)
+	inv_matrix = numpy.linalg.inv(stiffness)
+
+	print(inv_matrix)
+
+	print(numpy.matmul(inv_matrix, numpy.array([0,0,1,0,0,0,0,0,0])))
+		
+	#print(numpy.linalg.inv(stiffness))
 	
-	index = solver.get_index_for_vertex([0,0])
-	deform = solver.subvec_for_index([0,1], index=index)
+	#index = solver.get_index_for_vertex([0,0])
+	#deform = solver.subvec_for_index([0,1], index=index)
+	#print(deform)
 	
-	res = numpy.matmul(stiffness, deform)
-	print()
-	print(index, res)
+	#res = numpy.matmul(stiffness, deform)
+	#print()
+	#print(index, res)
 
