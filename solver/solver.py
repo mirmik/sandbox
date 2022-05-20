@@ -34,7 +34,7 @@ class FEM:
 class LinearFEM2(FEM):
 	def __init__(self):
 		self.Poisson = 0.25 # 0.25 for steel
-		self.elastic_modulus = 1				
+		self.elastic_modulus = 2*10**5			
 
 	def tension_to_deformation_matrix(self):
 		E = self.elastic_modulus
@@ -488,12 +488,7 @@ def fems_of_cube():
 
 if __name__ == "__main__":
 	fems = [
-		RodFEM2([[0,0], [0,10]], section_area=1, section_inertia_moment=1),
-		RodFEM2([[0,10], [0,20]], section_area=1, section_inertia_moment=1),
-		RodFEM2([[0,20], [0,30]], section_area=1, section_inertia_moment=1)
-#		RodFEM2([[0,0], [10,0]], section_area=1, section_inertia_moment=1),
-#		RodFEM2([[10,0], [20,0]], section_area=1, section_inertia_moment=1),
-#		RodFEM2([[20,0], [30,0]], section_area=1, section_inertia_moment=1)
+		RodFEM2([[0,0], [100,0]], section_area=5, section_inertia_moment=0.1)
 	]
 
 	stuffs = [
@@ -511,7 +506,7 @@ if __name__ == "__main__":
 
 	print(inv_matrix)
 
-	print(numpy.matmul(inv_matrix, numpy.array([0,0,1,0,0,0,0,0,0])))
+	print(numpy.matmul(inv_matrix, numpy.array([0,0,10])))
 		
 	#print(numpy.linalg.inv(stiffness))
 	
