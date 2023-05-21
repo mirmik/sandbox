@@ -610,10 +610,19 @@ def ga_submatrix_indexes(Amat, indexes1, indexes2):
 
     return mat
 
-print()
+print("submat1:")
 submat1 = ga_submatrix_grades(Amat_double, [1], [1])
 pprint(submat1)
 
-print()
+print("submat2:")
+submat2 = ga_submatrix_indexes(Amat_double, [10,9,8,5,6,7], [10,9,8,5,6,7])
+pprint(submat2)
+
+print("submat3:")
 submat3 = ga_submatrix_indexes(Amat_double, [14,13,12,11], [14,13,12,11])
 pprint(submat3)
+
+print()
+pprint(submat1 - submat3)
+
+#pprint(Amat_double, num_columns=1000)
