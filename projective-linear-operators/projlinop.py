@@ -504,7 +504,6 @@ def ga_as_vector(M, grades=[0,1,2,3,4]):
     order_grade_2 = [e23, e31, e12, e43, e42, e41]
     order_grade_3 = [e321, e412, e431, e423]
     order_grade_4 = [e4321]
-
     order_grades = {0: order_grade_0, 1: order_grade_1, 2: order_grade_2, 3: order_grade_3, 4: order_grade_4}
 
     for grade in grades:
@@ -517,150 +516,7 @@ def ga_as_vector(M, grades=[0,1,2,3,4]):
                 ret.append(0)
     return ret
 
-A = ga_grade(AAA,0) + ga_grade(AAA,2) + ga_grade(AAA,4)
-B = ga_grade(BBB,0) + ga_grade(BBB,2) + ga_grade(BBB,4)
-
-C = eval_ga(A * B)
-
-C = ga_as_dict(C)
-print("A*B")
-for s,c in C.items():
-    print("{:7} : {}".format(str(s), str(c)))
-
-B_vect = ga_as_vector(B, grades=[0,2,4])
-A_vect = ga_as_vector(A, grades=[0,2,4])
-print("B")
-for i,l in enumerate(B_vect):
-    if l != 0:
-        print("{:7} : {}".format(i, str(l)))
-
-Amat = Matrix([
-    [    a,   a_23,   a_31,   a_12,      0,    0,      0,    0],
-    [ a_23,      a,   a_12,  -a_31,      0,    0,      0,    0],
-    [ a_31,  -a_12,      a,   a_23,      0,    0,      0,    0],
-    [ a_12,   a_31,  -a_23,      a,      0,    0,      0,    0],
-    [ a_41, a_4321,   a_43,  -a_42,      a, a_12,  -a_31, a_23],
-    [ a_42,  -a_43, a_4321,   a_41,  -a_12,    a,   a_23, a_31],
-    [ a_43,   a_42,  -a_41, a_4321,   a_31, -a_23,     a, a_12],
-    [a_4321, -a_41,  -a_42,  -a_43,  -a_23, -a_31, -a_12,    a]
-])
-
-#print(eval_ga(CliffordAlgebra301.e_1 * CliffordAlgebra301.e_23.reverse()))
-#exit()
-
-#Amat = Matrix([[0]*16]*16)
-""" for i in range(5,11):
-    for j in range(5,11):
-        i_symbol = CliffordAlgebra301.canonical_symbols_ordered[i]
-        j_symbol = CliffordAlgebra301.canonical_symbols_ordered[j]
-        j_symbol_is_dual = j_symbol.is_dual()
-        i_symbol_is_dual = i_symbol.is_dual()
-
-        if j_symbol_is_dual and not i_symbol_is_dual:
-            continue
-            
-        j_symbol = j_symbol.reverse()
-        
-        Amat[i,j] = eval_ga(i_symbol / j_symbol)
-
-pprint(Amat) """
-
-#exit()
-
-Amat_conjugate = Matrix([
-    [    a,   -a_23,   -a_31,   -a_12,      0,    0,      0,    0],
-    [ -a_23,      a,   -a_12,  a_31,      0,    0,      0,    0],
-    [ -a_31,  a_12,      a,   -a_23,      0,    0,      0,    0],
-    [ -a_12,   -a_31,  a_23,      a,      0,    0,      0,    0],
-    [ -a_41, a_4321,   -a_43,  a_42,      a, -a_12,  a_31, -a_23],
-    [ -a_42,  a_43, a_4321,   -a_41,  a_12,    a,   -a_23, -a_31],
-    [ -a_43,   -a_42,  a_41, a_4321,   -a_31, a_23,     a, -a_12],
-    [a_4321, a_41,  a_42,  a_43,  a_23, a_31, a_12,    a]
-])
-
-Bvect = Matrix(B_vect).reshape(8,1)
-Avect = Matrix(A_vect).reshape(8,1)
-Bvect_reverse = Matrix(B_vect).reshape(1,8)
-
-print("C1")
-C1 = Amat*Bvect
-pprint(C1)
-
-Bmat_reverse = Matrix([
-    [b,     b_23,  b_31,  b_12,    b_41,    b_42,   b_43, b_4321],
-    [b_23,     b,  b_12, -b_31,  b_4321,    b_43,  -b_42,  -b_41],
-    [b_31, -b_12,     b,  b_23,   -b_43,  b_4321,   b_41,  -b_42],
-    [b_12,  b_31,  -b_23,    b,    b_42,   -b_41, b_4321,  -b_43],
-    [0,        0,     0,     0,       b,    b_12,  -b_31,  -b_23],
-    [0,        0,     0,     0,   -b_12,       b,   b_23,  -b_31],
-    [0,        0,     0,     0,    b_31,   -b_23,      b,  -b_12],
-    [0,        0,     0,     0,    b_23,    b_31,   b_12,      b]
-]).transpose()
-
-Amat_reverse = Matrix([
-    [a,     a_23,  a_31,  a_12,    a_41,    a_42,   a_43, a_4321],
-    [a_23,     a,  a_12, -a_31,  a_4321,    a_43,  -a_42,  -a_41],
-    [a_31, -a_12,     a,  a_23,   -a_43,  a_4321,   a_41,  -a_42],
-    [a_12,  a_31,  -a_23,    a,    a_42,   -a_41, a_4321,  -a_43],
-    [0,        0,     0,     0,       a,    a_12,  -a_31,  -a_23],
-    [0,        0,     0,     0,   -a_12,       a,   a_23,  -a_31],
-    [0,        0,     0,     0,    a_31,   -a_23,      a,  -a_12],
-    [0,        0,     0,     0,    a_23,    a_31,   a_12,      a]
-]).transpose()
-
-Reverse = Matrix([
-    [1,     0,  0,  0,    0,    0,   0, 0],
-    [0,     -1,  0,  0,    0,    0,   0, 0],
-    [0,     0,  -1,  0,    0,    0,   0, 0],
-    [0,     0,  0,  -1,    0,    0,   0, 0],
-    [0,     0,  0,  0,    -1,    0,   0, 0],
-    [0,     0,  0,  0,    0,    -1,   0, 0],
-    [0,     0,  0,  0,    0,    0,   -1, 0],
-    [0,     0,  0,  0,    0,    0,   0, 1]
-])
-
-
 Reverse16 = Matrix.diag([1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1, 1])
-
-Avect_reverse = Matrix(A_vect).reshape(1,8)
-
-
-C = Amat * Bvect - Bmat_reverse * Avect
-print(C)
-print("C")
-for i,l in enumerate(C):
-    print("{:7} : {}".format(i, str(l)))
-
-print("A")
-pprint(Amat)
-print("AUUUU")
-pprint(Reverse * Amat_conjugate * Reverse - Amat)
-pprint(Amat_reverse - Amat)
-
-pprint(Reverse * Amat_conjugate * Reverse - Amat_reverse)
-pprint(Reverse * Amat_conjugate * Reverse - Amat_reverse)
-
-Ab = Amat* Reverse
-Abin = Ab * Ab 
-
-Abb = Amat* Reverse
-Abbin = Abb * Abb 
-#ABbin = Abin * Bvect
-
-pprint(Abbin)
-
-Ab = Abbin * Bvect
-
-#pprint(Amat - Amat_reverse)
-pprint(Amat_conjugate*Amat_reverse)
-
-#pprint(Amat.subs([
- #   (a, 0), 
-  #  (a41, 0), 
-   # (a42, 0), 
-    #(a43, 0), 
-    #(a4321, 0)]))
-
 
 def ga_multivector_to_matrix(A, left=True):
     Amat = Matrix([[0]*16]*16)
@@ -672,8 +528,7 @@ def ga_multivector_to_matrix(A, left=True):
         C = eval_ga(expand(B * A))
     Cvect = ga_as_vector(C)
     
-    for i,val in enumerate(Cvect):
-        for mul in val.args:
+    def ga_multivector_to_matrix_mul(mul, left, Amat):
             sign = 1
             a_arg = mul.args[0]
             if a_arg == -1:
@@ -683,9 +538,6 @@ def ga_multivector_to_matrix(A, left=True):
             else:
                 b_arg = mul.args[1]
 
-            #if left == False:
-            #    a_arg, b_arg = b_arg, a_arg
-
             b_index = b_arg.name[2:]
 
             if b_index == '':
@@ -693,6 +545,14 @@ def ga_multivector_to_matrix(A, left=True):
             b_pos = CliffordAlgebra301.index_to_pos[int(b_index)]
             Amat[i, b_pos] += sign * a_arg
 
+    for i,val in enumerate(Cvect):
+        if isinstance(val, Add):
+            for mul in val.args:
+                if isinstance(mul, Mul):
+                    ga_multivector_to_matrix_mul(mul, left, Amat)
+        elif isinstance(val, Mul):
+            ga_multivector_to_matrix_mul(val, left, Amat)
+            
     return Amat
 
 def ga_vector_to_multivector(vect):
@@ -704,7 +564,8 @@ def ga_reverse(M):
     return ga_vector_to_multivector(reversed_vect)
     
 
-A = ga_grade(AAA, 0) + ga_grade(AAA, 1) + ga_grade(AAA, 2) + ga_grade(AAA, 3) + ga_grade(AAA, 4)
+A = ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
+B = ga_grade(BBB, 0) + ga_grade(BBB, 2) + ga_grade(BBB, 4)
 
 Amat_left =  ga_multivector_to_matrix(A)
 Amat_conj_left =  ga_multivector_to_matrix(ga_reverse(A))
@@ -714,27 +575,45 @@ Amat_conj_right =  ga_multivector_to_matrix(ga_reverse(A), False)
 pprint(Reverse16 * Amat_conj_left * Reverse16 - Amat_right)
 pprint(Reverse16 * Amat_left * Reverse16 - Amat_conj_right)
 
-
-A = AAA#ga_grade(AAA, 4)
-B = BBB#ga_grade(BBB, 2)
-
 ArBr = eval_ga(expand(ga_reverse(A) * ga_reverse(B)))
 
-# print("A", ga_reverse(A))
-# print("B", ga_reverse(B))
+Amat_double = Amat_left * Amat_conj_right
 
-# C = ga_reverse(eval_ga(expand(ArBr)))
-# print("C", C)
-# Cvect = ga_as_vector(C)
+def ga_submatrix_grades(Amat, grades1, grades2):
+    order_grade_0 = [0]
+    order_grade_1 = [1, 2, 3, 4]
+    order_grade_2 = [5, 6, 7, 8, 9, 10]
+    order_grade_3 = [11, 12, 13, 14]
+    order_grade_4 = [15]
+    order_grades = {0: order_grade_0, 1: order_grade_1, 2: order_grade_2, 3: order_grade_3, 4: order_grade_4}
 
-# for c in Cvect:
-#     print(c)
+    indexes_1 = []
+    for grade in grades1:
+        indexes_1 += order_grades[grade]
+    
+    indexes_2 = []
+    for grade in grades2:
+        indexes_2 += order_grades[grade]
+    
+    mat = Matrix([[0]*len(indexes_2)]*len(indexes_1))
+    for i, index_1 in enumerate(indexes_1):
+        for j, index_2 in enumerate(indexes_2):
+            mat[i,j] = Amat[index_1, index_2]
 
-# C = ga_eval(A*B) - ga_eval(ga_reverse(ga_eval(ga_reverse(B)*ga_reverse(A))))
+    return mat
 
-# pprint(C)
-# Cvect = ga_as_vector(C)
+def ga_submatrix_indexes(Amat, indexes1, indexes2):
+    mat = Matrix([[0]*len(indexes2)]*len(indexes1))
+    for i, index_1 in enumerate(indexes1):
+        for j, index_2 in enumerate(indexes2):
+            mat[i,j] = Amat[index_1, index_2]
 
-# print()
-# for i, c in enumerate(Cvect):
-#     print(i, c)
+    return mat
+
+print()
+submat1 = ga_submatrix_grades(Amat_double, [1], [1])
+pprint(submat1)
+
+print()
+submat3 = ga_submatrix_indexes(Amat_double, [14,13,12,11], [14,13,12,11])
+pprint(submat3)
