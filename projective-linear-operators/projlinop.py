@@ -705,21 +705,14 @@ def ga_reverse(M):
     
 
 A = ga_grade(AAA, 0) + ga_grade(AAA, 1) + ga_grade(AAA, 2) + ga_grade(AAA, 3) + ga_grade(AAA, 4)
+
 Amat_left =  ga_multivector_to_matrix(A)
-pprint(Amat_left)
-
-A_conjugate_mat_left =  ga_multivector_to_matrix(ga_reverse(A))
-pprint(A_conjugate_mat_left)
-
-
+Amat_conj_left =  ga_multivector_to_matrix(ga_reverse(A))
 Amat_right =  ga_multivector_to_matrix(A, False)
-pprint(Amat_right)
+Amat_conj_right =  ga_multivector_to_matrix(ga_reverse(A), False)
 
-
-#pprint(Reverse16 * A_conjugate_mat_left * Reverse16)
-
-
-pprint(Reverse16 * A_conjugate_mat_left * Reverse16 - Amat_right)
+pprint(Reverse16 * Amat_conj_left * Reverse16 - Amat_right)
+pprint(Reverse16 * Amat_left * Reverse16 - Amat_conj_right)
 
 
 A = AAA#ga_grade(AAA, 4)
