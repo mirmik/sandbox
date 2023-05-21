@@ -57,6 +57,9 @@ class CliffordMulter:
         self.total_dual = total_dual
         self.null = null
 
+    def real(self):
+        return CliffordMulter(self.eleptical_ones.indexes, [], self.total_elipse, self.total_dual, self.eleptical_ones.negative)
+
     def is_null(self):
         return self.null
 
@@ -153,16 +156,70 @@ class CliffordGeometrySymbol(Symbol):
     def from_multer(multer, eones, dones):
         return multer.symbol()
 
+    @staticmethod
+    def clifford_product(a, b):
+        aname = a.name
+        bname = b.name
+
+        name_to_index = { "e" : 0,
+                            "e_1" : 1,
+                            "e_2" : 2,
+                            "e_3" : 3,
+                            "e_4" : 4,
+                            "e_23" : 5,
+                            "e_31" : 6,
+                            "e_12" : 7,
+                            "e_43" : 8,
+                            "e_42" : 9,
+                            "e_41" : 10,
+                            "e_321" : 11,
+                            "e_412" : 12,
+                            "e_431" : 13,
+                            "e_423" : 14,
+                            "e_4321" : 15}
+
+        e, e_1, e_2, e_3, e_4, e_23, e_31, e_12, e_43, e_42, e_41, e_321, e_412, e_431, e_423, e_4321 = CliffordAlgebra301.basis
+
+        table = [
+            [     e,     e_1,     e_2,     e_3,     e_4,   e_23,   e_31,    e_12,    e_43,     e_42,    e_41,  e_321,   e_412,   e_431,  e_423, e_4321],
+            [   e_1,       e,    e_12,   -e_31,   -e_41, -e_321,   -e_3,     e_2,   e_431,   -e_412,    -e_4,  -e_23,   -e_42,    e_43, e_4321,  e_423],
+            [   e_2,   -e_12,       e,    e_23,   -e_42,    e_3, -e_321,    -e_1,  -e_423,     -e_4,   e_412,  -e_31,    e_41,  e_4321,  -e_43,  e_431], 
+            [   e_3,    e_31,   -e_23,       e,   -e_43,   -e_2,     e_1,  -e_321,   -e_4,    e_423,  -e_431,  -e_12,  e_4321,   -e_41,   e_42,  e_412],
+            [   e_4,    e_41,    e_42,    e_43,       0,  e_423,   e_431,   e_412,      0,        0,       0, e_4321,       0,       0,      0,      0],
+            [  e_23,  -e_321,    -e_3,     e_2,   e_423,     -1,   -e_12,    e_31,    e_42,   -e_43, -e_4321,    e_1,   e_431,  -e_412,   -e_4,   e_41],
+            [  e_31,     e_3,  -e_321,    -e_1,   e_431,   e_12,      -1,   -e_23,   -e_41, -e_4321,    e_43,    e_2,  -e_423,    -e_4,  e_412,   e_42],
+            [  e_12,    -e_2,     e_1,  -e_321,   e_412,  -e_31,    e_23,      -1, -e_4321,    e_41,   -e_42,    e_3,    -e_4,   e_423, -e_431,   e_43],
+            [  e_43,   e_431,  -e_423,     e_4,       0,  -e_42,    e_41, -e_4321,       0,       0,       0, -e_412,       0,       0,      0,      0],
+            [  e_42,  -e_412,     e_4,   e_423,       0,   e_43, -e_4321,   -e_41,       0,       0,       0, -e_431,       0,       0,      0,      0], 
+            [  e_41,     e_4,   e_412,  -e_431,       0, -e_4321,  -e_43,    e_42,       0,       0,       0, -e_423,       0,       0,      0,      0],
+            [ e_321,   -e_23,   -e_31,   -e_12, -e_4321,     e_1,    e_2,     e_3,   e_412,   e_431,   e_423,     -1,   -e_43,   -e_42,  -e_41,    e_4],
+            [ e_412,   -e_42,    e_41, -e_4321,       0,  -e_431,  e_423,    -e_4,       0,       0,       0,   e_43,       0,       0,      0,      0],
+            [ e_431,    e_43, -e_4321,   -e_41,       0,   e_412,   -e_4,  -e_423,       0,       0,       0,   e_42,       0,       0,      0,      0],
+            [ e_423, -e_4321,   -e_43,    e_42,       0,    -e_4, -e_412,   e_431,       0,       0,       0,   e_41,       0,       0,      0,      0],
+            [e_4321,  -e_423,  -e_431,  -e_412,       0,    e_41,   e_42,    e_43,       0,       0,       0,   -e_4,       0,       0,      0,      0]
+        ]
+        a_index = name_to_index[aname]
+        b_index = name_to_index[bname]
+        return Mul(table[a_index][b_index])
+
     def __mul__(self, other):
         if isinstance(other, CliffordGeometrySymbol):
-            multer = self.multer.prod(other.multer)
+            return self.clifford_product(self, other)
+        else:
+            return super().__mul__(other)
+
+    def __div__(self, other):
+        if isinstance(other, CliffordGeometrySymbol):
+            multer = self.multer.proddiv(other.multer)
             if multer.is_null():
                 return Add()
             return multer.symbol()
         else:
-            return super().__mul__(other)
+            return super().__div__(other)
 
     def __pow__(self, power, modulo=None):
+        if power == 0:
+            return self * 0
         if power == 2:
             return self * self
         else:
@@ -170,6 +227,18 @@ class CliffordGeometrySymbol(Symbol):
 
     def grade(self):
         return self.multer.grade()
+
+    def reverse(self):
+        return self.multer.reverse().symbol()
+
+    def is_dual(self):
+        return len(self.multer.dual_ones) > 0
+
+    def real(self):
+        multer = self.multer.real()
+        if multer.is_null():
+            return Add()
+        return multer.symbol()
 
 
 class CliffordAlgebra301:
@@ -234,6 +303,28 @@ class CliffordAlgebra301:
         "e_43": e_43
     }
 
+    index_to_pos = {
+        0: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        23 : 5,
+        31 : 6,
+        12 : 7,
+        43 : 8,
+        42 : 9,
+        41 : 10,
+        321 : 11,
+        412 : 12,
+        431 : 13,
+        423 : 14,
+        4321 : 15}
+
+    canonical_symbols_ordered = [ e, e_1, e_2, e_3, e_4, e_23, e_31, e_12, e_43, e_42, e_41, e_321, e_412, e_431, e_423, e_4321] 
+
+    basis = canonical_symbols_ordered
+
 var("a a_1 a_2 a_3 a_4 a_12 a_23 a_31 a_41 a_42 a_43 a_412 a_423 a_431 a_321 a_4321")
 var("b b_1 b_2 b_3 b_4 b_12 b_23 b_31 b_41 b_42 b_43 b_412 b_423 b_431 b_321 b_4321")
 
@@ -291,43 +382,51 @@ AV = a1*e1 + a2*e2 + a3*e3 + a4*e4
 AB = a12*e12 + a23*e23 + a31*e31 + a41*e41 + a42*e42 + a43*e43
 AT = a412*e412 + a423*e423 + a431*e431 + a321*e321
 AP = a4321*e4321
-A = AS + AV + AB + AT + AP
+AAA = AS + AV + AB + AT + AP
 
 BS = b*e
 BV = b1*e1 + b2*e2 + b3*e3 + b4*e4
 BB = b12*e12 + b23*e23 + b31*e31 + b41*e41 + b42*e42 + b43*e43
 BT = b412*e412 + b423*e423 + b431*e431 + b321*e321
 BP = b4321*e4321
-B = BS + BV + BB + BT + BP
+BBB = BS + BV + BB + BT + BP
 
 def eval_ga(M):
-    # get list of sum parts:
-    S = expand(M)
-    parts = S.args
-    
-    ret = []
-    for part in parts:
-        #if is mul
-        if isinstance(part, Mul):
-            symbols = part.args
+    def ga_eval_mul(M):
+            symbols = M.args
             symbols = [s for s in symbols if isinstance(s, CliffordGeometrySymbol)]
-            nonsymbols = [s for s in part.args if not isinstance(s, CliffordGeometrySymbol)]
+            nonsymbols = [s for s in M.args if not isinstance(s, CliffordGeometrySymbol)]
 
             if len(symbols) == 0:
-                ret.append(part)
-                continue
+                return M
 
             else:
                 val = CliffordAlgebra301.e
                 for s in symbols:
                     val *= s
                 val *= Mul(*nonsymbols)
-                ret.append(val)
-        else:
-            ret.append(part)
+                return val
+            
+    
+    # get list of sum parts:
+    S = expand(M)
+    
+    ret = []
+    if isinstance(S, Mul):
+        ret.append(ga_eval_mul(S))
+    elif isinstance(S, Add):
+        parts = S.args
+        for part in parts:
+            if isinstance(part, Mul):
+                ret.append(ga_eval_mul(part))
+            else:
+                ret.append(part)
 
     #create new sum
     return Add(*ret)
+
+def ga_eval(M):
+    return eval_ga(M)
 
 def args_with_ga(M, symbol):
     S = expand(M)
@@ -363,20 +462,26 @@ def ga_grade(M, grade):
     return Add(*ret)
 
 def ga_as_dict(M):
-    S = expand(M)
-    parts = S.args
-
-    ret = {}
-    for part in parts:
-        if isinstance(part, Mul):
-            mul_parts = part.args
+    def ga_as_dict_mul(M, ret):
+            mul_parts = M.args
             for mul_part in mul_parts:
                 if isinstance(mul_part, CliffordGeometrySymbol):
-                    part_removed = ga_remove_clifford_geometry_symbol(part)
+                    part_removed = ga_remove_clifford_geometry_symbol(M)
                     if mul_part in ret:
                         ret[mul_part] += part_removed
                     else:
                         ret[mul_part] = part_removed
+
+    S = expand(M)
+    parts = S.args
+
+    ret = {}
+    if isinstance(M, Add):
+        for part in parts:
+            if isinstance(part, Mul):
+                ga_as_dict_mul(part, ret)
+    else:
+        ga_as_dict_mul(M, ret)
 
     return ret
 
@@ -396,8 +501,8 @@ def ga_as_vector(M, grades=[0,1,2,3,4]):
     ret = []
     order_grade_0 = [e]
     order_grade_1 = [e1, e2, e3, e4]
-    order_grade_2 = [e23, e31, e12, e41, e42, e43]
-    order_grade_3 = [e423, e431, e412, e321]
+    order_grade_2 = [e23, e31, e12, e43, e42, e41]
+    order_grade_3 = [e321, e412, e431, e423]
     order_grade_4 = [e4321]
 
     order_grades = {0: order_grade_0, 1: order_grade_1, 2: order_grade_2, 3: order_grade_3, 4: order_grade_4}
@@ -412,11 +517,8 @@ def ga_as_vector(M, grades=[0,1,2,3,4]):
                 ret.append(0)
     return ret
 
-A = a*e + a12*e12 + a23*e23 + a31*e31 + a41*e41 + a42*e42 + a43*e43 + a412*e412 + a423*e423 + a431*e431 + a321*e321 + a4321*e4321
-B = b*e + b12*e12 + b23*e23 + b31*e31 + b41*e41 + b42*e42 + b43*e43 + b412*e412 + b423*e423 + b431*e431 + b321*e321 + b4321*e4321
-
-A = ga_grade(A,0) + ga_grade(A,2) + ga_grade(A,4)
-B = ga_grade(B,0) + ga_grade(B,2) + ga_grade(B,4)
+A = ga_grade(AAA,0) + ga_grade(AAA,2) + ga_grade(AAA,4)
+B = ga_grade(BBB,0) + ga_grade(BBB,2) + ga_grade(BBB,4)
 
 C = eval_ga(A * B)
 
@@ -442,6 +544,28 @@ Amat = Matrix([
     [ a_43,   a_42,  -a_41, a_4321,   a_31, -a_23,     a, a_12],
     [a_4321, -a_41,  -a_42,  -a_43,  -a_23, -a_31, -a_12,    a]
 ])
+
+#print(eval_ga(CliffordAlgebra301.e_1 * CliffordAlgebra301.e_23.reverse()))
+#exit()
+
+#Amat = Matrix([[0]*16]*16)
+""" for i in range(5,11):
+    for j in range(5,11):
+        i_symbol = CliffordAlgebra301.canonical_symbols_ordered[i]
+        j_symbol = CliffordAlgebra301.canonical_symbols_ordered[j]
+        j_symbol_is_dual = j_symbol.is_dual()
+        i_symbol_is_dual = i_symbol.is_dual()
+
+        if j_symbol_is_dual and not i_symbol_is_dual:
+            continue
+            
+        j_symbol = j_symbol.reverse()
+        
+        Amat[i,j] = eval_ga(i_symbol / j_symbol)
+
+pprint(Amat) """
+
+#exit()
 
 Amat_conjugate = Matrix([
     [    a,   -a_23,   -a_31,   -a_12,      0,    0,      0,    0],
@@ -495,6 +619,9 @@ Reverse = Matrix([
     [0,     0,  0,  0,    0,    0,   0, 1]
 ])
 
+
+Reverse16 = Matrix.diag([1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1, 1])
+
 Avect_reverse = Matrix(A_vect).reshape(1,8)
 
 
@@ -520,4 +647,101 @@ Abb = Amat* Reverse
 Abbin = Abb * Abb 
 #ABbin = Abin * Bvect
 
+pprint(Abbin)
+
 Ab = Abbin * Bvect
+
+#pprint(Amat - Amat_reverse)
+pprint(Amat_conjugate*Amat_reverse)
+
+#pprint(Amat.subs([
+ #   (a, 0), 
+  #  (a41, 0), 
+   # (a42, 0), 
+    #(a43, 0), 
+    #(a4321, 0)]))
+
+
+def ga_multivector_to_matrix(A, left=True):
+    Amat = Matrix([[0]*16]*16)
+    B = ga_grade(BBB, 0) + ga_grade(BBB, 1) + ga_grade(BBB, 2) + ga_grade(BBB, 3) + ga_grade(BBB, 4)
+    
+    if left:
+        C = eval_ga(expand(A * B))
+    else:
+        C = eval_ga(expand(B * A))
+    Cvect = ga_as_vector(C)
+    
+    for i,val in enumerate(Cvect):
+        for mul in val.args:
+            sign = 1
+            a_arg = mul.args[0]
+            if a_arg == -1:
+                sign = -1
+                a_arg = mul.args[1]
+                b_arg = mul.args[2]
+            else:
+                b_arg = mul.args[1]
+
+            #if left == False:
+            #    a_arg, b_arg = b_arg, a_arg
+
+            b_index = b_arg.name[2:]
+
+            if b_index == '':
+                b_index = 0
+            b_pos = CliffordAlgebra301.index_to_pos[int(b_index)]
+            Amat[i, b_pos] += sign * a_arg
+
+    return Amat
+
+def ga_vector_to_multivector(vect):
+    return sum([a*b for a,b in zip(vect, CliffordAlgebra301.basis)])
+
+def ga_reverse(M):
+    vect = ga_as_vector(M)
+    reversed_vect = Reverse16 * Matrix(vect).reshape(16,1)
+    return ga_vector_to_multivector(reversed_vect)
+    
+
+A = ga_grade(AAA, 0) + ga_grade(AAA, 1) + ga_grade(AAA, 2) + ga_grade(AAA, 3) + ga_grade(AAA, 4)
+Amat_left =  ga_multivector_to_matrix(A)
+pprint(Amat_left)
+
+A_conjugate_mat_left =  ga_multivector_to_matrix(ga_reverse(A))
+pprint(A_conjugate_mat_left)
+
+
+Amat_right =  ga_multivector_to_matrix(A, False)
+pprint(Amat_right)
+
+
+#pprint(Reverse16 * A_conjugate_mat_left * Reverse16)
+
+
+pprint(Reverse16 * A_conjugate_mat_left * Reverse16 - Amat_right)
+
+
+A = AAA#ga_grade(AAA, 4)
+B = BBB#ga_grade(BBB, 2)
+
+ArBr = eval_ga(expand(ga_reverse(A) * ga_reverse(B)))
+
+# print("A", ga_reverse(A))
+# print("B", ga_reverse(B))
+
+# C = ga_reverse(eval_ga(expand(ArBr)))
+# print("C", C)
+# Cvect = ga_as_vector(C)
+
+# for c in Cvect:
+#     print(c)
+
+# C = ga_eval(A*B) - ga_eval(ga_reverse(ga_eval(ga_reverse(B)*ga_reverse(A))))
+
+# pprint(C)
+# Cvect = ga_as_vector(C)
+
+# print()
+# for i, c in enumerate(Cvect):
+#     print(i, c)
