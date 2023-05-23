@@ -517,6 +517,24 @@ def ga_as_vector(M, grades=[0,1,2,3,4]):
     return ret
 
 Reverse16 = Matrix.diag([1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1, 1])
+Dual16 = Matrix([
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+])
 
 def ga_multivector_to_matrix(A, left=True):
     Amat = Matrix([[0]*16]*16)
@@ -566,6 +584,11 @@ def ga_reverse(M):
 
 A = ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
 B = ga_grade(BBB, 0) + ga_grade(BBB, 2) + ga_grade(BBB, 4)
+A = ga_grade(AAA, 2)
+B = ga_grade(BBB, 2)
+#A = AAA
+B = BBB
+
 
 Amat_left =  ga_multivector_to_matrix(A)
 Amat_conj_left =  ga_multivector_to_matrix(ga_reverse(A))
@@ -625,4 +648,21 @@ pprint(submat3)
 print()
 pprint(submat1 - submat3)
 
-#pprint(Amat_double, num_columns=1000)
+
+print()
+pprint(Amat_left)
+
+print()
+pprint((Amat_left - Amat_right)/2 - Amat_left)
+
+#print()
+#pprint(ga_submatrix_grades(Amat_left, [2], [2]))
+
+#print()
+#pprint(ga_submatrix_grades(Amat_left * Dual16, [2], [2]))
+
+#print()
+#pprint(ga_submatrix_grades(Dual16 * Amat_left * Dual16, [2], [2]))
+
+#print()
+#pprint(Dual16 * Dual16 * Amat_left - Amat_left)
