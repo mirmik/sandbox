@@ -3,6 +3,7 @@
 from sympy import *
 import numpy
 
+
 class ElepticalArray:
     def __init__(self, indexes, negative=False):
         self.indexes = indexes
@@ -161,42 +162,58 @@ class CliffordGeometrySymbol(Symbol):
         aname = a.name
         bname = b.name
 
-        name_to_index = { "e" : 0,
-                            "e_1" : 1,
-                            "e_2" : 2,
-                            "e_3" : 3,
-                            "e_4" : 4,
-                            "e_23" : 5,
-                            "e_31" : 6,
-                            "e_12" : 7,
-                            "e_43" : 8,
-                            "e_42" : 9,
-                            "e_41" : 10,
-                            "e_321" : 11,
-                            "e_412" : 12,
-                            "e_431" : 13,
-                            "e_423" : 14,
-                            "e_4321" : 15}
+        name_to_index = {"e": 0,
+                         "e_1": 1,
+                         "e_2": 2,
+                         "e_3": 3,
+                         "e_4": 4,
+                         "e_23": 5,
+                         "e_31": 6,
+                         "e_12": 7,
+                         "e_43": 8,
+                         "e_42": 9,
+                         "e_41": 10,
+                         "e_321": 11,
+                         "e_412": 12,
+                         "e_431": 13,
+                         "e_423": 14,
+                         "e_4321": 15}
 
         e, e_1, e_2, e_3, e_4, e_23, e_31, e_12, e_43, e_42, e_41, e_321, e_412, e_431, e_423, e_4321 = CliffordAlgebra301.basis
 
         table = [
-            [     e,     e_1,     e_2,     e_3,     e_4,   e_23,   e_31,    e_12,    e_43,     e_42,    e_41,  e_321,   e_412,   e_431,  e_423, e_4321],
-            [   e_1,       e,    e_12,   -e_31,   -e_41, -e_321,   -e_3,     e_2,   e_431,   -e_412,    -e_4,  -e_23,   -e_42,    e_43, e_4321,  e_423],
-            [   e_2,   -e_12,       e,    e_23,   -e_42,    e_3, -e_321,    -e_1,  -e_423,     -e_4,   e_412,  -e_31,    e_41,  e_4321,  -e_43,  e_431], 
-            [   e_3,    e_31,   -e_23,       e,   -e_43,   -e_2,     e_1,  -e_321,   -e_4,    e_423,  -e_431,  -e_12,  e_4321,   -e_41,   e_42,  e_412],
-            [   e_4,    e_41,    e_42,    e_43,       0,  e_423,   e_431,   e_412,      0,        0,       0, e_4321,       0,       0,      0,      0],
-            [  e_23,  -e_321,    -e_3,     e_2,   e_423,     -1,   -e_12,    e_31,    e_42,   -e_43, -e_4321,    e_1,   e_431,  -e_412,   -e_4,   e_41],
-            [  e_31,     e_3,  -e_321,    -e_1,   e_431,   e_12,      -1,   -e_23,   -e_41, -e_4321,    e_43,    e_2,  -e_423,    -e_4,  e_412,   e_42],
-            [  e_12,    -e_2,     e_1,  -e_321,   e_412,  -e_31,    e_23,      -1, -e_4321,    e_41,   -e_42,    e_3,    -e_4,   e_423, -e_431,   e_43],
-            [  e_43,   e_431,  -e_423,     e_4,       0,  -e_42,    e_41, -e_4321,       0,       0,       0, -e_412,       0,       0,      0,      0],
-            [  e_42,  -e_412,     e_4,   e_423,       0,   e_43, -e_4321,   -e_41,       0,       0,       0, -e_431,       0,       0,      0,      0], 
-            [  e_41,     e_4,   e_412,  -e_431,       0, -e_4321,  -e_43,    e_42,       0,       0,       0, -e_423,       0,       0,      0,      0],
-            [ e_321,   -e_23,   -e_31,   -e_12, -e_4321,     e_1,    e_2,     e_3,   e_412,   e_431,   e_423,     -1,   -e_43,   -e_42,  -e_41,    e_4],
-            [ e_412,   -e_42,    e_41, -e_4321,       0,  -e_431,  e_423,    -e_4,       0,       0,       0,   e_43,       0,       0,      0,      0],
-            [ e_431,    e_43, -e_4321,   -e_41,       0,   e_412,   -e_4,  -e_423,       0,       0,       0,   e_42,       0,       0,      0,      0],
-            [ e_423, -e_4321,   -e_43,    e_42,       0,    -e_4, -e_412,   e_431,       0,       0,       0,   e_41,       0,       0,      0,      0],
-            [e_4321,  -e_423,  -e_431,  -e_412,       0,    e_41,   e_42,    e_43,       0,       0,       0,   -e_4,       0,       0,      0,      0]
+            [e,     e_1,     e_2,     e_3,     e_4,   e_23,   e_31,    e_12,
+                e_43,     e_42,    e_41,  e_321,   e_412,   e_431,  e_423, e_4321],
+            [e_1,       e,    e_12,   -e_31,   -e_41, -e_321,   -e_3,     e_2,
+                e_431,   -e_412,    -e_4,  -e_23,   -e_42,    e_43, e_4321,  e_423],
+            [e_2,   -e_12,       e,    e_23,   -e_42,    e_3, -e_321,    -e_1,  -
+                e_423,     -e_4,   e_412,  -e_31,    e_41,  e_4321,  -e_43,  e_431],
+            [e_3,    e_31,   -e_23,       e,   -e_43,   -e_2,     e_1,  -e_321,   -
+                e_4,    e_423,  -e_431,  -e_12,  e_4321,   -e_41,   e_42,  e_412],
+            [e_4,    e_41,    e_42,    e_43,       0,  e_423,   e_431,   e_412,
+                0,        0,       0, e_4321,       0,       0,      0,      0],
+            [e_23,  -e_321,    -e_3,     e_2,   e_423,     -1,   -e_12,    e_31,
+                e_42,   -e_43, -e_4321,    e_1,   e_431,  -e_412,   -e_4,   e_41],
+            [e_31,     e_3,  -e_321,    -e_1,   e_431,   e_12,      -1,   -e_23,   -
+                e_41, -e_4321,    e_43,    e_2,  -e_423,    -e_4,  e_412,   e_42],
+            [e_12,    -e_2,     e_1,  -e_321,   e_412,  -e_31,    e_23,      -1, -
+                e_4321,    e_41,   -e_42,    e_3,    -e_4,   e_423, -e_431,   e_43],
+            [e_43,   e_431,  -e_423,     e_4,       0,  -e_42,    e_41, -e_4321,
+                0,       0,       0, -e_412,       0,       0,      0,      0],
+            [e_42,  -e_412,     e_4,   e_423,       0,   e_43, -e_4321,   -e_41,
+                0,       0,       0, -e_431,       0,       0,      0,      0],
+            [e_41,     e_4,   e_412,  -e_431,       0, -e_4321,  -e_43,    e_42,
+                0,       0,       0, -e_423,       0,       0,      0,      0],
+            [e_321,   -e_23,   -e_31,   -e_12, -e_4321,     e_1,    e_2,     e_3,
+                e_412,   e_431,   e_423,     -1,   -e_43,   -e_42,  -e_41,    e_4],
+            [e_412,   -e_42,    e_41, -e_4321,       0,  -e_431,  e_423,    -e_4,
+                0,       0,       0,   e_43,       0,       0,      0,      0],
+            [e_431,    e_43, -e_4321,   -e_41,       0,   e_412,   -e_4,  -e_423,
+                0,       0,       0,   e_42,       0,       0,      0,      0],
+            [e_423, -e_4321,   -e_43,    e_42,       0,    -e_4, -e_412,   e_431,
+                0,       0,       0,   e_41,       0,       0,      0,      0],
+            [e_4321,  -e_423,  -e_431,  -e_412,       0,    e_41,   e_42,    e_43,
+                0,       0,       0,   -e_4,       0,       0,      0,      0]
         ]
         a_index = name_to_index[aname]
         b_index = name_to_index[bname]
@@ -283,7 +300,7 @@ class CliffordAlgebra301:
         (3,): (3,),
         (): ()
     }
-    
+
     canonical_symbols = {
         "e_321": e_321,
         "e_23": e_23,
@@ -309,21 +326,23 @@ class CliffordAlgebra301:
         2: 2,
         3: 3,
         4: 4,
-        23 : 5,
-        31 : 6,
-        12 : 7,
-        43 : 8,
-        42 : 9,
-        41 : 10,
-        321 : 11,
-        412 : 12,
-        431 : 13,
-        423 : 14,
-        4321 : 15}
+        23: 5,
+        31: 6,
+        12: 7,
+        43: 8,
+        42: 9,
+        41: 10,
+        321: 11,
+        412: 12,
+        431: 13,
+        423: 14,
+        4321: 15}
 
-    canonical_symbols_ordered = [ e, e_1, e_2, e_3, e_4, e_23, e_31, e_12, e_43, e_42, e_41, e_321, e_412, e_431, e_423, e_4321] 
+    canonical_symbols_ordered = [e, e_1, e_2, e_3, e_4, e_23, e_31,
+                                 e_12, e_43, e_42, e_41, e_321, e_412, e_431, e_423, e_4321]
 
     basis = canonical_symbols_ordered
+
 
 var("a a_1 a_2 a_3 a_4 a_12 a_23 a_31 a_41 a_42 a_43 a_412 a_423 a_431 a_321 a_4321")
 var("b b_1 b_2 b_3 b_4 b_12 b_23 b_31 b_41 b_42 b_43 b_412 b_423 b_431 b_321 b_4321")
@@ -391,26 +410,27 @@ BT = b412*e412 + b423*e423 + b431*e431 + b321*e321
 BP = b4321*e4321
 BBB = BS + BV + BB + BT + BP
 
+
 def eval_ga(M):
     def ga_eval_mul(M):
-            symbols = M.args
-            symbols = [s for s in symbols if isinstance(s, CliffordGeometrySymbol)]
-            nonsymbols = [s for s in M.args if not isinstance(s, CliffordGeometrySymbol)]
+        symbols = M.args
+        symbols = [s for s in symbols if isinstance(s, CliffordGeometrySymbol)]
+        nonsymbols = [s for s in M.args if not isinstance(
+            s, CliffordGeometrySymbol)]
 
-            if len(symbols) == 0:
-                return M
+        if len(symbols) == 0:
+            return M
 
-            else:
-                val = CliffordAlgebra301.e
-                for s in symbols:
-                    val *= s
-                val *= Mul(*nonsymbols)
-                return val
-            
-    
+        else:
+            val = CliffordAlgebra301.e
+            for s in symbols:
+                val *= s
+            val *= Mul(*nonsymbols)
+            return val
+
     # get list of sum parts:
     S = expand(M)
-    
+
     ret = []
     if isinstance(S, Mul):
         ret.append(ga_eval_mul(S))
@@ -422,11 +442,13 @@ def eval_ga(M):
             else:
                 ret.append(part)
 
-    #create new sum
+    # create new sum
     return Add(*ret)
+
 
 def ga_eval(M):
     return eval_ga(M)
+
 
 def args_with_ga(M, symbol):
     S = expand(M)
@@ -437,14 +459,16 @@ def args_with_ga(M, symbol):
         if isinstance(part, Mul):
             mul_parts = part.args
             if symbol in mul_parts:
-                mul_parts_without_symbol = [s for s in mul_parts if s != symbol]
+                mul_parts_without_symbol = [
+                    s for s in mul_parts if s != symbol]
                 if len(mul_parts_without_symbol) > 0:
                     ret.append(Mul(*mul_parts_without_symbol))
                 else:
                     ret.append(1)
 
     return Add(*ret) * symbol
-            
+
+
 def ga_grade(M, grade):
     S = expand(M)
     parts = S.args
@@ -457,20 +481,30 @@ def ga_grade(M, grade):
                 if isinstance(mul_part, CliffordGeometrySymbol):
                     if mul_part.grade() == grade:
                         ret.append(part)
-               
 
     return Add(*ret)
 
+
 def ga_as_dict(M):
     def ga_as_dict_mul(M, ret):
-            mul_parts = M.args
-            for mul_part in mul_parts:
-                if isinstance(mul_part, CliffordGeometrySymbol):
-                    part_removed = ga_remove_clifford_geometry_symbol(M)
-                    if mul_part in ret:
-                        ret[mul_part] += part_removed
-                    else:
-                        ret[mul_part] = part_removed
+        if not isinstance(M, Mul):
+            raise Exception("Err")
+
+        mul_parts = M.args
+        found = False
+        for mul_part in mul_parts:
+            if isinstance(mul_part, CliffordGeometrySymbol):
+                part_removed = ga_remove_clifford_geometry_symbol(M)
+                if mul_part in ret:
+                    ret[mul_part] += part_removed
+                else:
+                    ret[mul_part] = part_removed
+                found = True
+        if found is False:
+            if CliffordAlgebra301.basis[0] in ret:
+                ret[CliffordAlgebra301.basis[0]] += part
+            else:
+                ret[CliffordAlgebra301.basis[0]] = part
 
     S = expand(M)
     parts = S.args
@@ -485,6 +519,7 @@ def ga_as_dict(M):
 
     return ret
 
+
 def ga_remove_clifford_geometry_symbol(mul):
     parts = mul.args
     ret = []
@@ -496,7 +531,7 @@ def ga_remove_clifford_geometry_symbol(mul):
     return Mul(*ret)
 
 
-def ga_as_vector(M, grades=[0,1,2,3,4]):
+def ga_as_vector(M, grades=[0, 1, 2, 3, 4]):
     dct = ga_as_dict(M)
     ret = []
     order_grade_0 = [e]
@@ -504,7 +539,8 @@ def ga_as_vector(M, grades=[0,1,2,3,4]):
     order_grade_2 = [e23, e31, e12, e43, e42, e41]
     order_grade_3 = [e321, e412, e431, e423]
     order_grade_4 = [e4321]
-    order_grades = {0: order_grade_0, 1: order_grade_1, 2: order_grade_2, 3: order_grade_3, 4: order_grade_4}
+    order_grades = {0: order_grade_0, 1: order_grade_1,
+                    2: order_grade_2, 3: order_grade_3, 4: order_grade_4}
 
     for grade in grades:
         order = order_grades[grade]
@@ -516,61 +552,107 @@ def ga_as_vector(M, grades=[0,1,2,3,4]):
                 ret.append(0)
     return ret
 
-Reverse16 = Matrix.diag([1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1, 1])
+
+Reverse16 = Matrix.diag(
+    [1, 1, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1])
+
+
+def Grade16(grades):
+    matrices = {
+        0: Matrix.diag([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
+        1: Matrix.diag([0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
+        2: Matrix.diag([0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]),
+        3: Matrix.diag([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0]),
+        4: Matrix.diag([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]),
+    }
+    ret = Matrix([[0]*16]*16)
+    for i in grades:
+        ret += matrices[i]
+    return ret
+
 
 def ga_multivector_to_matrix(A, left=True):
     Amat = Matrix([[0]*16]*16)
-    B = ga_grade(BBB, 0) + ga_grade(BBB, 1) + ga_grade(BBB, 2) + ga_grade(BBB, 3) + ga_grade(BBB, 4)
-    
+    B = ga_grade(BBB, 0) + ga_grade(BBB, 1) + ga_grade(BBB, 2) + \
+        ga_grade(BBB, 3) + ga_grade(BBB, 4)
+
     if left:
         C = eval_ga(expand(A * B))
     else:
         C = eval_ga(expand(B * A))
     Cvect = ga_as_vector(C)
-    
-    def ga_multivector_to_matrix_mul(mul, left, Amat):
-            sign = 1
-            a_arg = mul.args[0]
-            if a_arg == -1:
-                sign = -1
-                a_arg = mul.args[1]
-                b_arg = mul.args[2]
+
+    def ga_multivector_to_matrix_mul(mul, left, Amat, asmb="a", bsmb="b"):
+        sign = 1
+        r = 1
+        b_arg = None
+        for arg in mul.args:
+            if isinstance(arg, int):
+                r *= arg
+
+            elif isinstance(arg, Integer):
+                r *= arg
+
+            elif arg.name.startswith(asmb):
+                r *= arg
+
+            elif arg.name.startswith(bsmb):
+                b_arg = arg
+
             else:
-                b_arg = mul.args[1]
+                print(arg.__class__, arg.name)
+                raise Exception()
 
-            b_index = b_arg.name[2:]
+        b_index = b_arg.name[2:]
 
-            if b_index == '':
-                b_index = 0
-            b_pos = CliffordAlgebra301.index_to_pos[int(b_index)]
-            Amat[i, b_pos] += sign * a_arg
+        if b_index == '':
+            b_index = 0
+        b_pos = CliffordAlgebra301.index_to_pos[int(b_index)]
+        Amat[i, b_pos] += r
 
-    for i,val in enumerate(Cvect):
+    for i, val in enumerate(Cvect):
         if isinstance(val, Add):
             for mul in val.args:
                 if isinstance(mul, Mul):
                     ga_multivector_to_matrix_mul(mul, left, Amat)
         elif isinstance(val, Mul):
             ga_multivector_to_matrix_mul(val, left, Amat)
-            
+
+        elif isinstance(val, int) and val == 0:
+            continue
+
+        else:
+            print(val.__class__, val)
+            raise Exception()
+
     return Amat
 
+
 def ga_vector_to_multivector(vect):
-    return sum([a*b for a,b in zip(vect, CliffordAlgebra301.basis)])
+    return sum([a*b for a, b in zip(vect, CliffordAlgebra301.basis)])
+
 
 def ga_reverse(M):
     vect = ga_as_vector(M)
-    reversed_vect = Reverse16 * Matrix(vect).reshape(16,1)
+    reversed_vect = Reverse16 * Matrix(vect).reshape(16, 1)
     return ga_vector_to_multivector(reversed_vect)
-    
 
-A = ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
-B = ga_grade(BBB, 0) + ga_grade(BBB, 2) + ga_grade(BBB, 4)
 
-Amat_left =  ga_multivector_to_matrix(A)
-Amat_conj_left =  ga_multivector_to_matrix(ga_reverse(A))
-Amat_right =  ga_multivector_to_matrix(A, False)
-Amat_conj_right =  ga_multivector_to_matrix(ga_reverse(A), False)
+def ga_ort_pauli(ort):
+    r = a*ort
+    return ga_multivector_to_matrix(r) / a
+
+
+A = ga_grade(AAA, 2)  # ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
+B = ga_grade(BBB, 2)  # ga_grade(BBB, 0) + ga_grade(BBB, )2 + ga_grade(BBB, 4)
+# A = AAA
+A = AAA
+B = BBB
+
+Amat_left = ga_multivector_to_matrix(A)
+Amat_conj_left = ga_multivector_to_matrix(ga_reverse(A))
+Amat_right = ga_multivector_to_matrix(A, False)
+Amat_conj_right = ga_multivector_to_matrix(ga_reverse(A), False)
 
 pprint(Reverse16 * Amat_conj_left * Reverse16 - Amat_right)
 pprint(Reverse16 * Amat_left * Reverse16 - Amat_conj_right)
@@ -579,50 +661,65 @@ ArBr = eval_ga(expand(ga_reverse(A) * ga_reverse(B)))
 
 Amat_double = Amat_left * Amat_conj_right
 
+
 def ga_submatrix_grades(Amat, grades1, grades2):
     order_grade_0 = [0]
     order_grade_1 = [1, 2, 3, 4]
     order_grade_2 = [5, 6, 7, 8, 9, 10]
     order_grade_3 = [11, 12, 13, 14]
     order_grade_4 = [15]
-    order_grades = {0: order_grade_0, 1: order_grade_1, 2: order_grade_2, 3: order_grade_3, 4: order_grade_4}
+    order_grades = {0: order_grade_0, 1: order_grade_1,
+                    2: order_grade_2, 3: order_grade_3, 4: order_grade_4}
 
     indexes_1 = []
     for grade in grades1:
         indexes_1 += order_grades[grade]
-    
+
     indexes_2 = []
     for grade in grades2:
         indexes_2 += order_grades[grade]
-    
+
     mat = Matrix([[0]*len(indexes_2)]*len(indexes_1))
     for i, index_1 in enumerate(indexes_1):
         for j, index_2 in enumerate(indexes_2):
-            mat[i,j] = Amat[index_1, index_2]
+            mat[i, j] = Amat[index_1, index_2]
 
     return mat
+
 
 def ga_submatrix_indexes(Amat, indexes1, indexes2):
     mat = Matrix([[0]*len(indexes2)]*len(indexes1))
     for i, index_1 in enumerate(indexes1):
         for j, index_2 in enumerate(indexes2):
-            mat[i,j] = Amat[index_1, index_2]
+            mat[i, j] = Amat[index_1, index_2]
 
     return mat
+
 
 print("submat1:")
 submat1 = ga_submatrix_grades(Amat_double, [1], [1])
 pprint(submat1)
 
 print("submat2:")
-submat2 = ga_submatrix_indexes(Amat_double, [10,9,8,5,6,7], [10,9,8,5,6,7])
+submat2 = ga_submatrix_indexes(
+    Amat_double, [10, 9, 8, 5, 6, 7], [10, 9, 8, 5, 6, 7])
 pprint(submat2)
 
 print("submat3:")
-submat3 = ga_submatrix_indexes(Amat_double, [14,13,12,11], [14,13,12,11])
+submat3 = ga_submatrix_indexes(Amat_double, [14, 13, 12, 11], [14, 13, 12, 11])
 pprint(submat3)
 
 print()
 pprint(submat1 - submat3)
 
-#pprint(Amat_double, num_columns=1000)
+# pprint(Amat_double, num_columns=1000)
+
+print()
+pprint(Grade16([2])*Amat_left)
+
+print()
+pprint(Amat_left*Grade16([2]))
+
+
+print()
+pprint(Grade16([2]) * Amat_right)
