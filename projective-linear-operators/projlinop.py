@@ -723,3 +723,6 @@ pprint(Amat_left*Grade16([2]))
 
 print()
 pprint(Grade16([2]) * Amat_right)
+
+print()
+pprint(Amat_right*Amat_right)
