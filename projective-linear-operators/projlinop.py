@@ -643,6 +643,11 @@ def ga_ort_pauli(ort):
     return ga_multivector_to_matrix(r) / a
 
 
+def ga_ort_pauli_right(ort):
+    r = a*ort
+    return ga_multivector_to_matrix(r, left=False) / a
+
+
 A = ga_grade(AAA, 2)  # ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
 B = ga_grade(BBB, 2)  # ga_grade(BBB, 0) + ga_grade(BBB, )2 + ga_grade(BBB, 4)
 # A = AAA
@@ -724,5 +729,30 @@ pprint(Amat_left*Grade16([2]))
 print()
 pprint(Grade16([2]) * Amat_right)
 
+
 print()
-pprint(Amat_right*Amat_right)
+
+
+def matscalar_mul(A, B):
+    C = matrix_multiply_elementwise(A, B)
+    first = None
+    acc = 0
+    nonzero = 0
+    for a in C:
+        if a == 0:
+            continue
+        nonzero += 1
+        if first is None:
+            first = a
+        else:
+            if a != first:
+                raise Exception("Non Equal")
+        acc += a
+    return acc / nonzero
+
+
+def ga_ort_pauli_double(a, b):
+    return ga_ort_pauli(a) * ga_ort_pauli_right(b) + ga_ort_pauli(b) * ga_ort_pauli_right(a)
+
+
+pprint(ga_ort_pauli_double(e, e))
