@@ -553,6 +553,25 @@ def ga_as_vector(M, grades=[0, 1, 2, 3, 4]):
     return ret
 
 
+Dual16 = Matrix([
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+])
+
 Reverse16 = Matrix.diag(
     [1, 1, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1])
 
@@ -648,25 +667,6 @@ def ga_ort_pauli_right(ort):
     return ga_multivector_to_matrix(r, left=False) / a
 
 
-A = ga_grade(AAA, 2)  # ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
-B = ga_grade(BBB, 2)  # ga_grade(BBB, 0) + ga_grade(BBB, )2 + ga_grade(BBB, 4)
-# A = AAA
-A = AAA
-B = BBB
-
-Amat_left = ga_multivector_to_matrix(A)
-Amat_conj_left = ga_multivector_to_matrix(ga_reverse(A))
-Amat_right = ga_multivector_to_matrix(A, False)
-Amat_conj_right = ga_multivector_to_matrix(ga_reverse(A), False)
-
-pprint(Reverse16 * Amat_conj_left * Reverse16 - Amat_right)
-pprint(Reverse16 * Amat_left * Reverse16 - Amat_conj_right)
-
-ArBr = eval_ga(expand(ga_reverse(A) * ga_reverse(B)))
-
-Amat_double = Amat_left * Amat_conj_right
-
-
 def ga_submatrix_grades(Amat, grades1, grades2):
     order_grade_0 = [0]
     order_grade_1 = [1, 2, 3, 4]
@@ -701,38 +701,6 @@ def ga_submatrix_indexes(Amat, indexes1, indexes2):
     return mat
 
 
-print("submat1:")
-submat1 = ga_submatrix_grades(Amat_double, [1], [1])
-pprint(submat1)
-
-print("submat2:")
-submat2 = ga_submatrix_indexes(
-    Amat_double, [10, 9, 8, 5, 6, 7], [10, 9, 8, 5, 6, 7])
-pprint(submat2)
-
-print("submat3:")
-submat3 = ga_submatrix_indexes(Amat_double, [14, 13, 12, 11], [14, 13, 12, 11])
-pprint(submat3)
-
-print()
-pprint(submat1 - submat3)
-
-# pprint(Amat_double, num_columns=1000)
-
-print()
-pprint(Grade16([2])*Amat_left)
-
-print()
-pprint(Amat_left*Grade16([2]))
-
-
-print()
-pprint(Grade16([2]) * Amat_right)
-
-
-print()
-
-
 def matscalar_mul(A, B):
     C = matrix_multiply_elementwise(A, B)
     first = None
@@ -751,8 +719,45 @@ def matscalar_mul(A, B):
     return acc / nonzero
 
 
-def ga_ort_pauli_double(a, b):
-    return ga_ort_pauli(a) * ga_ort_pauli_right(b) + ga_ort_pauli(b) * ga_ort_pauli_right(a)
+A = ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
+B = ga_grade(BBB, 0) + ga_grade(BBB, 2) + ga_grade(BBB, 4)
+A = ga_grade(AAA, 2)
+B = ga_grade(BBB, 2)
 
 
-pprint(ga_ort_pauli_double(e, e))
+Amat_left = ga_multivector_to_matrix(A)
+Amat_conj_left = ga_multivector_to_matrix(ga_reverse(A))
+Amat_right = ga_multivector_to_matrix(A, False)
+Amat_conj_right = ga_multivector_to_matrix(ga_reverse(A), False)
+
+pprint(Reverse16 * Amat_conj_left * Reverse16 - Amat_right)
+pprint(Reverse16 * Amat_left * Reverse16 - Amat_conj_right)
+
+ArBr = eval_ga(expand(ga_reverse(A) * ga_reverse(B)))
+
+Amat_double = Amat_left * Amat_conj_right
+
+print("submat1:")
+submat1 = ga_submatrix_grades(Amat_double, [1], [1])
+pprint(submat1)
+
+print("submat2:")
+submat2 = ga_submatrix_indexes(
+    Amat_double, [10, 9, 8, 5, 6, 7], [10, 9, 8, 5, 6, 7])
+pprint(submat2)
+
+print("submat3:")
+submat3 = ga_submatrix_indexes(Amat_double, [14, 13, 12, 11], [14, 13, 12, 11])
+pprint(submat3)
+
+print()
+pprint(submat1 - submat3)
+
+print()
+pprint(Amat_left)
+
+print()
+pprint((Amat_left - Amat_right)/2 - Amat_left)
+
+print()
+pprint(Grade16([2])*Amat_left)
