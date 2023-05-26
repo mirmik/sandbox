@@ -761,3 +761,6 @@ pprint((Amat_left - Amat_right)/2 - Amat_left)
 
 print()
 pprint(Grade16([2])*Amat_left)
+
+
+pprint(Amat_left * Amat_left)
