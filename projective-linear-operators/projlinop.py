@@ -763,7 +763,11 @@ print()
 pprint(Grade16([2])*Amat_left)
 
 
+<<<<<<< HEAD
 
 var("p_1 p_2 p_3 p_4")
 print()
 pprint((Amat_left*Amat_conj_right * Matrix([0,p_1,0,0,p_4,p_1,0,0,0,0,p_1,p_4,0,0,p_1,0])))
+=======
+pprint(Amat_left * Amat_left)
+>>>>>>> 7731006d0a15c635d2411814b3272616711c3f10
