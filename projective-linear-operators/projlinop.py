@@ -719,10 +719,10 @@ def matscalar_mul(A, B):
     return acc / nonzero
 
 
-A = ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
+A = a*e + a_12*e12 #ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
 B = ga_grade(BBB, 0) + ga_grade(BBB, 2) + ga_grade(BBB, 4)
-A = ga_grade(AAA, 2)
-B = ga_grade(BBB, 2)
+#A = ga_grade(AAA, 0)
+#B = ga_grade(BBB, 2)
 
 
 Amat_left = ga_multivector_to_matrix(A)
@@ -761,3 +761,9 @@ pprint((Amat_left - Amat_right)/2 - Amat_left)
 
 print()
 pprint(Grade16([2])*Amat_left)
+
+
+
+var("p_1 p_2 p_3 p_4")
+print()
+pprint((Amat_left*Amat_conj_right * Matrix([0,p_1,0,0,p_4,p_1,0,0,0,0,p_1,p_4,0,0,p_1,0])))
