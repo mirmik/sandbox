@@ -768,4 +768,4 @@ Amat_right_real = Amat_right.subs(
 
 
 pprint(ga_submatrix_grades(
-    Amat_left_dual * Amat_right_real + Amat_left_real * Amat_right_dual, [2], [2]))
+    Amat_left_dual * Amat_right_real - Amat_left_real * Amat_right_dual, [2], [2]))
