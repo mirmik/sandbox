@@ -721,9 +721,6 @@ def matscalar_mul(A, B):
 
 A = ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
 B = ga_grade(BBB, 0) + ga_grade(BBB, 2) + ga_grade(BBB, 4)
-#A = ga_grade(AAA, 2)
-#B = ga_grade(BBB, 2)
-
 
 Amat_left = ga_multivector_to_matrix(A)
 Amat_conj_left = ga_multivector_to_matrix(ga_reverse(A))
@@ -770,5 +767,4 @@ Amat_right_real = Amat_right.subs(
     [(a_41, 0), (a_42, 0), (a_43, 0), (a_4321, 0)])
 
 
-pprint(ga_submatrix_grades(
-    Amat_left_dual * Amat_right_real + Amat_left_real * Amat_right_dual, [2], [2]))
+Amat_left_dual * Amat_right_real + Amat_left_real * Amat_right_dual, [2], [2]))
