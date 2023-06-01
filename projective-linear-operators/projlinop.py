@@ -765,7 +765,17 @@ Amat_left_real = Amat_left.subs([(a_41, 0), (a_42, 0), (a_43, 0), (a_4321, 0)])
 Amat_right_dual = Amat_right.subs([(a_12, 0), (a_23, 0), (a_31, 0), (a, 0)])
 Amat_right_real = Amat_right.subs(
     [(a_41, 0), (a_42, 0), (a_43, 0), (a_4321, 0)])
+Amat_conj_left_dual = Amat_conj_left.subs(
+    [(a_12, 0), (a_23, 0), (a_31, 0), (a, 0)])
+Amat_conj_left_real = Amat_conj_left.subs(
+    [(a_41, 0), (a_42, 0), (a_43, 0), (a_4321, 0)])
+Amat_conj_right_dual = Amat_conj_right.subs(
+    [(a_12, 0), (a_23, 0), (a_31, 0), (a, 0)])
+Amat_conj_right_real = Amat_conj_right.subs(
+    [(a_41, 0), (a_42, 0), (a_43, 0), (a_4321, 0)])
 
+
+Real16 = Matrix.diag([1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0])
 
 pprint(ga_submatrix_grades(
-    Amat_left_dual * Amat_right_real - Amat_left_real * Amat_right_dual, [2], [2]))
+    Amat_left_dual * Amat_conj_right_real + Amat_left_real * Amat_conj_right_dual, [2], [2]))
