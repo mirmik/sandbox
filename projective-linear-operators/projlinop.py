@@ -723,7 +723,7 @@ A = a*e + a_12*e12 #ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
 B = ga_grade(BBB, 0) + ga_grade(BBB, 2) + ga_grade(BBB, 4)
 #A = ga_grade(AAA, 0)
 #B = ga_grade(BBB, 2)
-
+A = AAA
 
 Amat_left = ga_multivector_to_matrix(A)
 Amat_conj_left = ga_multivector_to_matrix(ga_reverse(A))
@@ -763,11 +763,30 @@ print()
 pprint(Grade16([2])*Amat_left)
 
 
-<<<<<<< HEAD
+idxs = [0, 1, 2, 3, 7, 6, 5, 11]
+print(ga_submatrix_indexes(Amat_left, idxs, idxs))
 
-var("p_1 p_2 p_3 p_4")
 print()
-pprint((Amat_left*Amat_conj_right * Matrix([0,p_1,0,0,p_4,p_1,0,0,0,0,p_1,p_4,0,0,p_1,0])))
-=======
-pprint(Amat_left * Amat_left)
->>>>>>> 7731006d0a15c635d2411814b3272616711c3f10
+
+
+ga201_left = Matrix([
+             [   a,    a1,    a2,      0,  -a12,     0,     0,     0], 
+             [  a1,     a,   a12,      0,   -a2,     0,     0,     0], 
+             [  a2,  -a12,     a,      0,    a1,     0,     0,     0], 
+             [  a3,   a31,  -a23,      a,  a321,   -a1,    a2,   a12], 
+             [ a12,   -a2,    a1,      0,     a,     0,     0,     0], 
+             [ a31,    a3, -a321,    -a1,   a23,     a,  -a12,   -a2], 
+             [ a23, -a321,   -a3,     a2,  -a31,   a12,     a,   -a1], 
+             [a321,  -a23,  -a31,   -a12,   -a3,   -a2,   -a1,      a]
+        ])
+
+ga201_left_conj = ga201_left.subs([(a12, -a12), (a23, -a23), (a31, -a31), (a321, -a321)])
+
+ga_201_reverse = Matrix.diag(1, 1, 1, 1, -1, -1, -1, -1)
+
+ga201_conj_right = ga_201_reverse * ga201_left * ga_201_reverse
+
+M = ga201_left.subs([(a1,0), (a2,0), (a3,0)]) * ga201_conj_right.subs([(a1,0), (a2,0), (a3,0)])
+
+
+pprint(ga_submatrix_indexes(M, [4,5,6], [4,5,6]))
