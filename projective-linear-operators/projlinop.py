@@ -719,11 +719,14 @@ def matscalar_mul(A, B):
     return acc / nonzero
 
 
-A = a*e + a_12*e12 #ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
+A = ga_grade(AAA, 0) + ga_grade(AAA, 2) + ga_grade(AAA, 4)
 B = ga_grade(BBB, 0) + ga_grade(BBB, 2) + ga_grade(BBB, 4)
+<<<<<<< HEAD
 #A = ga_grade(AAA, 0)
 #B = ga_grade(BBB, 2)
 A = AAA
+=======
+>>>>>>> 103a9c3b84ce0c5f2103f2a25e19b69347af4c24
 
 Amat_left = ga_multivector_to_matrix(A)
 Amat_conj_left = ga_multivector_to_matrix(ga_reverse(A))
@@ -763,6 +766,7 @@ print()
 pprint(Grade16([2])*Amat_left)
 
 
+<<<<<<< HEAD
 idxs = [0, 1, 2, 3, 7, 6, 5, 11]
 print(ga_submatrix_indexes(Amat_left, idxs, idxs))
 
@@ -790,3 +794,24 @@ M = ga201_left.subs([(a1,0), (a2,0), (a3,0)]) * ga201_conj_right.subs([(a1,0), (
 
 
 pprint(ga_submatrix_indexes(M, [4,5,6], [4,5,6]))
+=======
+Amat_left_dual = Amat_left.subs([(a_12, 0), (a_23, 0), (a_31, 0), (a, 0)])
+Amat_left_real = Amat_left.subs([(a_41, 0), (a_42, 0), (a_43, 0), (a_4321, 0)])
+Amat_right_dual = Amat_right.subs([(a_12, 0), (a_23, 0), (a_31, 0), (a, 0)])
+Amat_right_real = Amat_right.subs(
+    [(a_41, 0), (a_42, 0), (a_43, 0), (a_4321, 0)])
+Amat_conj_left_dual = Amat_conj_left.subs(
+    [(a_12, 0), (a_23, 0), (a_31, 0), (a, 0)])
+Amat_conj_left_real = Amat_conj_left.subs(
+    [(a_41, 0), (a_42, 0), (a_43, 0), (a_4321, 0)])
+Amat_conj_right_dual = Amat_conj_right.subs(
+    [(a_12, 0), (a_23, 0), (a_31, 0), (a, 0)])
+Amat_conj_right_real = Amat_conj_right.subs(
+    [(a_41, 0), (a_42, 0), (a_43, 0), (a_4321, 0)])
+
+
+Real16 = Matrix.diag([1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0])
+
+pprint(ga_submatrix_grades(
+    Amat_left_dual * Amat_conj_right_real + Amat_left_real * Amat_conj_right_dual, [2], [2]))
+>>>>>>> 103a9c3b84ce0c5f2103f2a25e19b69347af4c24
