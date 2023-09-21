@@ -27,7 +27,7 @@ class Gamer:
 
         if target:
             self.strategy += self.speed
-            #self.strategy += (1-self.strategy) * self.speed
+            #self.strategy += (self.strategy) * self.speed
         else:
             self.strategy -= self.speed
             #self.strategy -= (self.strategy) * self.speed
@@ -38,8 +38,8 @@ class Gamer:
             self.strategy = 0 + self.error
        
 
-A = Gamer(0.5, speed=0.00001, error = 0.1, cond_equal = True)
-B = Gamer(0.5, speed=0.00001, error = 0.1, cond_equal = False)
+A = Gamer(0.5, speed=0.00001, error = 0.0, cond_equal = True)
+B = Gamer(0.5, speed=0.00001, error = 0.3, cond_equal = False)
 
 
 #A_knowlage = []
